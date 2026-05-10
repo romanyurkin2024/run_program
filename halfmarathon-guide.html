@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>21 км за 6 месяцев · Полумарафон</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0b0f0e;
+  --surface: #141918;
+  --surface2: #1c2220;
+  --border: rgba(255,255,255,0.07);
+  --text: #e8ede9;
+  --muted: #7a8c82;
+  --accent: #5dff8a;
+  --accent-dim: rgba(93,255,138,0.12);
+  --accent2: #ff8c3a;
+  --accent2-dim: rgba(255,140,58,0.12);
+  --red: #ff4f4f;
+  --red-dim: rgba(255,79,79,0.1);
+  --blue: #5ab4ff;
+  --blue-dim: rgba(90,180,255,0.1);
+  --gold: #f0c040;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11,15,14,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 16px 16px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav a:hover { color: var(--accent); border-color: var(--accent); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px 32px 52px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 70% 40%, rgba(93,255,138,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(255,140,58,0.05) 0%, transparent 50%);
+}
+.hero-bg-num {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(160px, 35vw, 380px);
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.4;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(48px, 10vw, 100px);
+  line-height: 0.92;
+  margin-bottom: 28px;
+  letter-spacing: -1px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-desc {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 480px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.hero-stat { }
+.hero-stat .num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-stat .num span { color: var(--accent); font-size: 22px; }
+.hero-stat .lbl {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.scroll-hint {
+  margin-top: 48px;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* SECTION */
+.section {
+  padding: 64px 24px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.section-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-tag::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--accent);
+}
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(32px, 6vw, 56px);
+  line-height: 1.05;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+.section-sub {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 36px;
+  max-width: 560px;
+}
+
+/* DIVIDER */
+.hr {
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+/* CALLOUT */
+.callout {
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.callout.warn { background: rgba(240,192,64,0.08); border: 1px solid rgba(240,192,64,0.2); }
+.callout.danger { background: var(--red-dim); border: 1px solid rgba(255,79,79,0.2); }
+.callout.green { background: var(--accent-dim); border: 1px solid rgba(93,255,138,0.2); }
+.callout.info { background: var(--blue-dim); border: 1px solid rgba(90,180,255,0.2); }
+.callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.callout-body strong { display: block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.callout.warn .callout-body strong { color: var(--gold); }
+.callout.danger .callout-body strong { color: var(--red); }
+.callout.green .callout-body strong { color: var(--accent); }
+.callout.info .callout-body strong { color: var(--blue); }
+.callout-body p { color: rgba(232,237,233,0.8); }
+
+/* BREATHING */
+.breath-diagram {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.breath-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.breath-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.breath-track { display: flex; align-items: center; gap: 12px; }
+.bt-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); width: 70px; flex-shrink: 0; }
+.bt-beats { display: flex; gap: 4px; flex: 1; }
+.bt-beat {
+  flex: 1;
+  height: 42px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.bt-beat.in { background: rgba(93,255,138,0.2); border: 1px solid rgba(93,255,138,0.3); color: var(--accent); }
+.bt-beat.out { background: rgba(255,140,58,0.12); border: 1px solid rgba(255,140,58,0.2); color: var(--accent2); }
+.bt-beat.empty { background: rgba(255,255,255,0.03); border: 1px solid transparent; }
+.bt-caption { font-size: 11px; color: var(--muted); margin-top: 3px; margin-left: 82px; }
+
+/* WARMUP */
+.exercise-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.exercise-table thead {
+  background: var(--surface2);
+}
+.exercise-table th {
+  padding: 12px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.exercise-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.exercise-table tbody tr:last-child { border-bottom: none; }
+.exercise-table tbody tr:hover { background: var(--surface2); }
+.exercise-table td {
+  padding: 14px 16px;
+  font-size: 13.5px;
+  vertical-align: top;
+}
+.ex-name { font-weight: 600; margin-bottom: 3px; }
+.ex-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.ex-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.ex-badge.dyn { background: rgba(93,255,138,0.12); color: var(--accent); }
+.ex-badge.mob { background: rgba(90,180,255,0.12); color: var(--blue); }
+.ex-badge.act { background: rgba(255,140,58,0.12); color: var(--accent2); }
+.stat-val {
+  font-family: 'DM Serif Display', serif;
+  font-size: 17px;
+  color: var(--text);
+  white-space: nowrap;
+}
+.stat-note { font-size: 11px; color: var(--muted); }
+
+/* STRETCH */
+.stretch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.stretch-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+.stretch-card:hover { border-color: rgba(93,255,138,0.25); }
+.stretch-zone {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.stretch-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.stretch-card .time {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.stretch-card .time span { font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--muted); font-weight: 400; }
+.stretch-card p { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+.stretch-card .technique {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: rgba(232,237,233,0.65);
+}
+.stretch-card .technique strong { color: var(--accent); font-weight: 600; }
+
+/* PLAN */
+.phase-header {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px 14px 0 0;
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.phase-header h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.phase-header p { font-size: 13px; color: var(--muted); max-width: 340px; }
+.phase-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ph-base { background: rgba(93,255,138,0.12); color: var(--accent); border: 1px solid rgba(93,255,138,0.25); }
+.ph-build { background: rgba(90,180,255,0.12); color: var(--blue); border: 1px solid rgba(90,180,255,0.25); }
+.ph-peak { background: rgba(255,140,58,0.12); color: var(--accent2); border: 1px solid rgba(255,140,58,0.25); }
+.ph-taper { background: rgba(240,192,64,0.12); color: var(--gold); border: 1px solid rgba(240,192,64,0.25); }
+
+.weeks-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 14px 14px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.weeks-table thead {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+.weeks-table th {
+  padding: 10px 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+}
+.weeks-table td {
+  padding: 14px 14px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.weeks-table tr:last-child td { border-bottom: none; }
+.weeks-table tr:hover td { background: rgba(255,255,255,0.02); }
+.wk-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.wk-dist {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.wk-dist span { font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted); }
+.day-cell { }
+.day-name { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+.day-workout { font-size: 13px; color: var(--text); }
+.day-detail { font-size: 11.5px; color: var(--muted); }
+.intensity {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-bottom: 3px;
+}
+.i-easy { background: rgba(93,255,138,0.12); color: var(--accent); }
+.i-tempo { background: rgba(90,180,255,0.12); color: var(--blue); }
+.i-interval { background: rgba(255,140,58,0.12); color: var(--accent2); }
+.i-long { background: rgba(240,192,64,0.12); color: var(--gold); }
+.i-rest { background: rgba(255,255,255,0.06); color: var(--muted); }
+
+/* TECHNIQUE */
+.tech-two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.tech-col {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+.tech-col.good { border-top: 2px solid var(--accent); }
+.tech-col.bad { border-top: 2px solid var(--red); }
+.tech-col-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+.tech-col.good .tech-col-label { color: var(--accent); }
+.tech-col.bad .tech-col-label { color: var(--red); }
+.tech-row { display: flex; gap: 10px; margin-bottom: 10px; font-size: 13px; line-height: 1.5; align-items: flex-start; }
+.tech-row:last-child { margin-bottom: 0; }
+.tech-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+
+/* ZONES */
+.zone-bar-wrap { margin-bottom: 10px; }
+.zone-name { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.zone-name span:first-child { font-size: 12px; font-weight: 600; }
+.zone-name span:last-child { font-size: 11px; color: var(--muted); }
+.zone-bar { height: 8px; border-radius: 4px; margin-bottom: 3px; }
+.zone-desc { font-size: 11.5px; color: var(--muted); }
+.z1 { background: linear-gradient(90deg, #5dff8a, #3dd470); width: 30%; }
+.z2 { background: linear-gradient(90deg, #5ab4ff, #3a90e0); width: 55%; }
+.z3 { background: linear-gradient(90deg, #f0c040, #d09820); width: 75%; }
+.z4 { background: linear-gradient(90deg, #ff8c3a, #e06010); width: 88%; }
+.z5 { background: linear-gradient(90deg, #ff4f4f, #d02020); width: 100%; }
+
+/* PROGRESS TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--blue), var(--accent2), var(--gold));
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+.tl-item:last-child { margin-bottom: 0; }
+.tl-dot {
+  position: absolute;
+  left: -25px;
+  top: 5px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+}
+.tl-item:nth-child(1) .tl-dot { background: var(--accent); }
+.tl-item:nth-child(2) .tl-dot { background: var(--accent); }
+.tl-item:nth-child(3) .tl-dot { background: var(--blue); }
+.tl-item:nth-child(4) .tl-dot { background: var(--blue); }
+.tl-item:nth-child(5) .tl-dot { background: var(--accent2); }
+.tl-item:nth-child(6) .tl-dot { background: var(--gold); }
+.tl-period { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.tl-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.tl-item p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.tl-km {
+  display: inline-block;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-top: 6px;
+  border: 1px solid rgba(93,255,138,0.2);
+}
+
+/* HERNIA */
+.hernia-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hr-rule {
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: start;
+  border: 1px solid var(--border);
+}
+.hr-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: var(--accent);
+  line-height: 1;
+}
+.hr-rule h4 { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.hr-rule p { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+/* FOOTER */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 48px 32px;
+  text-align: center;
+}
+footer .f-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+footer p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 480px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+}
+.goal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(93,255,138,0.25);
+  color: var(--accent);
+  padding: 10px 20px;
+  border-radius: 32px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .stretch-grid { grid-template-columns: 1fr; }
+  .tech-two { grid-template-columns: 1fr; }
+  .hero-stats { gap: 20px; }
+  .weeks-table th:nth-child(3),
+  .weeks-table td:nth-child(3) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#plan">📋 План</a>
+  <a href="#warmup">🔥 Разминка</a>
+  <a href="#stretch">🧘 Растяжка</a>
+  <a href="#breathing">💨 Дыхание</a>
+  <a href="#technique">⚡ Техника</a>
+  <a href="#zones">❤️ Зоны</a>
+  <a href="#hernia">🦴 Грыжа</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-num">21</div>
+  <div class="hero-eyebrow">Полумарафон · 24 недели</div>
+  <h1>От <em>первых</em><br>километров<br>до <em>21 км</em></h1>
+  <p class="hero-desc">Серьёзная программа подготовки для двоих — с полноценной разминкой, детальной растяжкой и нарастающими нагрузками. Цель: финишировать полумарафон через 6 месяцев.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">24<span> нед</span></div>
+      <div class="lbl">Программа</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">3–5<span>×</span></div>
+      <div class="lbl">Тренировок/нед</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">21<span> км</span></div>
+      <div class="lbl">Цель</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">4<span> фазы</span></div>
+      <div class="lbl">Периодизация</div>
+    </div>
+  </div>
+  <div class="scroll-hint">↓ прокрутите вниз</div>
+</div>
+
+<!-- ==================== РАЗМИНКА ==================== -->
+<div id="warmup" class="section">
+  <div class="section-tag">Перед каждой тренировкой</div>
+  <div class="section-title">Разминка</div>
+  <p class="section-sub">Обязательные 12–15 минут перед любым выходом. Не статическая растяжка — динамическая активация. Холодные мышцы и суставы — главная причина травм.</p>
+
+  <div class="callout warn">
+    <div class="callout-icon">⚡</div>
+    <div class="callout-body">
+      <strong>Порядок важен</strong>
+      <p>Сначала — общая активация (ходьба), затем мобилизация суставов сверху вниз, затем динамические упражнения. Никакой статической растяжки до бега — она расслабляет мышцы и снижает мощность.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif; font-size:22px; margin-bottom:16px; color:var(--accent);">Блок 1 — Активация (5 мин)</h3>
+  <table class="exercise-table">
+    <thead>
+      <tr>
+        <th style="width:36%">Упражнение</th>
+        <th>Подходы × Повторения</th>
+        <th>Тип</th>
+        <th>Зачем</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="ex-name">Быстрая ходьба</div>
+          <div class="ex-desc">Энергичный шаг, активное движение рук</div>
+        </td>
+        <td><span class="stat-val">5 мин</span><div class="stat-note">непрерывно</div></td>
+        <td><span class="ex-badge act">Кардио</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">Поднять температуру тела, активировать кровоток</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ex-name">Вращение голеностопа</div>
+          <div class="ex-desc">Стоя на одной ноге, вращать стопой по кругу</div>
+        </td>
+        <td><span class="stat-val">1 × 10</span><div class="stat-note">каждая стопа, оба направления</div></td>
+        <td><span class="ex-badge mob">Мобилизация</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">При грыже важно — снимает компенсаторный тонус снизу вверх</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ex-name">Вращение коленями</div>
+          <div class="ex-desc">Ноги вместе, руки на коленях, круговые движения</div>
+        </td>
+        <td><span class="stat-val">1 × 10</span><div class="stat-note">по часовой и против</div></td>
+        <td><span class="ex-badge mob">Мобилизация</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">Смазывает суставные поверхности, разгоняет синовиальную жидкость</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ex-name">Вращение бёдрами</div>
+          <div class="ex-desc">Руки на бёдрах, широкая окружность тазом</div>
+        </td>
+        <td><span class="stat-val">1 × 10</span><div class="stat-note">каждая сторона</div></td>
+        <td><span class="ex-badge mob">Мобилизация</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">Активирует тазобедренный сустав — ключевой для бега</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-family:'DM Serif Display',serif; font-size:22px; margin-bottom:16px; color:var(--accent);">Блок 2 — Динамическая разминка (7–10 мин)</h3>
+  <table class="exercise-table">
+    <thead>
+      <tr>
+        <th style="width:36%">Упражнение</th>
+        <th>Подходы × Повторения</th>
+        <th>Тип</th>
+        <th>Зачем</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="ex-name">Шаг с подъёмом колена (High Knees, медленно)</div>
+          <div class="ex-desc">Шагая вперёд, поднимать колено до 90°, руки в работе</div>
+        </td>
+        <td><span class="stat-val">2 × 10</span><div class="stat-note">на каждую ногу, в ходьбе</div></td>
+        <td><span class="ex-badge dyn">Динамика</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">Активирует сгибатели бедра, икры; готовит к беговому шагу</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ex-name">Захлёст пятки назад (Butt Kicks)</div>
+          <div class="ex-desc">На месте или в ходьбе — пятка тянется к ягодице</div>
+        </td>
+        <td><span class="stat-val">2 × 10</span><div class="stat-note">на каждую ногу</div></td>
+        <td><span class="ex-badge dyn">Динамика</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">Разогревает квадрицепс и сухожилие; тренирует беговую механику</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ex-name">Боковые шаги с приседом (Lateral Shuffle)</div>
+          <div class="ex-desc">3 шага вправо — лёгкий присед, 3 шага влево — присед</div>
+        </td>
+        <td><span class="stat-val">2 × 8</span><div class="stat-note">в каждую сторону</div></td>
+        <td><span class="ex-badge dyn">Динамика</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">Активирует ягодичные мышцы и стабилизаторы коленей</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ex-name">Динамический выпад вперёд</div>
+          <div class="ex-desc">Шаг — опускаемся в выпад — встаём — следующий шаг. Торс прямо.</div>
+        </td>
+        <td><span class="stat-val">2 × 8</span><div class="stat-note">на каждую ногу</div></td>
+        <td><span class="ex-badge dyn">Динамика</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">Растягивает сгибатели бедра в движении; при грыже — контролировать прогиб в пояснице</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ex-name">Махи ногой вперёд-назад</div>
+          <div class="ex-desc">Держась за стену, маятниковые махи прямой ногой</div>
+        </td>
+        <td><span class="stat-val">2 × 10</span><div class="stat-note">каждая нога, два направления</div></td>
+        <td><span class="ex-badge dyn">Динамика</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">Мобилизует тазобедренный сустав в сагиттальной плоскости</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ex-name">Подъём на носки + перекат</div>
+          <div class="ex-desc">Встаём на носки — пауза 1 сек — перекатываемся на пятки</div>
+        </td>
+        <td><span class="stat-val">2 × 15</span><div class="stat-note">медленно, чувствуем икру</div></td>
+        <td><span class="ex-badge dyn">Динамика</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">Разогревает икроножные и камбаловидные — главные амортизаторы при приземлении</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ex-name">Ягодичный мостик активационный</div>
+          <div class="ex-desc">Лёжа на спине, ноги согнуты. Поднять таз — сжать ягодицы — держать 3 сек — опустить.</div>
+        </td>
+        <td><span class="stat-val">1 × 12</span><div class="stat-note">медленно, с акцентом на сжатие</div></td>
+        <td><span class="ex-badge mob">Активация</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">КРИТИЧНО при грыже L3-L4. «Включает» ягодицы, которые берут нагрузку с поясницы</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="ex-name">Беговые ускорения (стrides)</div>
+          <div class="ex-desc">3–4 ускорения по 80–100 м в темпе чуть быстрее обычного бега, плавный старт и стоп</div>
+        </td>
+        <td><span class="stat-val">3–4 × 80 м</span><div class="stat-note">только с 3-й недели</div></td>
+        <td><span class="ex-badge act">Нейромышечная</span></td>
+        <td style="font-size:12.5px; color:var(--muted);">«Будит» быстрые мышечные волокна, готовит нервную систему к нагрузке</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout green">
+    <div class="callout-icon">✅</div>
+    <div class="callout-body">
+      <strong>Итого разминка — структура</strong>
+      <p>5 мин ходьба → 2 мин мобилизация суставов (лодыжки, колени, бёдра) → 7 мин динамические упражнения → 3–4 стрейда → старт бега. Всего: 15–17 минут. Всегда.</p>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!-- ==================== РАСТЯЖКА ==================== -->
+<div id="stretch" class="section">
+  <div class="section-tag">После каждой тренировки</div>
+  <div class="section-title">Растяжка и мобильность</div>
+  <p class="section-sub">Растяжка после бега — это инвестиция в следующую тренировку. Тёплые мышцы растягиваются эффективнее. Цель — не гибкость ради гибкости, а функциональный диапазон движений для бегуна.</p>
+
+  <div class="callout info">
+    <div class="callout-icon">ℹ️</div>
+    <div class="callout-body">
+      <strong>Правила статической растяжки</strong>
+      <p>Держать каждое положение 30–45 секунд, без рывков. Дыхание ровное — на выдохе немного углубляйтесь. Ощущение: лёгкое натяжение, не боль. Выполнять пока мышцы тёплые (в течение 10 минут после бега).</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif; font-size:22px; margin-bottom:16px; color:var(--accent);">Обязательный блок (каждый раз) · ~15 мин</h3>
+  <div class="stretch-grid">
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Икры / Ахилл</div>
+      <h4>Растяжка икроножной мышцы у стены</h4>
+      <div class="time">40 <span>сек × 2 / каждая нога</span></div>
+      <p>Упор в стену прямыми руками. Одна нога сзади — прямая, пятка на полу. Наклоняйтесь вперёд до натяжения.</p>
+      <div class="technique"><strong>+ вариант:</strong> согните заднюю ногу в колене — работает камбаловидная (глубже). Добавьте во вторую серию.</div>
+    </div>
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Квадрицепс</div>
+      <h4>Растяжка стоя / лёжа на боку</h4>
+      <div class="time">40 <span>сек × 2 / каждая нога</span></div>
+      <p>Стоя: согнуть ногу, взять стопу рукой, колени вместе, таз не выпячивать. При грыже — лёжа на боку безопаснее.</p>
+      <div class="technique"><strong>При грыже:</strong> лягте на бок, нижняя нога прямая. Согните верхнюю — держите рукой. Поясница нейтральна.</div>
+    </div>
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Сгибатели бедра / Подвздошно-поясничная</div>
+      <h4>Выпад с опорой (Low lunge)</h4>
+      <div class="time">45 <span>сек × 2 / каждая сторона</span></div>
+      <p>Одно колено на полу, другая нога спереди под 90°. Таз опускать вниз и вперёд. Торс прямо, без прогиба.</p>
+      <div class="technique"><strong>Критично при грыже L3-L4:</strong> укороченная подвздошно-поясничная — главная причина давления на диск. Делать обязательно.</div>
+    </div>
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Подколенные сухожилия</div>
+      <h4>Растяжка лёжа с ремнём / полотенцем</h4>
+      <div class="time">40 <span>сек × 2 / каждая нога</span></div>
+      <p>Лёжа на спине. Одну ногу поднять вертикально, обхватить полотенцем за стопу. Тянуть на себя, нога прямая. Вторая на полу.</p>
+      <div class="technique"><strong>При грыже:</strong> избегать наклонов вперёд стоя с прямыми ногами — только лёжа. Это защищает диск L3-L4.</div>
+    </div>
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Ягодичные / Грушевидная</div>
+      <h4>Фигура «4» лёжа (Piriformis stretch)</h4>
+      <div class="time">45 <span>сек × 2 / каждая сторона</span></div>
+      <p>Лёжа на спине. Одну ногу закинуть на колено другой (фигура 4). Потянуть обе ноги к груди. Глубокое ощущение в ягодице.</p>
+      <div class="technique"><strong>Особо важно при грыже:</strong> грушевидная давит на седалищный нерв. Это упражнение снимает компрессию с L3-L4.</div>
+    </div>
+
+    <div class="stretch-card">
+      <div class="stretch-zone">IT-тяж / Внешняя сторона бедра</div>
+      <h4>Скрестное растяжение стоя</h4>
+      <div class="time">35 <span>сек × 2 / каждая сторона</span></div>
+      <p>Стоя, скрестить ноги. Наклониться в сторону вытянутой задней ноги. Рука тянется над головой.</p>
+      <div class="technique"><strong>Профилактика:</strong> IT-тяж — причина №1 боли в колене у бегунов. Растяжка предотвращает синдром бегуна.</div>
+    </div>
+
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif; font-size:22px; margin-bottom:16px; margin-top:36px; color:var(--blue);">Дополнительный блок мобильности (2–3 раза в неделю) · ~12 мин</h3>
+  <div class="stretch-grid">
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Тазобедренный сустав · 360°</div>
+      <h4>Упражнение «Мировое величайшее» (World's Greatest Stretch)</h4>
+      <div class="time">45 <span>сек / каждая сторона</span></div>
+      <p>Выпад вперёд. Опустить заднее колено. Локоть одноимённой руки — к полу рядом со стопой. Другую руку поднять вверх, раскрыть грудь. Задержаться.</p>
+      <div class="technique"><strong>Одно упражнение</strong> охватывает: подвздошно-поясничную, ягодицы, грудной отдел, ротаторы. Лучшее вложение времени.</div>
+    </div>
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Грудной отдел позвоночника</div>
+      <h4>Торакальная ротация лёжа (Thread the Needle)</h4>
+      <div class="time">40 <span>сек × 2 / каждая сторона</span></div>
+      <p>На четвереньках. Одну руку «продеть» под корпусом вдоль пола, разворачивая грудной отдел. Голова следует за рукой.</p>
+      <div class="technique"><strong>При грыже L3-L4:</strong> мобильность грудного отдела снижает компенсаторную нагрузку на поясницу. Делать регулярно.</div>
+    </div>
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Стопа / Подошвенная фасция</div>
+      <h4>Растяжка подошвы стоя</h4>
+      <div class="time">30 <span>сек × 2 / каждая нога</span></div>
+      <p>Пальцы стопы упереть в стену (пятка на полу). Наклониться вперёд, прижимая голеностоп к стене. Ощущение растяжения под стопой.</p>
+      <div class="technique"><strong>Профилактика:</strong> подошвенный фасциит — самая частая травма начинающих. Это упражнение — страховка.</div>
+    </div>
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Ягодичные · Глубокий вариант</div>
+      <h4>Голубь (Pigeon Pose)</h4>
+      <div class="time">60 <span>сек / каждая сторона</span></div>
+      <p>Из планки: переднюю голень положить горизонтально перед собой (или по диагонали). Опуститься на предплечья. Полное расслабление в бедре.</p>
+      <div class="technique"><strong>Интенсивно:</strong> начинайте с фигуры «4» лёжа. Голубь — когда привыкнете. Лучшее упражнение для ягодиц и ротаторов бедра.</div>
+    </div>
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Аддукторы / Внутренняя поверхность бедра</div>
+      <h4>Поза дракона / Боковой выпад</h4>
+      <div class="time">40 <span>сек × 2 / каждая сторона</span></div>
+      <p>Широкая стойка. Шаг в сторону, опуститься в боковой выпад — одна нога прямая, другая согнута. Корпус прямо.</p>
+      <div class="technique"><strong>Аддукторы</strong> стабилизируют таз при беге. Их укорочение — причина дисбаланса и боли в паху.</div>
+    </div>
+
+    <div class="stretch-card">
+      <div class="stretch-zone">Поясничный отдел · Мягко</div>
+      <h4>Колени к груди + скрутка</h4>
+      <div class="time">40 <span>сек × 2 / каждая сторона</span></div>
+      <p>Лёжа на спине. Оба колена к груди — обнять руками. Затем: одно колено перекинуть на другую сторону, руки в стороны, голова — в противоположную.</p>
+      <div class="technique"><strong>При грыже:</strong> мягкая декомпрессия диска. Не форсировать. Если боль — прекратить. Это завершает сессию.</div>
+    </div>
+
+  </div>
+
+  <div class="callout warn" style="margin-top:20px;">
+    <div class="callout-icon">⏱️</div>
+    <div class="callout-body">
+      <strong>Хотите прогресс в гибкости — добавьте утром</strong>
+      <p>3–4 раза в неделю: 10 минут после пробуждения — мировое величайшее + голубь + торакальная ротация. Без бега. Через 2 месяца вы не узнаете свои бёдра.</p>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!-- ==================== ДЫХАНИЕ ==================== -->
+<div id="breathing" class="section">
+  <div class="section-tag">Техника</div>
+  <div class="section-title">Дыхание</div>
+  <p class="section-sub">Дыхание — это тренируемый навык, не врождённый. Правильный ритм снижает нагрузку на диафрагму и убирает боль в боку.</p>
+
+  <div class="breath-diagram">
+    <div class="breath-title">Ритм 2:2 — базовый (лёгкий темп)</div>
+    <div class="breath-tracks">
+      <div class="breath-track">
+        <div class="bt-label">Шаги</div>
+        <div class="bt-beats">
+          <div class="bt-beat in">Л</div>
+          <div class="bt-beat in">П</div>
+          <div class="bt-beat out">Л</div>
+          <div class="bt-beat out">П</div>
+        </div>
+      </div>
+      <div class="breath-track">
+        <div class="bt-label">Дыхание</div>
+        <div class="bt-beats">
+          <div class="bt-beat in">Вдох</div>
+          <div class="bt-beat in">Вдох</div>
+          <div class="bt-beat out">Выдох</div>
+          <div class="bt-beat out">Выдох</div>
+        </div>
+      </div>
+    </div>
+    <div class="bt-caption">2 шага вдох — 2 шага выдох. Для лёгких тренировок и жаркой погоды.</div>
+  </div>
+
+  <div class="breath-diagram" style="margin-top:14px;">
+    <div class="breath-title">Ритм 3:2 — оптимальный (основной темп)</div>
+    <div class="breath-tracks">
+      <div class="breath-track">
+        <div class="bt-label">Шаги</div>
+        <div class="bt-beats">
+          <div class="bt-beat in">Л</div>
+          <div class="bt-beat in">П</div>
+          <div class="bt-beat in">Л</div>
+          <div class="bt-beat out">П</div>
+          <div class="bt-beat out">Л</div>
+        </div>
+      </div>
+      <div class="breath-track">
+        <div class="bt-label">Дыхание</div>
+        <div class="bt-beats">
+          <div class="bt-beat in">Вдох</div>
+          <div class="bt-beat in">Вдох</div>
+          <div class="bt-beat in">Вдох</div>
+          <div class="bt-beat out">Выдох</div>
+          <div class="bt-beat out">Выдох</div>
+        </div>
+      </div>
+    </div>
+    <div class="bt-caption">3 шага вдох — 2 шага выдох. Нечётный ритм чередует нагрузку на стороны диафрагмы. Меньше колик.</div>
+  </div>
+
+  <div style="margin-top:20px; display:flex; flex-direction:column; gap:10px;">
+    <div class="callout green">
+      <div class="callout-icon">🫁</div>
+      <div class="callout-body">
+        <strong>Диафрагмальное дыхание — как проверить</strong>
+        <p>Положите руку на живот. При вдохе рука должна подниматься — живот надувается. Если поднимается грудь — вы дышите неверно. Практикуйте это лёжа до бега, пока не войдёт в привычку.</p>
+      </div>
+    </div>
+    <div class="callout danger">
+      <div class="callout-icon">⚠️</div>
+      <div class="callout-body">
+        <strong>Колики в боку — что делать</strong>
+        <p>Замедлитесь до ходьбы. Нажмите рукой на место боли. Сделайте 3 глубоких форсированных выдоха через сжатые губы. Причина — спазм диафрагмы от поверхностного дыхания или слишком быстрого старта.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!-- ==================== ТЕХНИКА ==================== -->
+<div id="technique" class="section">
+  <div class="section-tag">Биомеханика</div>
+  <div class="section-title">Техника бега</div>
+  <p class="section-sub">Правильная техника снижает ударную нагрузку на 30–40% — критично для здоровья при грыже и долгосрочного прогресса.</p>
+
+  <div class="tech-two">
+    <div class="tech-col good">
+      <div class="tech-col-label">✓ Правильно</div>
+      <div class="tech-row"><span class="tech-icon">✅</span><span><strong>Корпус:</strong> наклон 3–5° вперёд от щиколоток, не от пояса</span></div>
+      <div class="tech-row"><span class="tech-icon">✅</span><span><strong>Приземление:</strong> середина стопы, строго под центром тяжести</span></div>
+      <div class="tech-row"><span class="tech-icon">✅</span><span><strong>Каденс:</strong> 170–180 шагов в минуту (короткий, частый шаг)</span></div>
+      <div class="tech-row"><span class="tech-icon">✅</span><span><strong>Руки:</strong> 90°, локти назад, кисти расслаблены (держать «чипс»)</span></div>
+      <div class="tech-row"><span class="tech-icon">✅</span><span><strong>Плечи:</strong> опущены, расслаблены. Шея нейтральна.</span></div>
+      <div class="tech-row"><span class="tech-icon">✅</span><span><strong>Взгляд:</strong> вперёд 20–30 м, не вниз</span></div>
+      <div class="tech-row"><span class="tech-icon">✅</span><span><strong>Таз:</strong> нейтральное положение, не «тянется» назад</span></div>
+    </div>
+    <div class="tech-col bad">
+      <div class="tech-col-label">✗ Избегать</div>
+      <div class="tech-row"><span class="tech-icon">❌</span><span><strong>Пяточный удар</strong> с вытянутой ногой — удар идёт прямо в L3-L4</span></div>
+      <div class="tech-row"><span class="tech-icon">❌</span><span><strong>Широкий шаг</strong> «перешагивание» — торможение и нагрузка на суставы</span></div>
+      <div class="tech-row"><span class="tech-icon">❌</span><span><strong>Раскачка корпуса</strong> — потеря энергии, перегруз IT-тяжа</span></div>
+      <div class="tech-row"><span class="tech-icon">❌</span><span><strong>Зажатые плечи и кулаки</strong> — лишнее напряжение, сбивает ритм</span></div>
+      <div class="tech-row"><span class="tech-icon">❌</span><span><strong>Взгляд вниз</strong> — закрывает грудную клетку, затрудняет дыхание</span></div>
+      <div class="tech-row"><span class="tech-icon">❌</span><span><strong>Прогиб в пояснице</strong> — при слабом корпусе. Особо опасно при грыже.</span></div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <div class="callout-icon">🎵</div>
+    <div class="callout-body">
+      <strong>Лайфхак: каденс 180</strong>
+      <p>Найдите музыку с темпом 90 BPM и бегите так, чтобы каждый удар = один шаг. Или 180 BPM — каждый удар = каждый шаг. Увеличение каденса на 5–10% — самый быстрый способ исправить технику.</p>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!-- ==================== ЗОНЫ ==================== -->
+<div id="zones" class="section">
+  <div class="section-tag">Физиология</div>
+  <div class="section-title">Пульсовые зоны</div>
+  <p class="section-sub">Максимальный пульс (МП) ≈ 220 − возраст. Вы: ~198. Жена: ~189. Большинство тренировок — в зонах 1–2.</p>
+
+  <div style="background:var(--surface); border-radius:14px; padding:24px; border:1px solid var(--border);">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:20px; font-size:13px; color:var(--muted);">
+      <div><strong style="color:var(--text);">Ваш МП ≈ 198</strong><br>Зона 2: 119–138 уд/мин<br>Темп: ~6:30–7:30/км</div>
+      <div><strong style="color:var(--text);">МП жены ≈ 189</strong><br>Зона 2: 113–132 уд/мин<br>Темп: ~7:00–8:00/км</div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div class="zone-bar-wrap">
+        <div class="zone-name"><span>Зона 1 · Очень лёгкая (50–60% МП)</span><span>Восстановление, разминка</span></div>
+        <div class="zone-bar z1"></div>
+        <div class="zone-desc">Можно петь. Длинные прогулки, заминка. Для вас: 99–119 / Жена: 95–113 уд/мин</div>
+      </div>
+      <div class="zone-bar-wrap">
+        <div class="zone-name"><span>Зона 2 · Аэробная (60–70% МП) 🎯</span><span>80% всех тренировок</span></div>
+        <div class="zone-bar z2"></div>
+        <div class="zone-desc">Можно говорить предложениями. Сжигание жира, база аэробной системы. Вы: 119–138 / Жена: 113–132 уд/мин</div>
+      </div>
+      <div class="zone-bar-wrap">
+        <div class="zone-name"><span>Зона 3 · Темповая (70–80% МП)</span><span>Темповые тренировки</span></div>
+        <div class="zone-bar z3"></div>
+        <div class="zone-desc">Говорить сложно — короткие фразы. Лактатный порог. Вы: 138–158 / Жена: 132–151 уд/мин</div>
+      </div>
+      <div class="zone-bar-wrap">
+        <div class="zone-name"><span>Зона 4 · Анаэробная (80–90% МП)</span><span>Интервальные</span></div>
+        <div class="zone-bar z4"></div>
+        <div class="zone-desc">Говорить нельзя. Только с 10-й недели программы. Вы: 158–178 / Жена: 151–170 уд/мин</div>
+      </div>
+      <div class="zone-bar-wrap">
+        <div class="zone-name"><span>Зона 5 · Максимальная (90%+ МП)</span><span>Не для базы</span></div>
+        <div class="zone-bar z5"></div>
+        <div class="zone-desc">Спринты. В полумарафонской подготовке почти не используется.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!-- ==================== ПЛАН ==================== -->
+<div id="plan" class="section">
+  <div class="section-tag">24 недели · 4 фазы</div>
+  <div class="section-title">Тренировочный план</div>
+  <p class="section-sub">Периодизация — ключ к прогрессу без травм. Каждая фаза строится на предыдущей. Недели отдыха встроены в план намеренно.</p>
+
+  <div class="callout warn" style="margin-bottom:28px;">
+    <div class="callout-icon">📝</div>
+    <div class="callout-body">
+      <strong>Условные обозначения темпов</strong>
+      <p><strong>Лёгкий</strong> — Зона 2, разговор свободен. <strong>Темповый</strong> — Зона 3, речь затруднена. <strong>Интервалы</strong> — Зона 4, повторения с отдыхом. <strong>Длинная</strong> — Зона 1–2, медленно, без остановок. Цифры км — ориентир, корректируйте по самочувствию.</p>
+    </div>
+  </div>
+
+  <!-- ФАЗА 1 -->
+  <div class="phase-header">
+    <div>
+      <h3>Фаза 1 · Базовая выносливость</h3>
+      <p>Недели 1–6. Строим аэробную базу. 80% — лёгкий бег в Зоне 2. Привыкаем к регулярности.</p>
+    </div>
+    <div class="phase-badge ph-base">Недели 1–6</div>
+  </div>
+  <table class="weeks-table">
+    <thead>
+      <tr><th>Неделя</th><th>Пн</th><th>Ср</th><th>Пт</th><th>Вс (длинная)</th><th>Объём</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="wk-num">1</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">5 км</div><div class="day-detail">Зона 2, темп ~6:30–7:00</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">5 км</div><div class="day-detail">+ стрейды 4×80 м в конце</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">5 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">8 км</div><div class="day-detail">Очень медленно, Зона 1–2</div></td>
+        <td><div class="wk-dist">23 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">2</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">5 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">6 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">5 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">10 км</div><div class="day-detail">Медленно, без гонки</div></td>
+        <td><div class="wk-dist">26 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">3</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">6 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-tempo">Темповый</div><div class="day-workout">6 км</div><div class="day-detail">2 км разм. + 3 км темп (Зона 3) + 1 км заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">6 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">12 км</div><div class="day-detail">Зона 1–2, первая «двузначная»</div></td>
+        <td><div class="wk-dist">30 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">4 ↓</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">5 км</div><div class="day-detail">Восстановительная неделя</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">5 км</div><div class="day-detail">Зона 1–2</div></td>
+        <td><div class="intensity i-rest">Отдых</div><div class="day-workout">—</div><div class="day-detail">или 30 мин ходьба</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">10 км</div><div class="day-detail">Лёгкая восстановительная</div></td>
+        <td><div class="wk-dist">20 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">5</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">7 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-tempo">Темповый</div><div class="day-workout">7 км</div><div class="day-detail">2 км разм. + 4 км темп + 1 км заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">6 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">13 км</div><div class="day-detail">Зона 1–2</div></td>
+        <td><div class="wk-dist">33 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">6</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">7 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-tempo">Темповый</div><div class="day-workout">8 км</div><div class="day-detail">2 км разм. + 5 км темп + 1 км заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">6 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">14 км</div><div class="day-detail">Зона 1–2</div></td>
+        <td><div class="wk-dist">35 <span>км</span></div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ФАЗА 2 -->
+  <div class="phase-header">
+    <div>
+      <h3>Фаза 2 · Развитие</h3>
+      <p>Недели 7–14. Добавляем интервалы, увеличиваем длинную до 18 км. Начинается реальная нагрузка.</p>
+    </div>
+    <div class="phase-badge ph-build">Недели 7–14</div>
+  </div>
+  <table class="weeks-table">
+    <thead>
+      <tr><th>Неделя</th><th>Пн</th><th>Ср (качество)</th><th>Пт</th><th>Вс (длинная)</th><th>Объём</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="wk-num">7</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">7 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-interval">Интервалы</div><div class="day-workout">7 км суммарно</div><div class="day-detail">Разм 2 км + 5×1000 м (Зона 4, отдых 400 м трусца) + заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">6 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">14 км</div><div class="day-detail">Зона 1–2</div></td>
+        <td><div class="wk-dist">34 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">8</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-interval">Интервалы</div><div class="day-workout">8 км суммарно</div><div class="day-detail">Разм 2 км + 6×800 м (Зона 4) + заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">7 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">15 км</div><div class="day-detail">Зона 1–2, первые 15 км!</div></td>
+        <td><div class="wk-dist">38 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">9</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-tempo">Темповый</div><div class="day-workout">10 км суммарно</div><div class="day-detail">2 км разм. + 7 км темп (Зона 3) + 1 км заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">7 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">16 км</div><div class="day-detail">Зона 1–2</div></td>
+        <td><div class="wk-dist">41 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">10 ↓</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">6 км</div><div class="day-detail">Восстановительная</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">6 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-rest">Отдых</div><div class="day-workout">—</div><div class="day-detail"></div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">12 км</div><div class="day-detail">Лёгкая</div></td>
+        <td><div class="wk-dist">24 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">11</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">9 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-interval">Интервалы</div><div class="day-workout">9 км суммарно</div><div class="day-detail">Разм 2 км + 4×1500 м (Зона 4) + заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">7 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">17 км</div><div class="day-detail">Зона 1–2</div></td>
+        <td><div class="wk-dist">42 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">12</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">9 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-tempo">Темповый</div><div class="day-workout">10 км суммарно</div><div class="day-detail">2 км разм. + 8 км темп + заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">18 км</div><div class="day-detail">🔥 Первые 18 км! Медленно.</div></td>
+        <td><div class="wk-dist">45 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">13</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">9 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-interval">Интервалы</div><div class="day-workout">10 км суммарно</div><div class="day-detail">Разм 2 км + 5×1000 м (темп 5к) + заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">16 км</div><div class="day-detail">Чуть легче после пиковой</div></td>
+        <td><div class="wk-dist">43 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">14 ↓</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">7 км</div><div class="day-detail">Восстановительная</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">7 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-rest">Отдых</div><div class="day-workout">—</div><div class="day-detail"></div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">13 км</div><div class="day-detail">Лёгкая восстановительная</div></td>
+        <td><div class="wk-dist">27 <span>км</span></div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ФАЗА 3 -->
+  <div class="phase-header">
+    <div>
+      <h3>Фаза 3 · Пиковая нагрузка</h3>
+      <p>Недели 15–20. Самый тяжёлый блок. Длинная доходит до 20 км. Темп полумарафона.</p>
+    </div>
+    <div class="phase-badge ph-peak">Недели 15–20</div>
+  </div>
+  <table class="weeks-table">
+    <thead>
+      <tr><th>Неделя</th><th>Пн</th><th>Ср (качество)</th><th>Пт</th><th>Вс (длинная)</th><th>Объём</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="wk-num">15</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">10 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-tempo">Темповый</div><div class="day-workout">12 км</div><div class="day-detail">3 км разм. + 8 км темп полумарафона + 1 км заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">19 км</div><div class="day-detail">Зона 1–2</div></td>
+        <td><div class="wk-dist">49 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">16</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">10 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-interval">Интервалы</div><div class="day-workout">10 км</div><div class="day-detail">3×3000 м с отдыхом 800 м трусца (Зона 4)</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">20 км</div><div class="day-detail">🏆 20 км — пиковая длинная!</div></td>
+        <td><div class="wk-dist">48 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">17 ↓</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Восстановительная</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">7 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-rest">Отдых</div><div class="day-workout">—</div><div class="day-detail"></div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">14 км</div><div class="day-detail">Лёгкая</div></td>
+        <td><div class="wk-dist">29 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">18</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">10 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-tempo">Темповый</div><div class="day-workout">12 км</div><div class="day-detail">3 км разм. + 9 км в темпе п/марафона</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">20 км</div><div class="day-detail">Вторая попытка — должна стать легче</div></td>
+        <td><div class="wk-dist">50 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">19</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">10 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-interval">Интервалы</div><div class="day-workout">10 км</div><div class="day-detail">4×2000 м (Зона 4) с отдыхом 600 м</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">18 км</div><div class="day-detail">Начало снижения перед тейпером</div></td>
+        <td><div class="wk-dist">46 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">20 ↓</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Восстановительная</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">7 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-rest">Отдых</div><div class="day-workout">—</div><div class="day-detail"></div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">12 км</div><div class="day-detail">Лёгкая</div></td>
+        <td><div class="wk-dist">27 <span>км</span></div></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ФАЗА 4 -->
+  <div class="phase-header">
+    <div>
+      <h3>Фаза 4 · Тейпер и старт</h3>
+      <p>Недели 21–24. Снижаем объём на 30–40%, сохраняем интенсивность. Тело суперкомпенсирует. День забега — неделя 24.</p>
+    </div>
+    <div class="phase-badge ph-taper">Недели 21–24</div>
+  </div>
+  <table class="weeks-table">
+    <thead>
+      <tr><th>Неделя</th><th>Пн</th><th>Ср</th><th>Пт</th><th>Вс</th><th>Объём</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="wk-num">21</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">8 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-tempo">Темповый</div><div class="day-workout">8 км</div><div class="day-detail">Разм. + 5 км темп п/марафона + заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">6 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">16 км</div><div class="day-detail">Зона 1–2</div></td>
+        <td><div class="wk-dist">38 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">22</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">6 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-interval">Интервалы</div><div class="day-workout">7 км</div><div class="day-detail">Разм. + 4×1000 м (Зона 4) + заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">5 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">13 км</div><div class="day-detail">Лёгкая, Зона 1–2</div></td>
+        <td><div class="wk-dist">31 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">23</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">5 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-tempo">Темповый</div><div class="day-workout">6 км</div><div class="day-detail">Разм. + 3 км в темпе забега + заминка</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">4 км</div><div class="day-detail">Зона 2</div></td>
+        <td><div class="intensity i-long">Длинная</div><div class="day-workout">10 км</div><div class="day-detail">Лёгкая. Ноги отдыхают.</div></td>
+        <td><div class="wk-dist">25 <span>км</span></div></td>
+      </tr>
+      <tr>
+        <td><div class="wk-num">24 🏅</div></td>
+        <td><div class="intensity i-easy">Лёгкий</div><div class="day-workout">4 км</div><div class="day-detail">Лёгкая пробежка</div></td>
+        <td><div class="intensity i-rest">Отдых</div><div class="day-workout">—</div><div class="day-detail">Полный отдых</div></td>
+        <td><div class="intensity i-rest">Отдых</div><div class="day-workout">—</div><div class="day-detail">Подготовка. Сон. Углеводы.</div></td>
+        <td><div class="intensity i-long">🏁 СТАРТ</div><div class="day-workout">21,1 км</div><div class="day-detail">Полумарафон. Первые 10 км — медленнее плана.</div></td>
+        <td><div class="wk-dist">25 <span>км</span></div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="hr"></div>
+
+<!-- ==================== ГРЫЖА ==================== -->
+<div id="hernia" class="section">
+  <div class="section-tag">Особое внимание</div>
+  <div class="section-title">Грыжа L3-L4 и бег</div>
+  <p class="section-sub">Грыжа в стадии ремиссии — не противопоказание для бега. Но есть обязательные правила.</p>
+
+  <div class="callout danger" style="margin-bottom:28px;">
+    <div class="callout-icon">🚨</div>
+    <div class="callout-body">
+      <strong>До начала программы</strong>
+      <p>Визит к неврологу или ортопеду-травматологу. Покажите этот план. Получите подтверждение допуска. Это не формальность — при определённых конфигурациях грыжи бег может обострить ситуацию.</p>
+    </div>
+  </div>
+
+  <div class="hernia-rules">
+    <div class="hr-rule">
+      <div class="hr-num">1</div>
+      <div>
+        <h4>Техника приземления — приоритет №1</h4>
+        <p>Приземление на пятку с прямой вынесенной ногой = ударная волна прямо в L3-L4. Только середина стопы, нога строго под центром тяжести. Следите за этим на каждой тренировке.</p>
+      </div>
+    </div>
+    <div class="hr-rule">
+      <div class="hr-num">2</div>
+      <div>
+        <h4>Поверхность бега</h4>
+        <p>Грунт, парк, беговая дорожка стадиона — приоритет. Асфальт — в хороших кроссовках с амортизацией. Избегать бег под горку вниз — нагрузка на поясницу многократно возрастает.</p>
+      </div>
+    </div>
+    <div class="hr-rule">
+      <div class="hr-num">3</div>
+      <div>
+        <h4>Кроссовки с амортизацией</h4>
+        <p>ASICS Gel-Nimbus / Gel-Kayano, Brooks Ghost / Adrenaline, New Balance Fresh Foam 1080, Saucony Guide — ищите модели с максимальной амортизацией. Это не роскошь, а медицинская необходимость.</p>
+      </div>
+    </div>
+    <div class="hr-rule">
+      <div class="hr-num">4</div>
+      <div>
+        <h4>Укрепление кора — 3 раза в неделю</h4>
+        <p>Ягодичный мостик 3×15 · Планка 3×45 сек · Bird-dog 3×10/сторону · Dead bug 3×8/сторону · Боковая планка 2×30 сек. Слабый кор — нагрузка переходит на диск. Сильный кор — диск разгружается.</p>
+      </div>
+    </div>
+    <div class="hr-rule">
+      <div class="hr-num">5</div>
+      <div>
+        <h4>Сигналы «стоп»</h4>
+        <p>Боль в пояснице, иррадиирующая в ногу · Онемение или покалывание в ноге · Слабость в стопе. При любом из этих симптомов — прекратить тренировку. Отдых. Врач. Не «терпеть».</p>
+      </div>
+    </div>
+    <div class="hr-rule">
+      <div class="hr-num">6</div>
+      <div>
+        <h4>Растяжка сгибателей бедра — обязательна</h4>
+        <p>Укороченная подвздошно-поясничная мышца создаёт постоянное давление на диск L3-L4. Упражнение «выпад с опорой» после каждой тренировки — не опция, а часть лечения.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section" style="padding-top:0;">
+  <div class="section-tag">Дорожная карта</div>
+  <div class="section-title">Куда придёте</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Месяц 1</div>
+      <h4>Стабильный бег 10–12 км в неделю</h4>
+      <p>Тело адаптируется к ударной нагрузке. Сухожилия укрепляются. Первые длинные 12 км в воскресенье.</p>
+      <div class="tl-km">Длинная: до 12 км</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Месяц 2</div>
+      <h4>Первые темповые и интервалы</h4>
+      <p>Ощутите разницу между темпами. Длинная выходит за 15 км. Дыхание становится автоматическим.</p>
+      <div class="tl-km">Длинная: до 16 км</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Месяц 3</div>
+      <h4>Пробегаете 18 км без остановки</h4>
+      <p>Психологически важный рубеж — вы понимаете, что полумарафон реален. Аэробная база сформирована.</p>
+      <div class="tl-km">Длинная: 18 км</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Месяц 4</div>
+      <h4>Пиковая нагрузка — 20 км</h4>
+      <p>Самые тяжёлые тренировки. Еженедельный объём ~50 км. 20 км на воскресной длинной.</p>
+      <div class="tl-km">Длинная: 20 км</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">Месяц 5</div>
+      <h4>Тейпер — тело суперкомпенсирует</h4>
+      <p>Объём снижается, ощущение «лёгкости» в ногах. Накопленная форма проявляется. Психологически сложно «не бегать».</p>
+      <div class="tl-km">Готовность: 95%</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-period">День старта · Месяц 6</div>
+      <h4>🏅 Полумарафон — 21,1 км</h4>
+      <p>Первые 5 км — на 15–20 сек/км медленнее плана. Не поддавайтесь на толпу. Финишируете с остатком сил — это правильно.</p>
+      <div class="tl-km">Финиш: 21,1 км</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-title">21,1 км — это ваше</div>
+  <p>Грамотная подготовка, последовательность и терпение — и через 6 месяцев вы пересечёте финишную черту вдвоём. Медленно начатый бег — это быстро законченный марафон.</p>
+  <div class="goal-chip">🏁 Старт через 24 недели — вы готовы</div>
+</footer>
+
+</body>
+</html>
