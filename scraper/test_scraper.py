@@ -158,6 +158,9 @@ class ReportTest(unittest.TestCase):
         cfg = {"alerts": {"downPayment": 45e6, "rate": 20.5, "years": 20}}
         self.assertAlmostEqual(notify.monthly_payment(87.5e6, cfg), 739_000, delta=1500)
         self.assertEqual(notify.monthly_payment(40e6, cfg), 0)
+        cfg["alerts"]["otbasyRate"] = 8.5
+        self.assertAlmostEqual(notify.otbasy_payment(83e6, cfg), 330_000, delta=1500)
+        self.assertIsNone(notify.otbasy_payment(95e6, cfg))  # взнос меньше 50%
 
     def test_chunks(self):
         parts = notify.chunks("\n".join(["x" * 100] * 100), limit=1000)

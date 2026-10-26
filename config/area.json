@@ -66,10 +66,11 @@
   },
   "siteUrl": "https://romanyurkin2024.github.io/run_program/",
   "alerts": {
-    "_comment": "Для Telegram: maxPrice — граница пометки ✅/⚠️ (не фильтр), платёж считается при этих взносе, ставке и сроке",
+    "_comment": "Для Telegram: maxPrice — граница пометки ✅/⚠️ (не фильтр); платёж по рыночной ставке rate и по промежуточному займу Отбасы otbasyRate (если взнос ≥ 50%)",
     "maxPrice": 92500000,
     "downPayment": 45000000,
     "rate": 20.5,
-    "years": 20
+    "years": 20,
+    "otbasyRate": 8.5
   }
 }

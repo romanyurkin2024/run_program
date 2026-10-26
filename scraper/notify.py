@@ -45,6 +45,18 @@ def monthly_payment(price: float, cfg: dict) -> float:
     return loan * r / (1 - (1 + r) ** -n) if loan and r else loan / n
 
 
+def otbasy_payment(price: float, cfg: dict) -> float | None:
+    """Платёж по промежуточному займу Отбасы — только если взнос покрывает 50% цены."""
+    a = cfg.get("alerts", {})
+    down = a.get("downPayment", 45_000_000)
+    if "otbasyRate" not in a or down < price * 0.5:
+        return None
+    r = a["otbasyRate"] / 100 / 12
+    n = a.get("years", 20) * 12
+    loan = price - down
+    return loan * r / (1 - (1 + r) ** -n) if loan > 0 else 0.0
+
+
 def _line(l: dict, cfg: dict, extra: str = "") -> str:
     """Квартира одной строкой: ЖК, площадь, этаж, цена (или изменение), ₸/м², платёж и пометка бюджета."""
     name = f"ЖК {l['complex']}" if l.get("complex") else (l.get("address") or l["title"])
@@ -54,6 +66,8 @@ def _line(l: dict, cfg: dict, extra: str = "") -> str:
     who = " · собственник" if l.get("seller", {}).get("type") == "owner" else ""
     budget = "✅" if price <= cfg.get("alerts", {}).get("maxPrice", float("inf")) else "⚠️"
     pay = f" · {budget} ~{round(monthly_payment(price, cfg) / 1000)} тыс/мес"
+    if (o := otbasy_payment(price, cfg)) is not None:
+        pay += f" · Отбасы ~{round(o / 1000)}"
     text = extra or f"<b>{_mln(price)}</b>"
     return f'• <a href="{html.escape(l["url"])}">{html.escape(name)}</a> · {l.get("area")} м²{floor}{who} — {text}{ppm2}{pay}'
 
@@ -79,7 +93,7 @@ def build_report(before: dict[str, dict], store: dict, cfg: dict, today: str) ->
     lines = [
         f"<b>🏠 Квартиры у MEGA · {d.day} {MONTHS[d.month - 1]}</b>",
         f"В продаже: {len(groups)} квартир ({len(near_active)} объявлений), из них до {_mln(max_price)}: {in_budget}",
-        "✅ — в бюджете, ⚠️ — дороже; платёж при взносе и ставке из настроек",
+        "✅ — в бюджете, ⚠️ — дороже; платёж — лучшая рыночная ставка, «Отбасы» — промежуточный заём при 50% на депозите",
     ]
 
     if not before:
