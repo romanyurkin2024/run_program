@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-26T14:49:46+00:00",
+ "updatedAt": "2026-10-26T15:23:49+00:00",
  "listings": [
   {
    "id": "krisha:1006779744",
@@ -46916,6 +46916,141 @@
    "active": true,
    "near": false,
    "group": "акварель|84|4/12"
+  },
+  {
+   "id": "krisha:1016902560",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1016902560",
+   "title": "3-комнатная квартира · 70 м² · 1/3 этаж",
+   "address": "мкр Нур Алатау, Какимбека Салыкова 40",
+   "district": "Бостандыкский",
+   "photos": [],
+   "seller": {
+    "type": "agent",
+    "name": null
+   },
+   "rooms": 3,
+   "area": 70.0,
+   "floor": 1,
+   "floors": 3,
+   "complex": "Saxon Yard",
+   "buildingType": "монолитный",
+   "year": 2023,
+   "description": "Самая низкая цена! Можно под коммерцию!",
+   "firstSeen": "2026-10-26",
+   "history": [
+    {
+     "date": "2026-10-26",
+     "price": 59900000
+    }
+   ],
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "near": false,
+   "group": "saxon yard|70|1/3"
+  },
+  {
+   "id": "krisha:1016902145",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1016902145",
+   "title": "3-комнатная квартира · 80 м² · 10/20 этаж",
+   "address": "Тургут Озала 237",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/a5/a5cb756b-7115-474f-bda8-bf7eb4932578/1-full.jpg"
+   ],
+   "seller": {
+    "type": "owner",
+    "name": null
+   },
+   "rooms": 3,
+   "area": 80.0,
+   "floor": 10,
+   "floors": 20,
+   "complex": "Кристалл",
+   "buildingType": "монолитный",
+   "year": 2025,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "В залоге, жил. комплекс Кристалл, монолитный дом, 2025 г.п., состояние: свежий ремонт, потолки 3м., санузел совмещенный, интернет проводной, меблирована полностью, 3 комнаталы квартира сатылады тез арада мебельмен",
+   "firstSeen": "2026-10-26",
+   "history": [
+    {
+     "date": "2026-10-26",
+     "price": 75000000
+    }
+   ],
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "near": false,
+   "group": "кристалл|80|10/20"
+  },
+  {
+   "id": "krisha:1016901892",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1016901892",
+   "title": "3-комнатная квартира · 101 м² · 3/8 этаж",
+   "address": "Розыбакиева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/b0/b08ca968-f78c-4217-ae64-c5c584f49c9f/1-full.jpg"
+   ],
+   "seller": {
+    "type": "agent",
+    "name": null
+   },
+   "rooms": 3,
+   "area": 101.0,
+   "floor": 3,
+   "floors": 8,
+   "complex": "4YOU",
+   "buildingType": "монолитный",
+   "year": 2021,
+   "condition": "свежий ремонт",
+   "bathroom": "раздельный",
+   "description": "🔥ЖК 4 YOU | BI GROUP 🏙️ Один из самых популярных ЖК Алматы! 💎 Бизнес-класс 🏡 3-комнатная квартира 📐 101 м² 🏢 3 эт…",
+   "firstSeen": "2026-10-26",
+   "history": [
+    {
+     "date": "2026-10-26",
+     "price": 123000000
+    }
+   ],
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "near": true,
+   "group": "4you|101|3/8"
+  },
+  {
+   "id": "krisha:1016901905",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1016901905",
+   "title": "3-комнатная квартира · 132.5 м² · 7/9 этаж",
+   "address": "Сейфулина 597/7 — Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/23/231c8203-2ac4-4c11-9901-4151f1b83e33/1-full.jpg"
+   ],
+   "seller": {
+    "type": "agent",
+    "name": null
+   },
+   "rooms": 3,
+   "area": 132.5,
+   "floor": 7,
+   "floors": 9,
+   "year": 2021,
+   "firstSeen": "2026-10-26",
+   "history": [
+    {
+     "date": "2026-10-26",
+     "price": 115275000
+    }
+   ],
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "near": false,
+   "group": "сейфулина 597|132|7/9"
   }
  ]
 }
