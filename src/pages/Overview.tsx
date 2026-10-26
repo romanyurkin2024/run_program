@@ -1,6 +1,6 @@
 import { ListingCard } from "../components/ListingCard";
 import { Finances, bankPaymentCap, downPayment, programBudgets } from "../lib/finance";
-import { mln, money, num } from "../lib/format";
+import { mln, money, num, pct } from "../lib/format";
 import { currentPrice, dedupe, isDemo, median, pricePerM2, priceChange, sameFlat, scoreListings } from "../lib/listings";
 import { Listing } from "../lib/types";
 
@@ -10,7 +10,10 @@ interface Props {
 }
 
 export function Overview({ listings, fin }: Props) {
-  const budgets = programBudgets(fin);
+  const allBudgets = programBudgets(fin);
+  // бюджет считаем по программам, доступным сразу; условные (Отбасы) показываем отдельной подсказкой
+  const budgets = allBudgets.filter((b) => !b.program.condition);
+  const otbasy = allBudgets.find((b) => b.program.id === "otbasy-intermediate");
   const comfortMax = Math.max(0, ...budgets.map((b) => b.comfort.maxPrice));
   const hardMax = Math.max(0, ...budgets.map((b) => b.max.maxPrice));
   const { primaries, groups } = dedupe(listings.filter((l) => l.near !== false));
@@ -62,6 +65,15 @@ export function Overview({ listings, fin }: Props) {
           <span className="badge orange">Важно</span>{" "}
           Банки ограничивают платёж 50% официального дохода: при доходе {money(fin.income)} это {money(cap)}.
           Платёж {mln(fin.maxPayment, 1)} одобрят, только если подтверждённый доход будет не меньше {money(fin.maxPayment * 2)}.
+        </div>
+      )}
+
+      {otbasy && (
+        <div className="card" style={{ marginTop: 16 }}>
+          <span className="badge blue">Дешевле</span>{" "}
+          <b>Отбасы банк, промежуточный заём ~{pct(otbasy.program.rate)}</b>: если {otbasy.program.condition}, квартира до{" "}
+          {mln(otbasy.max.maxPrice)} обойдётся в {money(otbasy.max.payment)} в месяц — почти втрое меньше, чем под 20–22% в обычных банках.
+          Условия уточнить в отделении.
         </div>
       )}
 

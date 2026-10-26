@@ -17,8 +17,11 @@ export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances;
   const l = s.listing;
   const price = currentPrice(l);
   const change = priceChange(l);
-  const fits = fitForPrice(price, fin).filter((f) => f.ok);
+  const all = fitForPrice(price, fin);
+  const fits = all.filter((f) => f.ok && !f.condition);
   const comfy = fits.some((f) => f.comfortable);
+  // Отбасы под 8,5% при 50% на депозите — показываем отдельно, это самый дешёвый путь
+  const otbasy = all.find((f) => f.ok && f.condition && !f.program.later);
   return (
     <a className="card listing-card" href={listingHref(l.id)}>
       <div className="listing-photo" style={{ backgroundImage: l.photos[0] ? `url("${l.photos[0]}")` : undefined }}>
@@ -54,6 +57,7 @@ export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances;
           ) : (
             <span className="badge red">Не проходит по ипотеке</span>
           )}
+          {otbasy && <span className="badge blue" title={`Если ${otbasy.condition}`}>Отбасы ~{Math.round(otbasy.payment / 1000)} тыс/мес</span>}
           {s.vsMedian <= -0.25 && <span className="badge orange">Проверить цену</span>}
           {s.vsMedian <= -0.03 && s.vsMedian > -0.25 && <span className="badge blue">−{pct(-s.vsMedian * 100, 0)} к медиане</span>}
           {others.length > 0 && (

@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import { LineChart } from "../components/LineChart";
+import { ProgramFits } from "../components/ProgramFits";
 import { SOURCE_NAMES, scoreClass } from "../components/ListingCard";
 import { Finances, downPayment, fitForPrice } from "../lib/finance";
 import { date, mln, money, num, pct } from "../lib/format";
@@ -26,7 +27,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
   const others = sameFlat(l, groups).sort((a, b) => Number(b.active) - Number(a.active) || currentPrice(a) - currentPrice(b));
   const price = currentPrice(l);
   const change = price - firstPrice(l);
-  const fits = fitForPrice(price, fin).sort((a, b) => Number(b.ok) - Number(a.ok) || a.payment - b.payment);
+  const fits = fitForPrice(price, fin);
   const dp = downPayment(fin);
   const t = (d: string) => new Date(d).getTime();
   const history = l.history;
@@ -152,7 +153,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
               Совпадают ЖК, площадь и этаж. Разница в цене — это обычно комиссия агента: торгуйтесь от минимальной.
             </p>
             <div className="table-wrap">
-              <table className="table">
+              <table className="table stack">
                 <thead>
                   <tr><th>Продавец</th><th className="num">Цена</th><th className="num">Разница</th><th></th></tr>
                 </thead>
@@ -164,8 +165,8 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
                         {o.id === l.id && <span className="badge" style={{ marginLeft: 6 }}>это объявление</span>}
                         {!o.active && <span className="badge red" style={{ marginLeft: 6 }}>снято</span>}
                       </td>
-                      <td className="num"><strong>{money(currentPrice(o))}</strong></td>
-                      <td className="num">{o.id === l.id ? "—" : `${currentPrice(o) >= price ? "+" : "−"}${mln(Math.abs(currentPrice(o) - price), 1)}`}</td>
+                      <td className="num" data-label="Цена"><strong>{money(currentPrice(o))}</strong></td>
+                      <td className="num" data-label="Разница">{o.id === l.id ? "—" : `${currentPrice(o) >= price ? "+" : "−"}${mln(Math.abs(currentPrice(o) - price), 1)}`}</td>
                       <td className="num"><a href={o.url} target="_blank" rel="noreferrer">Krisha ↗</a></td>
                     </tr>
                   ))}
@@ -181,29 +182,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
         <p className="muted" style={{ marginTop: 0 }}>
           Взнос {mln(dp)} ({pct((dp / price) * 100, 0)}) · заём {mln(Math.max(0, price - dp))} · срок {fin.years} лет
         </p>
-        <div className="table-wrap">
-          <table className="table">
-            <thead>
-              <tr><th>Банк и программа</th><th className="num">Ставка</th><th className="num">Платёж / мес</th><th>Итог</th></tr>
-            </thead>
-            <tbody>
-              {fits.map((f) => (
-                <tr key={f.program.id}>
-                  <td><strong>{f.program.bank}</strong><br /><span className="small muted">{f.program.name}</span></td>
-                  <td className="num">{pct(f.program.rate)}</td>
-                  <td className="num"><strong>{money(f.payment)}</strong></td>
-                  <td>
-                    {f.ok ? (
-                      <span className={`badge ${f.comfortable ? "green" : "orange"}`}>{f.comfortable ? "Подходит" : "Подходит, выше комфорта"}</span>
-                    ) : (
-                      <span className="badge red">{f.reasons.join(", ")}</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <ProgramFits fits={fits} years={fin.years} />
       </div>
 
       {l.description && (

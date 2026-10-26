@@ -16,7 +16,7 @@ export function PlanPage({ fin, setFin, resetFin }: Props) {
   const needMonthly = months > 0 ? Math.max(0, (fin.downPaymentTarget - fin.savingsNow) / months) : 0;
   const progress = fin.downPaymentTarget ? Math.min(100, (fin.savingsNow / fin.downPaymentTarget) * 100) : 0;
   const cap = bankPaymentCap(fin);
-  const budgets = programBudgets(fin);
+  const budgets = programBudgets(fin).filter((b) => !b.program.condition);
   const best = budgets.reduce((a, b) => (b.comfort.maxPrice > a.comfort.maxPrice ? b : a), budgets[0]);
 
   const now = new Date();

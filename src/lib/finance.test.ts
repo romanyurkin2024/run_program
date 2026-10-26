@@ -29,6 +29,14 @@ describe("finance", () => {
     expect(fit.reasons).toContain("взнос < 20%");
   });
 
+  it("conditional programs pass on numbers but carry their condition", () => {
+    const fit = fitForPrice(90_000_000, DEFAULT_FINANCES).find((f) => f.program.id === "otbasy-intermediate")!;
+    expect(fit.ok).toBe(true);
+    expect(fit.condition).toMatch(/50%/);
+    const over = fitForPrice(95_000_000, DEFAULT_FINANCES).find((f) => f.program.id === "otbasy-intermediate")!;
+    expect(over.reasons).toContain("взнос < 50%");
+  });
+
   it("monthsUntil counts calendar months", () => {
     expect(monthsUntil("2027-03", new Date(2026, 9, 26))).toBe(5);
     expect(monthsUntil("2026-01", new Date(2026, 9, 26))).toBe(0);

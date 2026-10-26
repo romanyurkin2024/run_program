@@ -280,3 +280,23 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 kbd { font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface-2); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; padding: 1px 6px; }
 .bookmarklet { cursor: grab; font-size: 17px; padding: 12px 22px; box-shadow: 0 4px 14px rgba(0, 113, 227, 0.35); }
 .thumb { display: inline-block; width: 84px; height: 64px; border-radius: 10px; background: var(--surface-2) center / cover no-repeat; flex: none; }
+
+/* ---------- Mortgage programs ---------- */
+.programs { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); align-items: start; }
+.program { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px 16px; display: grid; gap: 6px; }
+.program.dim { opacity: 0.72; }
+.program-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.program-pay { font-size: 19px; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.program .badges .badge { white-space: normal; }
+details summary { cursor: pointer; }
+
+/* Таблицы-«стопки»: на телефоне каждая строка — карточка с подписями */
+@media (max-width: 640px) {
+  .table.stack thead { display: none; }
+  .table.stack, .table.stack tbody, .table.stack tr, .table.stack td { display: block; width: 100%; }
+  .table.stack tr { border-bottom: 1px solid var(--line); padding: 10px 0; }
+  .table.stack tr:last-child { border-bottom: 0; }
+  .table.stack td { border: 0; padding: 3px 0; text-align: left; }
+  .table.stack td[data-label] { display: flex; justify-content: space-between; gap: 12px; }
+  .table.stack td[data-label]::before { content: attr(data-label); color: var(--text-2); font-size: 13px; }
+}

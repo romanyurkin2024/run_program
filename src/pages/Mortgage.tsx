@@ -3,7 +3,7 @@ import { LineChart } from "../components/LineChart";
 import { MoneyInput } from "../components/MoneyInput";
 import { PROGRAMS } from "../config/banks";
 import { Finances, bankPaymentCap, downPayment, programBudgets } from "../lib/finance";
-import { date, duration, mln, money, pct } from "../lib/format";
+import { duration, mln, money, pct } from "../lib/format";
 import { RepaymentType, buildSchedule } from "../lib/mortgage";
 
 interface Props {
@@ -59,7 +59,7 @@ export function MortgagePage({ fin, setFin }: Props) {
                   setRate(p.rate);
                 }}
               >
-                {PROGRAMS.filter((p) => p.available).map((p) => <option key={p.id} value={p.id}>{p.bank} — {p.name}</option>)}
+                {PROGRAMS.map((p) => <option key={p.id} value={p.id}>{p.bank} — {p.name} ({pct(p.rate)}){p.condition ? " · условно" : ""}</option>)}
               </select>
             </div>
             <MoneyInput label="Ставка" suffix="%" value={rate} onChange={setRate} />
@@ -126,25 +126,28 @@ export function MortgagePage({ fin, setFin }: Props) {
           При взносе {mln(downPayment(fin))}, сроке {fin.years} лет, комфортном платеже {money(fin.comfortPayment)} и максимальном {money(Math.min(fin.maxPayment, cap))}.
         </p>
         <div className="table-wrap">
-          <table className="table">
+          <table className="table stack">
             <thead>
               <tr><th>Банк</th><th className="num">Ставка</th><th className="num">Комфортно</th><th className="num">Максимум</th></tr>
             </thead>
             <tbody>
               {budgets.map((b) => (
                 <tr key={b.program.id}>
-                  <td><strong>{b.program.bank}</strong><br /><span className="small muted">{b.program.name}</span></td>
-                  <td className="num">{pct(b.program.rate)}</td>
-                  <td className="num"><strong>{mln(b.comfort.maxPrice)}</strong><br /><span className="small muted">{money(b.comfort.payment)}/мес</span></td>
-                  <td className="num"><strong>{mln(b.max.maxPrice)}</strong><br /><span className="small muted">{money(b.max.payment)}/мес</span></td>
+                  <td>
+                    <strong>{b.program.bank}</strong><br /><span className="small muted">{b.program.name}</span>
+                    {b.program.condition && <><br /><span className="badge blue">условно: {b.program.condition}</span></>}
+                  </td>
+                  <td className="num" data-label="Ставка">{pct(b.program.rate)}</td>
+                  <td className="num" data-label="Комфортно"><strong>{mln(b.comfort.maxPrice)}</strong><br /><span className="small muted">{money(b.comfort.payment)}/мес</span></td>
+                  <td className="num" data-label="Максимум"><strong>{mln(b.max.maxPrice)}</strong><br /><span className="small muted">{money(b.max.payment)}/мес</span></td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <p className="small muted" style={{ marginBottom: 0 }}>
-          Ставки по данным <a href={PROGRAMS[0].source} target="_blank" rel="noreferrer">krisha.kz</a> на {date(PROGRAMS[0].checkedAt)}. Перед сделкой сверяйте с банком: условия часто меняются.
-          Отбасы банк ({pct(PROGRAMS.find((p) => p.id === "otbasy")!.rate)}) требует накоплений на депозите и сразу недоступен.
+          Ставки по обзорам krisha.kz, kn.kz, profinance.kz за 2026 год; где источники расходятся, взята верхняя граница ставки.
+          Перед сделкой сверяйте с банком. Программы 7-20-25, «Наурыз» и партнёрские ипотеки проверены — для вторички в Алматы они не подходят.
         </p>
       </div>
     </>

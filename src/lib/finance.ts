@@ -88,7 +88,7 @@ function maxPriceFor(program: MortgageProgram, fin: Finances, payment: number): 
 }
 
 export function programBudgets(fin: Finances): ProgramBudget[] {
-  return PROGRAMS.filter((p) => p.secondary && p.available).map((program) => ({
+  return PROGRAMS.map((program) => ({
     program,
     comfort: maxPriceFor(program, fin, fin.comfortPayment),
     max: maxPriceFor(program, fin, fin.maxPayment),
@@ -99,8 +99,9 @@ export interface ProgramFit {
   program: MortgageProgram;
   loan: number;
   payment: number;
-  ok: boolean;
+  ok: boolean; // проходит по цифрам (взнос, лимит, платёж)
   comfortable: boolean;
+  condition?: string; // дополнительно нужно выполнить условие банка
   reasons: string[];
 }
 
@@ -108,17 +109,16 @@ export function fitForPrice(price: number, fin: Finances): ProgramFit[] {
   const dp = downPayment(fin);
   const loan = Math.max(0, price - dp);
   const cap = bankPaymentCap(fin);
-  return PROGRAMS.filter((p) => p.secondary).map((program) => {
+  return PROGRAMS.map((program) => {
     const months = Math.min(fin.years, program.maxYears) * 12;
     const payment = annuityPayment(loan, program.rate, months);
     const reasons: string[] = [];
-    if (!program.available) reasons.push("нужны накопления в банке");
     if ((dp / price) * 100 < program.minDownPct) reasons.push(`взнос < ${program.minDownPct}%`);
     if (program.maxLoan != null && loan > program.maxLoan) reasons.push("сумма больше лимита банка");
     if (payment > cap) reasons.push("платёж > 50% дохода");
     if (payment > fin.maxPayment) reasons.push("платёж выше вашего максимума");
     const ok = reasons.length === 0;
-    return { program, loan, payment, ok, comfortable: ok && payment <= fin.comfortPayment, reasons };
+    return { program, loan, payment, ok, comfortable: ok && payment <= fin.comfortPayment, condition: program.condition, reasons };
   });
 }
 
