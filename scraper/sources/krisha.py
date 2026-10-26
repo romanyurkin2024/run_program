@@ -137,6 +137,7 @@ def parse_card(card: Tag) -> dict | None:
         photo = pic["data-full-src"]
     elif img := card.select_one("img.a-image__img"):
         photo = img.get("src")
+    nb = card.select_one("a.a-card__image[data-nb]")
     item = {
         "id": f"krisha:{aid}",
         "source": "krisha",
@@ -145,6 +146,7 @@ def parse_card(card: Tag) -> dict | None:
         "address": address,
         "district": district.replace(" р-н", "") or None,
         "photos": [photo] if photo else [],
+        "photoCount": _int(nb["data-nb"]) if nb else None,  # сколько фото в объявлении на сайте
         "seller": {
             "type": seller_type(owner_label),
             # «Крыша Агент» / «Хозяин недвижимости» — это метки, а не имена; имя есть только у застройщика

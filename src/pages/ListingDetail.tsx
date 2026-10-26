@@ -62,6 +62,22 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
         </>
       )}
 
+      {l.extraSavedAt ? (
+        <p className="small muted" style={{ margin: "10px 0 0" }}>
+          ✅ Фото{l.seller?.phones?.length ? ", телефон" : ""} и описание сохранены закладкой {date(l.extraSavedAt)} ·{" "}
+          <a href={l.url} target="_blank" rel="noreferrer">обновить с Krisha ↗</a>
+        </p>
+      ) : (l.photoCount ?? 0) > l.photos.length ? (
+        <div className="card tight" style={{ marginTop: 12, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+          <span>📷 На Krisha {l.photoCount} фото, у нас — {l.photos.length}.</span>
+          <span className="muted small">Откройте объявление и нажмите закладку «В трекер» — фото, телефон и описание появятся здесь.</span>
+          <span style={{ marginLeft: "auto", display: "flex", gap: 12 }}>
+            <a href="#/bookmarklet">Как поставить закладку</a>
+            <a href={l.url} target="_blank" rel="noreferrer">Открыть на Krisha ↗</a>
+          </span>
+        </div>
+      ) : null}
+
       <div className="grid grid-2" style={{ marginTop: 24 }}>
         <div className="card">
           <div className="stat-label">Цена</div>

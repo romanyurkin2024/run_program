@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useFinances } from "./lib/finance";
 import { isDemo, useListings } from "./lib/listings";
 import { Overview } from "./pages/Overview";
@@ -6,7 +6,10 @@ import { ListingsPage } from "./pages/Listings";
 import { ListingDetail } from "./pages/ListingDetail";
 import { MortgagePage } from "./pages/Mortgage";
 import { PlanPage } from "./pages/Plan";
+import { ImportPage } from "./pages/Import";
+import { BookmarkletPage } from "./pages/Bookmarklet";
 import { date } from "./lib/format";
+import { useExtras, withExtras } from "./lib/extras";
 
 function useHashRoute(): string {
   const [route, setRoute] = useState(() => location.hash.slice(1) || "/");
@@ -32,13 +35,18 @@ export function App() {
   const route = useHashRoute();
   const [fin, setFin, resetFin] = useFinances();
   const { data, error } = useListings();
-  const listings = data?.listings ?? [];
+  const extras = useExtras();
+  const listings = useMemo(() => withExtras(data?.listings ?? [], extras), [data, extras]);
   const search = isDemo ? "?demo" : "";
 
   let page;
   if (route.startsWith("/listing/")) {
     const id = decodeURIComponent(route.slice("/listing/".length));
     page = <ListingDetail listing={listings.find((l) => l.id === id)} listings={listings} fin={fin} loading={!data && !error} />;
+  } else if (route.startsWith("/import/")) {
+    page = <ImportPage payload={route.slice("/import/".length)} listings={listings} loading={!data && !error} />;
+  } else if (route === "/bookmarklet") {
+    page = <BookmarkletPage />;
   } else if (route === "/listings") {
     page = <ListingsPage listings={listings} fin={fin} loading={!data && !error} />;
   } else if (route === "/mortgage") {
@@ -71,7 +79,8 @@ export function App() {
         {page}
       </main>
       <footer className="footer">
-        {data?.updatedAt ? `Данные обновлены ${date(data.updatedAt)}` : "Данные ещё не собирались"} · Финансы хранятся только в этом браузере
+        {data?.updatedAt ? `Данные обновлены ${date(data.updatedAt)}` : "Данные ещё не собирались"} · Финансы хранятся только в этом браузере ·{" "}
+        <a href="#/bookmarklet">Закладка «В трекер»</a>
       </footer>
     </>
   );

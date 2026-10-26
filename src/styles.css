@@ -273,3 +273,10 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
   .brand { display: none; }
   .tab { padding: 6px 12px; }
 }
+
+/* ---------- Bookmarklet ---------- */
+.steps { padding-left: 20px; margin: 8px 0 0; display: grid; gap: 10px; }
+.steps li { padding-left: 4px; }
+kbd { font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface-2); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; padding: 1px 6px; }
+.bookmarklet { cursor: grab; font-size: 17px; padding: 12px 22px; box-shadow: 0 4px 14px rgba(0, 113, 227, 0.35); }
+.thumb { display: inline-block; width: 84px; height: 64px; border-radius: 10px; background: var(--surface-2) center / cover no-repeat; flex: none; }

@@ -25,6 +25,9 @@ export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances;
         <div className="badges">
           <span className="badge">{SOURCE_NAMES[l.source] ?? l.source}</span>
           {!l.active && <span className="badge red">Снято</span>}
+          {Math.max(l.photos.length, l.photoCount ?? 0) > 1 && (
+            <span className="badge">📷 {l.extraSavedAt ? l.photos.length : Math.max(l.photos.length, l.photoCount ?? 0)}</span>
+          )}
         </div>
         <div className={`score badge ${scoreClass(s.score)}`} title="Оценка выгодности">{s.score}</div>
       </div>

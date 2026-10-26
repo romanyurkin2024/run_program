@@ -32,6 +32,8 @@ class ParseTest(unittest.TestCase):
         self.assertTrue(c["address"].startswith("Сатпаева"))
         self.assertTrue(c["photos"][0].startswith("https://krisha-photos.kcdn.online/"))
         self.assertEqual(c["seller"]["type"], "agent")
+        self.assertEqual(c["photoCount"], 25)
+        self.assertEqual(cards["krisha:1006779744"]["photoCount"], 45)
         self.assertTrue(c["description"].startswith("🏡 Продаётся"))
         self.assertEqual(cards["krisha:1016900411"]["seller"]["type"], "owner")
         self.assertEqual(cards["krisha:1005293694"]["seller"]["type"], "developer")

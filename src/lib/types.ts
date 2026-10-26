@@ -29,6 +29,8 @@ export interface Listing {
   buildingType?: string;
   bathroom?: string;
   photos: string[];
+  photoCount?: number; // сколько фото в объявлении на сайте-источнике
+  extraSavedAt?: string; // когда фото/телефон забраны закладкой «В трекер» (только в этом браузере)
   seller?: Seller;
   description?: string;
   firstSeen: string;
