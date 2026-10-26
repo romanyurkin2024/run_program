@@ -33,7 +33,7 @@ try {
       await extra.blur();
     }
     await page.waitForTimeout(300);
-    await page.screenshot({ path: `${out}/${name}.png`, fullPage: true });
+    await page.screenshot({ path: `${out}/${name}.png`, fullPage: name !== "02-listings" });
     await page.close();
   }
 } finally {
