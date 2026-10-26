@@ -32,6 +32,9 @@ jobs:
       - run: python -m unittest scraper.test_scraper
       - name: Scrape
         shell: bash # включает pipefail, чтобы ошибка парсера не терялась за tee
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python -m scraper.run ${{ inputs.probe && '--probe' || '' }} 2>&1 | tee scrape.log
       - name: Push probe pages
         if: ${{ inputs.probe }}

@@ -1,7 +1,7 @@
 import { ListingCard } from "../components/ListingCard";
 import { Finances, bankPaymentCap, downPayment, programBudgets } from "../lib/finance";
 import { mln, money, num } from "../lib/format";
-import { currentPrice, isDemo, median, pricePerM2, priceChange, scoreListings } from "../lib/listings";
+import { currentPrice, dedupe, isDemo, median, pricePerM2, priceChange, sameFlat, scoreListings } from "../lib/listings";
 import { Listing } from "../lib/types";
 
 interface Props {
@@ -13,7 +13,8 @@ export function Overview({ listings, fin }: Props) {
   const budgets = programBudgets(fin);
   const comfortMax = Math.max(0, ...budgets.map((b) => b.comfort.maxPrice));
   const hardMax = Math.max(0, ...budgets.map((b) => b.max.maxPrice));
-  const active = listings.filter((l) => l.active && l.near !== false);
+  const { primaries, groups } = dedupe(listings.filter((l) => l.near !== false));
+  const active = primaries.filter((l) => l.active);
   const scored = scoreListings(active)
     .filter((s) => currentPrice(s.listing) <= hardMax)
     .sort((a, b) => b.score - a.score);
@@ -76,10 +77,10 @@ export function Overview({ listings, fin }: Props) {
       ) : (
         <>
           <div className="grid grid-3">
-            {scored.slice(0, 6).map((s) => <ListingCard key={s.listing.id} s={s} fin={fin} />)}
+            {scored.slice(0, 6).map((s) => <ListingCard key={s.listing.id} s={s} fin={fin} others={sameFlat(s.listing, groups)} />)}
           </div>
           <p style={{ textAlign: "center", marginTop: 20 }}>
-            <a href={`${search}#/listings`}>Все {active.length} объявлений рядом с MEGA →</a>
+            <a href={`${search}#/listings`}>Все {active.length} квартир рядом с MEGA →</a>
             {medPpm2 > 0 && <span className="muted"> · медиана {num(Math.round(medPpm2))} ₸/м²</span>}
           </p>
         </>

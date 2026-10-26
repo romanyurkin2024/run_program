@@ -1,7 +1,8 @@
 import unittest
 from pathlib import Path
 
-from scraper.run import apply_snapshot, is_near, mark_gone, reject_reason
+from scraper import notify
+from scraper.run import apply_snapshot, group_key, is_near, mark_gone, reject_reason
 from scraper.sources.krisha import parse_preview, parse_search, parse_title, seller_type
 
 CFG = {
@@ -89,6 +90,63 @@ class MergeTest(unittest.TestCase):
         self.assertEqual(mark_gone(ls, "2026-10-05"), 1)
         self.assertFalse(ls["a"]["active"])
         self.assertTrue(ls["b"]["active"])
+
+
+class GroupTest(unittest.TestCase):
+    def test_same_flat_from_different_agents(self):
+        a = {"id": "krisha:1", "complex": "4YOU", "area": 101.2, "floor": 3, "floors": 8}
+        b = {"id": "krisha:2", "complex": "4you ", "area": 100.8, "floor": 3, "floors": 8}
+        self.assertEqual(group_key(a), group_key(b))
+        self.assertNotEqual(group_key(a), group_key({**b, "floor": 4}))
+
+    def test_address_when_no_complex(self):
+        a = {"id": "krisha:1", "address": "Розыбакиева 247 — MEGA", "area": 90, "floor": 5, "floors": 12}
+        b = {"id": "krisha:2", "address": "Розыбакиева 247", "area": 90, "floor": 5, "floors": 12}
+        self.assertEqual(group_key(a), group_key(b))
+
+    def test_no_floor_is_never_grouped(self):
+        self.assertEqual(group_key({"id": "krisha:9", "complex": "Estet", "area": 90}), "krisha:9")
+
+
+def L(i, price, group, near=True, active=True, **kw):
+    return {"id": f"krisha:{i}", "url": f"https://krisha.kz/a/show/{i}", "title": "3-комн", "complex": "Estet",
+            "area": 90, "floor": 5, "floors": 12, "near": near, "active": active, "group": group,
+            "seller": {}, "history": [{"date": "2026-10-27", "price": price}], **kw}
+
+
+class ReportTest(unittest.TestCase):
+    CFG = {"alerts": {"maxPrice": 92_500_000}, "siteUrl": "https://x/"}
+
+    def test_first_run_has_no_flood(self):
+        text = notify.build_report({}, {"listings": [L(1, 80e6, "a")]}, self.CFG, "2026-10-27")
+        self.assertIn("Начали отслеживать", text)
+        self.assertNotIn("Новые", text)
+
+    def test_new_drop_gone(self):
+        before = notify.snapshot([L(1, 95e6, "a"), L(2, 80e6, "b"), L(3, 85e6, "c")])
+        after = [
+            L(1, 90e6, "a"),               # снизили и попали в бюджет
+            L(2, 80e6, "b", active=False),  # сняли
+            L(3, 85e6, "c"),
+            L(4, 85e6, "c"),               # дубль известной квартиры — не новая
+            L(5, 70e6, "d"),               # новая в бюджете
+            L(6, 70e6, "e", near=False),   # далеко — не интересует
+            L(7, 120e6, "f"),              # новая, но дорого
+        ]
+        text = notify.build_report(before, {"listings": after}, self.CFG, "2026-10-27")
+        self.assertIn("Новые в бюджете (1)", text)
+        self.assertIn("show/5", text)
+        self.assertIn("Снизили цену (1)", text)
+        self.assertIn("теперь в бюджете", text)
+        self.assertIn("Сняли с продажи (1)", text)
+        self.assertIn("show/2", text)
+        self.assertNotIn("show/6", text)
+        self.assertNotIn("show/7", text)
+
+    def test_chunks(self):
+        parts = notify.chunks("\n".join(["x" * 100] * 100), limit=1000)
+        self.assertTrue(all(len(p) <= 1000 for p in parts))
+        self.assertEqual("\n".join(parts).count("x"), 100 * 100)
 
 
 if __name__ == "__main__":

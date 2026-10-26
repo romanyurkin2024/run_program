@@ -1,0 +1,24 @@
+name: Telegram setup
+
+# 1) Создайте бота у @BotFather, сохраните токен в секрет TELEGRAM_BOT_TOKEN.
+# 2) Напишите боту /start и запустите этот workflow — бот пришлёт ваш chat id.
+# 3) Сохраните его в секрет TELEGRAM_CHAT_ID и запустите ещё раз — придёт тестовое сообщение.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scraper/requirements.txt
+      - run: python -m scraper.notify --setup
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

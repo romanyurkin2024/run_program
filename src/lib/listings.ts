@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Listing, ListingsFile } from "./types";
 
 /** ?demo в адресе — показать демо-данные (для превью интерфейса, не реальные объявления). */
-export const isDemo = new URLSearchParams(location.search).has("demo");
+export const isDemo = typeof location !== "undefined" && new URLSearchParams(location.search).has("demo");
 
 export function useListings(): { data: ListingsFile | null; error: string | null } {
   const [data, setData] = useState<ListingsFile | null>(null);
@@ -28,6 +28,29 @@ export function priceChange(l: Listing): number {
 export function daysOnMarket(l: Listing, now = new Date()): number {
   return Math.max(0, Math.round((now.getTime() - new Date(l.firstSeen).getTime()) / 86_400_000));
 }
+
+const groupOf = (l: Listing) => l.group ?? l.id;
+
+function better(a: Listing, b: Listing): boolean {
+  if (a.active !== b.active) return a.active;
+  const d = currentPrice(a) - currentPrice(b);
+  if (d !== 0) return d < 0;
+  return a.seller?.type === "owner" && b.seller?.type !== "owner";
+}
+
+/**
+ * Одна квартира — одна карточка. Главным считается самое дешёвое активное объявление
+ * (при равной цене — от собственника), остальные доступны через groups.
+ */
+export function dedupe(listings: Listing[]): { primaries: Listing[]; groups: Map<string, Listing[]> } {
+  const groups = new Map<string, Listing[]>();
+  for (const l of listings) groups.set(groupOf(l), [...(groups.get(groupOf(l)) ?? []), l]);
+  const primaries = [...groups.values()].map((members) => members.reduce((a, b) => (better(b, a) ? b : a)));
+  return { primaries, groups };
+}
+
+export const sameFlat = (l: Listing, groups: Map<string, Listing[]>) =>
+  (groups.get(groupOf(l)) ?? []).filter((x) => x.id !== l.id);
 
 export function median(xs: number[]): number {
   if (!xs.length) return 0;

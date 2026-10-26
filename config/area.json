@@ -63,5 +63,10 @@
       "https://krisha.kz/prodazha/kvartiry/almaty-bostandykskij/"
     ],
     "maxPages": 90
+  },
+  "siteUrl": "https://romanyurkin2024.github.io/run_program/",
+  "alerts": {
+    "_comment": "Порог «в бюджете» для Telegram: максимальная цена при взносе 45 млн и платеже ≤ 50% дохода (см. страницу Ипотека)",
+    "maxPrice": 92500000
   }
 }

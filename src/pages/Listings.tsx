@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { ListingCard } from "../components/ListingCard";
 import { Finances, fitForPrice } from "../lib/finance";
-import { currentPrice, daysOnMarket, priceChange, scoreListings } from "../lib/listings";
+import { currentPrice, daysOnMarket, dedupe, priceChange, sameFlat, scoreListings } from "../lib/listings";
 import { Listing } from "../lib/types";
 
 type Sort = "score" | "price" | "ppm2" | "new" | "drop";
@@ -18,8 +18,10 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
     [listings],
   );
 
+  const { primaries, groups } = useMemo(() => dedupe(listings), [listings]);
+
   const scored = useMemo(() => {
-    let xs = scoreListings(listings);
+    let xs = scoreListings(primaries);
     if (!showInactive) xs = xs.filter((s) => s.listing.active);
     if (nearOnly) xs = xs.filter((s) => s.listing.near !== false);
     if (complex) xs = xs.filter((s) => s.listing.complex === complex);
@@ -32,7 +34,7 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
       drop: (a, b) => priceChange(a.listing) - priceChange(b.listing),
     };
     return xs.sort(by[sort]);
-  }, [listings, complex, sort, onlyBudget, showInactive, nearOnly, fin]);
+  }, [primaries, complex, sort, onlyBudget, showInactive, nearOnly, fin]);
 
   return (
     <>
@@ -80,9 +82,12 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
           <p className="muted">Измените фильтры или дождитесь следующего запуска парсера.</p>
         </div>
       ) : (
-        <div className="grid grid-3">
-          {scored.map((s) => <ListingCard key={s.listing.id} s={s} fin={fin} />)}
-        </div>
+        <>
+          <p className="muted small" style={{ marginTop: 0 }}>{scored.length} квартир · одинаковые объявления разных продавцов склеены в одну карточку</p>
+          <div className="grid grid-3">
+            {scored.map((s) => <ListingCard key={s.listing.id} s={s} fin={fin} others={sameFlat(s.listing, groups)} />)}
+          </div>
+        </>
       )}
     </>
   );

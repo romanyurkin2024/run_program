@@ -1,6 +1,7 @@
 import { Finances, fitForPrice } from "../lib/finance";
 import { mln, num, pct } from "../lib/format";
 import { currentPrice, isDemo, priceChange, Scored } from "../lib/listings";
+import { Listing } from "../lib/types";
 
 export const SOURCE_NAMES: Record<string, string> = { krisha: "Krisha.kz", olx: "OLX", kn: "kn.kz" };
 
@@ -12,7 +13,7 @@ export function scoreClass(score: number) {
   return score >= 65 ? "green" : score >= 45 ? "" : "red";
 }
 
-export function ListingCard({ s, fin }: { s: Scored; fin: Finances }) {
+export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances; others?: Listing[] }) {
   const l = s.listing;
   const price = currentPrice(l);
   const change = priceChange(l);
@@ -52,6 +53,12 @@ export function ListingCard({ s, fin }: { s: Scored; fin: Finances }) {
           )}
           {s.vsMedian <= -0.25 && <span className="badge orange">Проверить цену</span>}
           {s.vsMedian <= -0.03 && s.vsMedian > -0.25 && <span className="badge blue">−{pct(-s.vsMedian * 100, 0)} к медиане</span>}
+          {others.length > 0 && (
+            <span className="badge" title="Эту же квартиру продают и другие — в карточке можно сравнить цены">
+              ещё {others.length} {others.length === 1 ? "объявление" : others.length < 5 ? "объявления" : "объявлений"}
+            </span>
+          )}
+          {l.seller?.type === "owner" && <span className="badge blue">Собственник</span>}
           {l.condition && <span className="badge">{l.condition}</span>}
         </div>
       </div>

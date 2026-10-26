@@ -12,6 +12,7 @@ import re
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
+from . import notify
 from .sources.krisha import Blocked, Krisha
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -51,6 +52,21 @@ def is_near(listing: dict, cfg: dict) -> bool:
     return False
 
 
+def group_key(listing: dict) -> str:
+    """Ключ «одной и той же квартиры»: ЖК (или улица с домом), площадь, этаж и этажность.
+
+    Одну квартиру часто выставляют несколько агентов — такие объявления получают одинаковый ключ.
+    Без этажа не склеиваем: слишком велик риск объединить разные квартиры.
+    """
+    place = (listing.get("complex") or "").strip().lower()
+    if not place:
+        m = re.match(r"([^\d—,]+?)\s*(\d+\w*)", listing.get("address") or "")
+        place = f"{m.group(1).strip().lower()} {m.group(2)}" if m else ""
+    if not place or not listing.get("floor") or not listing.get("area"):
+        return listing["id"]
+    return f"{place}|{round(listing['area'])}|{listing['floor']}/{listing.get('floors')}"
+
+
 def apply_snapshot(listing: dict | None, item: dict, today: str) -> dict:
     """Обновляет (или создаёт) запись, дописывая цену в историю при изменении."""
     item = dict(item)
@@ -86,6 +102,7 @@ def run(probe: bool = False) -> None:
     today = date.today().isoformat()
     store = json.loads(DATA.read_text()) if DATA.exists() else {"updatedAt": None, "listings": []}
     by_id = {l["id"]: l for l in store["listings"]}
+    before = notify.snapshot(store["listings"])
 
     debug_dir = None
     if probe:
@@ -135,6 +152,7 @@ def run(probe: bool = False) -> None:
     stats["gone"] = mark_gone(by_id, today) if complete else 0
     for l in by_id.values():
         l["near"] = is_near(l, cfg)
+        l["group"] = group_key(l)
     store["listings"] = sorted(by_id.values(), key=lambda l: l["firstSeen"], reverse=True)
     if stats["cards"]:
         store["updatedAt"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
@@ -142,6 +160,11 @@ def run(probe: bool = False) -> None:
     log.info("done (complete=%s): %s, total %d", complete, stats, len(by_id))
     if not stats["cards"]:
         raise SystemExit("no cards parsed — layout changed or access blocked")
+
+    try:
+        notify.daily_report(before, store, cfg, today)
+    except Exception as e:  # noqa: BLE001 — уведомление не должно ронять сбор данных
+        log.warning("telegram: %s", e)
 
 
 if __name__ == "__main__":

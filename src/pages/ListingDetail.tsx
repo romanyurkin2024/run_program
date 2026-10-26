@@ -3,7 +3,7 @@ import { LineChart } from "../components/LineChart";
 import { SOURCE_NAMES, scoreClass } from "../components/ListingCard";
 import { Finances, downPayment, fitForPrice } from "../lib/finance";
 import { date, mln, money, num, pct } from "../lib/format";
-import { currentPrice, daysOnMarket, firstPrice, isDemo, scoreListings } from "../lib/listings";
+import { currentPrice, dedupe, firstPrice, isDemo, sameFlat, scoreListings } from "../lib/listings";
 import { Listing } from "../lib/types";
 
 interface Props {
@@ -21,7 +21,9 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
   if (!listing) return <div className="card empty"><h3>Объявление не найдено</h3></div>;
 
   const l = listing;
-  const s = scoreListings(listings).find((x) => x.listing.id === l.id)!;
+  const { primaries, groups } = dedupe(listings);
+  const s = scoreListings(primaries.some((p) => p.id === l.id) ? primaries : [...primaries, l]).find((x) => x.listing.id === l.id)!;
+  const others = sameFlat(l, groups).sort((a, b) => Number(b.active) - Number(a.active) || currentPrice(a) - currentPrice(b));
   const price = currentPrice(l);
   const change = price - firstPrice(l);
   const fits = fitForPrice(price, fin).sort((a, b) => Number(b.ok) - Number(a.ok) || a.payment - b.payment);
@@ -35,7 +37,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
       <section style={{ margin: "8px 0 24px" }}>
         <div className="badges" style={{ marginBottom: 8 }}>
           <span className="badge">{SOURCE_NAMES[l.source] ?? l.source}</span>
-          {l.active ? <span className="badge green">В продаже {daysOnMarket(l)} дн.</span> : <span className="badge red">Снято</span>}
+          {l.active ? <span className="badge green">Отслеживаем с {date(l.firstSeen)}</span> : <span className="badge red">Снято</span>}
           <span className={`badge ${scoreClass(s.score)}`}>Оценка {s.score}/100</span>
         </div>
         <h1 style={{ fontSize: "clamp(28px, 4.5vw, 40px)", letterSpacing: "-0.03em", margin: 0, lineHeight: 1.1 }}>
@@ -90,7 +92,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
             />
           ) : (
             <p className="muted small" style={{ margin: 0 }}>
-              Отслеживаем с {date(l.firstSeen)}. Изменения цены появятся здесь, как только продавец её поменяет.
+              Отслеживаем с {date(l.firstSeen)} — изменения цены появятся здесь, как только продавец её поменяет.
             </p>
           )}
         </div>
@@ -125,6 +127,38 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
           )}
         </div>
       </div>
+
+      {others.length > 0 && (
+        <>
+          <h2 className="section">Эту же квартиру продают ещё {others.length}</h2>
+          <div className="card">
+            <p className="muted" style={{ marginTop: 0 }}>
+              Совпадают ЖК, площадь и этаж. Разница в цене — это обычно комиссия агента: торгуйтесь от минимальной.
+            </p>
+            <div className="table-wrap">
+              <table className="table">
+                <thead>
+                  <tr><th>Продавец</th><th className="num">Цена</th><th className="num">Разница</th><th></th></tr>
+                </thead>
+                <tbody>
+                  {[l, ...others].map((o) => (
+                    <tr key={o.id}>
+                      <td>
+                        {SELLER_TYPES[o.seller?.type ?? ""] ?? "Не указан"}
+                        {o.id === l.id && <span className="badge" style={{ marginLeft: 6 }}>это объявление</span>}
+                        {!o.active && <span className="badge red" style={{ marginLeft: 6 }}>снято</span>}
+                      </td>
+                      <td className="num"><strong>{money(currentPrice(o))}</strong></td>
+                      <td className="num">{o.id === l.id ? "—" : `${currentPrice(o) >= price ? "+" : "−"}${mln(Math.abs(currentPrice(o) - price), 1)}`}</td>
+                      <td className="num"><a href={o.url} target="_blank" rel="noreferrer">Krisha ↗</a></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </>
+      )}
 
       <h2 className="section">Ипотека на эту квартиру</h2>
       <div className="card">
