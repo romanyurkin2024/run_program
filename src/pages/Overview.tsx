@@ -15,9 +15,8 @@ export function Overview({ listings, fin }: Props) {
   const hardMax = Math.max(0, ...budgets.map((b) => b.max.maxPrice));
   const { primaries, groups } = dedupe(listings.filter((l) => l.near !== false));
   const active = primaries.filter((l) => l.active);
-  const scored = scoreListings(active)
-    .filter((s) => currentPrice(s.listing) <= hardMax)
-    .sort((a, b) => b.score - a.score);
+  // без отсечения по бюджету: подходит ли квартира по ипотеке, видно по плашке на карточке
+  const scored = scoreListings(active).sort((a, b) => b.score - a.score);
   const inBudget = active.filter((l) => currentPrice(l) <= hardMax).length;
   const drops = active.filter((l) => priceChange(l) < 0).length;
   const medPpm2 = median(active.map(pricePerM2).filter(Boolean));
@@ -66,7 +65,7 @@ export function Overview({ listings, fin }: Props) {
         </div>
       )}
 
-      <h2 className="section">Лучшие варианты в бюджете</h2>
+      <h2 className="section">Лучшие варианты</h2>
       {scored.length === 0 ? (
         <div className="card empty">
           <div className="icon">🔍</div>
@@ -77,7 +76,7 @@ export function Overview({ listings, fin }: Props) {
       ) : (
         <>
           <div className="grid grid-3">
-            {scored.slice(0, 6).map((s) => <ListingCard key={s.listing.id} s={s} fin={fin} others={sameFlat(s.listing, groups)} />)}
+            {scored.slice(0, 9).map((s) => <ListingCard key={s.listing.id} s={s} fin={fin} others={sameFlat(s.listing, groups)} />)}
           </div>
           <p style={{ textAlign: "center", marginTop: 20 }}>
             <a href={`${search}#/listings`}>Все {active.length} квартир рядом с MEGA →</a>

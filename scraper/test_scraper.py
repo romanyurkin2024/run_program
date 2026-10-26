@@ -127,8 +127,8 @@ class ReportTest(unittest.TestCase):
         self.assertIn("Начали отслеживать", text)
         self.assertNotIn("Новые", text)
 
-    def test_new_drop_gone(self):
-        before = notify.snapshot([L(1, 95e6, "a"), L(2, 80e6, "b"), L(3, 85e6, "c")])
+    def test_all_changes_regardless_of_budget(self):
+        before = notify.snapshot([L(1, 95e6, "a"), L(2, 80e6, "b"), L(3, 85e6, "c"), L(8, 130e6, "g"), L(9, 100e6, "h")])
         after = [
             L(1, 90e6, "a"),               # снизили и попали в бюджет
             L(2, 80e6, "b", active=False),  # сняли
@@ -136,17 +136,28 @@ class ReportTest(unittest.TestCase):
             L(4, 85e6, "c"),               # дубль известной квартиры — не новая
             L(5, 70e6, "d"),               # новая в бюджете
             L(6, 70e6, "e", near=False),   # далеко — не интересует
-            L(7, 120e6, "f"),              # новая, но дорого
+            L(7, 120e6, "f"),              # новая и дорогая — тоже показываем
+            L(8, 125e6, "g"),              # снизили, но всё ещё дороже бюджета — показываем
+            L(9, 105e6, "h"),              # подняли
         ]
         text = notify.build_report(before, {"listings": after}, self.CFG, "2026-10-27")
-        self.assertIn("Новые в бюджете (1)", text)
+        self.assertIn("Новые квартиры (2)", text)
         self.assertIn("show/5", text)
-        self.assertIn("Снизили цену (1)", text)
+        self.assertIn("show/7", text)
+        self.assertIn("Снизили цену (2)", text)
         self.assertIn("теперь в бюджете", text)
+        self.assertIn("show/8", text)
+        self.assertIn("Подняли цену (1)", text)
         self.assertIn("Сняли с продажи (1)", text)
         self.assertIn("show/2", text)
         self.assertNotIn("show/6", text)
-        self.assertNotIn("show/7", text)
+        self.assertIn("✅", text)
+        self.assertIn("⚠️", text)
+
+    def test_monthly_payment(self):
+        cfg = {"alerts": {"downPayment": 45e6, "rate": 20.5, "years": 20}}
+        self.assertAlmostEqual(notify.monthly_payment(87.5e6, cfg), 739_000, delta=1500)
+        self.assertEqual(notify.monthly_payment(40e6, cfg), 0)
 
     def test_chunks(self):
         parts = notify.chunks("\n".join(["x" * 100] * 100), limit=1000)
