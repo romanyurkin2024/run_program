@@ -81,6 +81,8 @@ export function scoreListings(listings: Listing[], now = new Date()): Scored[] {
       score -= 5;
       reasons.push(listing.floor === 1 ? "первый этаж" : "последний этаж");
     }
+    // слишком низкая цена чаще означает ошибку, приманку или проблемы с документами — не поднимаем в топ
+    if (vsMedian <= -0.25) score = Math.min(score, 55);
     return { listing, score: Math.max(0, Math.min(100, Math.round(score))), ppm2, vsMedian, reasons };
   });
 }
