@@ -22,7 +22,6 @@ export interface MortgageProgram {
 }
 
 const KRISHA_2026 = "https://krisha.kz/content/articles/2026/2026-ipoteka-na-vtorichku-2026-usloviya-vseh-bankov";
-const KN_2026 = "https://www.kn.kz/article/8919";
 const MYTENGE = "https://mytenge.kz/ru/ipoteka/na-vtorichnoe-zhile";
 const FINANCE_OTBASY = "https://finance.kz/ipoteka/otbasy-bank";
 
@@ -37,10 +36,10 @@ export const PROGRAMS: MortgageProgram[] = [
     maxYears: 25,
     condition: "внести не меньше 50% стоимости на депозит Отбасы",
     note:
-      "Самая низкая ставка без господдержки: 50% стоимости должно лежать на депозите Отбасы (можно внести разом). " +
-      "После выполнения оценочного показателя заём переводят в жилищный под 3,5–5%. Срок ожидания и точную ставку уточнить в отделении.",
-    source: KN_2026,
-    checkedAt: "2026-10-15",
+      "С июня 2026 единая ставка 8,5% (ГЭСВ 9–9,6%), раньше было 6–7,5%. 50% стоимости должно лежать на депозите Отбасы. " +
+      "После выполнения оценочного показателя заём переводят в жилищный под 3,5–5%. Можно ли внести сумму разом и сроки — уточнить в отделении.",
+    source: "https://krisha.kz/content/news/2026/2026-otbasy-bank-povyshaet-stavku-po-ipoteke",
+    checkedAt: "2026-10-26",
   },
   {
     id: "bcc-plus",
@@ -139,6 +138,22 @@ export const PROGRAMS: MortgageProgram[] = [
     note: "Ставка 3,5–5%. Сразу не получить — вариант на будущее или как продолжение промежуточного займа.",
     source: FINANCE_OTBASY,
     checkedAt: "2026-10-15",
+  },
+  {
+    id: "otbasy-refinance",
+    bank: "Отбасы банк",
+    name: "Рефинансирование ипотеки другого банка",
+    rate: 8.5,
+    minDownPct: 20,
+    maxLoan: 85_000_000,
+    maxYears: 25,
+    condition: "после покупки накопить на депозите Отбасы ≥ 50% остатка долга и пройти оценку платёжеспособности",
+    later: true,
+    note:
+      "Способ позже снизить ставку рыночной ипотеки. В октябре 2026 выдача приостанавливалась (1–23 октября) из-за новых правил: " +
+      "деньги перечисляются напрямую прежнему банку. Ставка от 3,5% (жилищный заём) или 8,5% (промежуточный) — зависит от накоплений и оценочного показателя.",
+    source: "https://krisha.kz/content/news/2026/2026-otbasy-bank-priostanovil-refinansirovanie-ipoteki",
+    checkedAt: "2026-10-26",
   },
 ];
 
