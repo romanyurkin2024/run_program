@@ -30,10 +30,10 @@ describe("finance", () => {
   });
 
   it("conditional programs pass on numbers but carry their condition", () => {
-    const fit = fitForPrice(90_000_000, DEFAULT_FINANCES).find((f) => f.program.id === "otbasy-intermediate")!;
+    const fit = fitForPrice(86_000_000, DEFAULT_FINANCES).find((f) => f.program.id === "otbasy-intermediate")!;
     expect(fit.ok).toBe(true);
     expect(fit.condition).toMatch(/50%/);
-    const over = fitForPrice(95_000_000, DEFAULT_FINANCES).find((f) => f.program.id === "otbasy-intermediate")!;
+    const over = fitForPrice(90_000_000, DEFAULT_FINANCES).find((f) => f.program.id === "otbasy-intermediate")!;
     expect(over.reasons).toContain("взнос < 50%");
   });
 

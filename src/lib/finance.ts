@@ -19,10 +19,10 @@ export interface Finances {
 export const DEFAULT_FINANCES: Finances = {
   savingsNow: 0,
   monthlySavings: 0,
-  downPaymentTarget: 45_000_000,
+  downPaymentTarget: 43_000_000, // ~40 млн в марте + 3 млн на депозите Отбасы
   purchaseDate: "2027-03",
-  income: 1_650_000,
-  otherDebtPayments: 0,
+  income: 1_770_000,
+  otherDebtPayments: 300_000,
   comfortPayment: 650_000,
   maxPayment: 1_100_000,
   years: 20,
