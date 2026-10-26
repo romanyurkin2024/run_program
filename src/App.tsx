@@ -8,6 +8,7 @@ import { MortgagePage } from "./pages/Mortgage";
 import { PlanPage } from "./pages/Plan";
 import { ImportPage } from "./pages/Import";
 import { BookmarkletPage } from "./pages/Bookmarklet";
+import { ProgramsPage } from "./pages/Programs";
 import { date } from "./lib/format";
 import { useExtras, withExtras } from "./lib/extras";
 
@@ -28,6 +29,7 @@ const TABS = [
   { path: "/", label: "Обзор" },
   { path: "/listings", label: "Квартиры" },
   { path: "/mortgage", label: "Ипотека" },
+  { path: "/programs", label: "Банки" },
   { path: "/plan", label: "План" },
 ];
 
@@ -45,6 +47,8 @@ export function App() {
     page = <ListingDetail listing={listings.find((l) => l.id === id)} listings={listings} fin={fin} loading={!data && !error} />;
   } else if (route.startsWith("/import/")) {
     page = <ImportPage payload={route.slice("/import/".length)} listings={listings} loading={!data && !error} />;
+  } else if (route === "/programs") {
+    page = <ProgramsPage />;
   } else if (route === "/bookmarklet") {
     page = <BookmarkletPage />;
   } else if (route === "/listings") {

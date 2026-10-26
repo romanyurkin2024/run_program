@@ -27,7 +27,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
   const others = sameFlat(l, groups).sort((a, b) => Number(b.active) - Number(a.active) || currentPrice(a) - currentPrice(b));
   const price = currentPrice(l);
   const change = price - firstPrice(l);
-  const fits = fitForPrice(price, fin, { developer: l.seller?.developer });
+  const fits = fitForPrice(price, fin, { developer: l.seller?.developer, complex: l.complex });
   const dp = downPayment(fin);
   const t = (d: string) => new Date(d).getTime();
   const history = l.history;

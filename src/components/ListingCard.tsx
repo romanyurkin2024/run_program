@@ -17,7 +17,7 @@ export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances;
   const l = s.listing;
   const price = currentPrice(l);
   const change = priceChange(l);
-  const all = fitForPrice(price, fin, { developer: l.seller?.developer });
+  const all = fitForPrice(price, fin, { developer: l.seller?.developer, complex: l.complex });
   const fits = all.filter((f) => f.ok && !f.condition);
   const comfy = fits.some((f) => f.comfortable);
   // Отбасы под 8,5% при 50% на депозите — показываем отдельно, это самый дешёвый путь

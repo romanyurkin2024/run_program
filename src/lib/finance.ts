@@ -82,8 +82,9 @@ function maxPriceFor(program: MortgageProgram, fin: Finances, payment: number): 
   if (program.maxLoan != null) loan = Math.min(loan, program.maxLoan);
   // взнос должен быть не меньше minDownPct от цены
   const byDown = dp / (program.minDownPct / 100);
-  const price = Math.min(dp + loan, byDown);
-  const realLoan = Math.max(0, price - dp);
+  // если банк кредитует всю цену (взнос лежит на депозите-гарантии), то цена = заём
+  const price = Math.min(program.lendsFullPrice ? loan : dp + loan, byDown);
+  const realLoan = program.lendsFullPrice ? price : Math.max(0, price - dp);
   return { payment: annuityPayment(realLoan, program.rate, months), maxPrice: price };
 }
 
@@ -105,18 +106,22 @@ export interface ProgramFit {
   reasons: string[];
 }
 
-/** Подходит ли партнёрская программа к квартире: продаёт ли её нужный застройщик. */
-function developerMatches(program: MortgageProgram, developer: string | undefined): boolean {
-  const d = (developer ?? "").toUpperCase();
-  return !!d && (program.developers ?? []).some((x) => d.includes(x.toUpperCase()));
-}
+const has = (list: string[] | undefined, value: string | undefined) => {
+  const v = (value ?? "").toUpperCase();
+  return !!v && (list ?? []).some((x) => v.includes(x.toUpperCase()) || x.toUpperCase().includes(v));
+};
 
-/** listing.developer — застройщик-продавец; без него партнёрские программы показываются как условные. */
-export function fitForPrice(price: number, fin: Finances, listing?: { developer?: string }): ProgramFit[] {
+/**
+ * listing.developer — застройщик-продавец, listing.complex — ЖК.
+ * Партнёрская программа считается доступной, только если продаёт её застройщик И ЖК подтверждён в списке программы;
+ * иначе — «уточнить» (если застройщик тот же) или «не применима».
+ */
+export function fitForPrice(price: number, fin: Finances, listing?: { developer?: string; complex?: string }): ProgramFit[] {
   const dp = downPayment(fin);
-  const loan = Math.max(0, price - dp);
   const cap = bankPaymentCap(fin);
   return PROGRAMS.map((program) => {
+    // «Алтын ұя»: банк кредитует всю цену, взнос лежит на депозите-гарантии
+    const loan = program.lendsFullPrice ? price : Math.max(0, price - dp);
     const months = Math.min(fin.years, program.maxYears) * 12;
     const payment = annuityPayment(loan, program.rate, months);
     const reasons: string[] = [];
@@ -126,8 +131,9 @@ export function fitForPrice(price: number, fin: Finances, listing?: { developer?
     if (payment > fin.maxPayment) reasons.push("платёж выше вашего максимума");
     let condition = program.condition;
     if (program.developers && listing) {
-      if (developerMatches(program, listing.developer)) condition = undefined; // квартиру продаёт партнёр — программа доступна
-      else reasons.push("только у застройщика-партнёра");
+      if (!has(program.developers, listing.developer)) reasons.push("только у застройщика-партнёра");
+      else if (has(program.confirmedComplexes, listing.complex)) condition = undefined; // ЖК подтверждён в программе
+      else condition = `уточнить в банке: участие ЖК ${listing.complex ?? "—"} в программе не подтверждено`;
     }
     const ok = reasons.length === 0;
     return { program, loan, payment, ok, comfortable: ok && payment <= fin.comfortPayment, condition, reasons };

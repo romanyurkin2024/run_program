@@ -18,8 +18,12 @@ function Status({ f }: { f: ProgramFit }) {
 }
 
 /** Список ипотечных программ для конкретной цены — карточками, удобно и на телефоне. */
+const NOT_PARTNER = "только у застройщика-партнёра";
+
 export function ProgramFits({ fits, years }: { fits: ProgramFit[]; years: number }) {
-  const sorted = [...fits].sort((a, b) => rank(a) - rank(b) || a.payment - b.payment);
+  // партнёрские программы, которые к этой квартире не применимы (продаёт не их застройщик), сворачиваем в одну строку
+  const hidden = fits.filter((f) => f.reasons.includes(NOT_PARTNER));
+  const sorted = fits.filter((f) => !hidden.includes(f)).sort((a, b) => rank(a) - rank(b) || a.payment - b.payment);
   return (
     <>
       <div className="programs">
@@ -44,6 +48,12 @@ export function ProgramFits({ fits, years }: { fits: ProgramFit[]; years: number
           </div>
         ))}
       </div>
+      {hidden.length > 0 && (
+        <p className="small muted" style={{ margin: "12px 0 0" }}>
+          Партнёрские программы ({hidden.map((f) => `${f.program.bank}`).filter((v, i, a) => a.indexOf(v) === i).join(", ")}) к этой квартире не применимы:
+          они работают только при покупке у застройщика-партнёра. <a href="#/programs">Все программы и партнёры →</a>
+        </p>
+      )}
       <details className="small" style={{ marginTop: 14 }}>
         <summary className="muted">Ещё проверили — для вторички в Алматы не подходят ({NOT_FOR_SECONDARY.length})</summary>
         <ul className="muted" style={{ margin: "8px 0 0", paddingLeft: 18 }}>

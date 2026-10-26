@@ -57,7 +57,7 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
     if (nearOnly) xs = xs.filter((s) => s.listing.near !== false);
     if (complex) xs = xs.filter((s) => s.listing.complex === complex);
     if (seller) xs = xs.filter((s) => (s.listing.seller?.type === "developer") === (seller === "developer"));
-    if (onlyBudget) xs = xs.filter((s) => fitForPrice(currentPrice(s.listing), fin, { developer: s.listing.seller?.developer }).some((f) => f.ok));
+    if (onlyBudget) xs = xs.filter((s) => fitForPrice(currentPrice(s.listing), fin, { developer: s.listing.seller?.developer, complex: s.listing.complex }).some((f) => f.ok));
     const by: Record<Sort, (a: (typeof xs)[0], b: (typeof xs)[0]) => number> = {
       score: (a, b) => b.score - a.score,
       price: (a, b) => currentPrice(a.listing) - currentPrice(b.listing),

@@ -143,7 +143,10 @@ h2.section { font-size: 28px; letter-spacing: -0.02em; margin: 48px 0 16px; font
   background: var(--surface-2);
   color: var(--text-2);
   white-space: nowrap;
+  max-width: 100%;
 }
+/* длинные плашки (условия программ) переносятся, чтобы не ломать ширину на телефоне */
+.badge { white-space: normal; overflow-wrap: anywhere; }
 .badge.green { background: var(--green-soft); color: var(--green); }
 .badge.red { background: var(--red-soft); color: var(--red); }
 .badge.orange { background: var(--orange-soft); color: var(--orange); }
@@ -286,7 +289,8 @@ kbd { font: 600 12px ui-monospace, SFMono-Regular, Menlo, monospace; background:
 .program { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 14px 16px; display: grid; gap: 6px; }
 .program.dim { opacity: 0.72; }
 .program-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
-.program-pay { font-size: 19px; font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.program-pay { font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; max-width: 55%; }
+.program-head > div:first-child { min-width: 0; }
 .program .badges .badge { white-space: normal; }
 details summary { cursor: pointer; }
 

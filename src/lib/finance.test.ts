@@ -37,14 +37,20 @@ describe("finance", () => {
     expect(over.reasons).toContain("взнос < 50%");
   });
 
-  it("partner mortgage applies only to flats sold by that developer", () => {
-    const find = (dev?: string) => fitForPrice(75_000_000, DEFAULT_FINANCES, { developer: dev }).find((f) => f.program.id === "altyn-tamasha")!;
-    expect(find("BAZIS–А").ok).toBe(true);
-    expect(find("BAZIS–А").condition).toBeUndefined();
-    expect(find(undefined).reasons).toContain("только у застройщика-партнёра");
-    expect(find("BI Group").ok).toBe(false);
-    // без контекста квартиры (страница «Ипотека») — показываем как условную
-    expect(fitForPrice(80_000_000, DEFAULT_FINANCES).find((f) => f.program.id === "altyn-tamasha")!.condition).toMatch(/BAZIS/);
+  it("partner mortgage applies only to confirmed complexes of that developer", () => {
+    const find = (developer?: string, complex?: string) =>
+      fitForPrice(75_000_000, DEFAULT_FINANCES, { developer, complex }).find((f) => f.program.id === "altyn-tamasha")!;
+    // Estet есть в списке «Тамаша» на сайте банка — программа доступна
+    expect(find("BAZIS–А", "Estet").ok).toBe(true);
+    expect(find("BAZIS–А", "Estet").condition).toBeUndefined();
+    // Element того же застройщика, но в списке программы его нет — только «уточнить», не «подходит»
+    expect(find("BAZIS–А", "ELEMENT").condition).toMatch(/не подтверждено/);
+    // частный продавец или другой застройщик — не применима
+    expect(find(undefined, "Estet").reasons).toContain("только у застройщика-партнёра");
+    expect(find("BI Group", "4YOU").ok).toBe(false);
+    // программы без опубликованного списка ЖК никогда не помечаются доступными автоматически
+    const halyk = fitForPrice(75_000_000, DEFAULT_FINANCES, { developer: "BI Group Юг", complex: "4YOU" }).find((f) => f.program.id === "halyk-bi")!;
+    expect(halyk.condition).toMatch(/не подтверждено/);
   });
 
   it("monthsUntil counts calendar months", () => {
