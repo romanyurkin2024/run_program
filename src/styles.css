@@ -231,6 +231,8 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .gallery .main { aspect-ratio: 4 / 3; background: var(--surface-2) center / cover no-repeat; }
 .gallery .side { display: grid; gap: 8px; }
 .gallery .side div { background: var(--surface-2) center / cover no-repeat; min-height: 80px; }
+.gallery.single { grid-template-columns: 1fr; max-width: 760px; }
+.gallery.single .side { display: none; }
 @media (max-width: 640px) { .gallery { grid-template-columns: 1fr; } .gallery .side { display: none; } }
 .thumbs { display: flex; gap: 8px; overflow-x: auto; margin-top: 8px; }
 .thumbs button { border: 0; padding: 0; width: 84px; height: 64px; flex: none; border-radius: 10px; background: var(--surface-2) center / cover no-repeat; cursor: pointer; opacity: 0.7; }

@@ -46,17 +46,17 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
 
       {l.photos.length > 0 && (
         <>
-          <div className="gallery">
+          <div className={`gallery ${l.photos.length < 3 ? "single" : ""}`}>
             <div className="main" style={{ backgroundImage: `url("${l.photos[photo]}")` }} />
             <div className="side">
               {l.photos.slice(photo + 1, photo + 3).map((p) => <div key={p} style={{ backgroundImage: `url("${p}")` }} />)}
             </div>
           </div>
-          <div className="thumbs">
+          {l.photos.length > 1 && <div className="thumbs">
             {l.photos.map((p, i) => (
               <button key={p} className={i === photo ? "on" : ""} style={{ backgroundImage: `url("${p}")` }} onClick={() => setPhoto(i)} aria-label={`Фото ${i + 1}`} />
             ))}
-          </div>
+          </div>}
         </>
       )}
 
@@ -107,6 +107,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
             {l.seller?.phones?.map((p) => (
               <Fragment key={p}><dt>Телефон</dt><dd><a href={`tel:${p.replace(/[^\d+]/g, "")}`}>{p}</a></dd></Fragment>
             ))}
+            {!l.seller?.phones?.length && <><dt>Телефон</dt><dd className="muted">на сайте объявления</dd></>}
           </dl>
           <p style={{ marginBottom: 0 }}>
             <a className="btn" href={l.url} target="_blank" rel="noreferrer">Открыть на {SOURCE_NAMES[l.source] ?? l.source} ↗</a>

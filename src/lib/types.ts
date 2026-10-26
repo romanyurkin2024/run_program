@@ -34,6 +34,7 @@ export interface Listing {
   firstSeen: string;
   lastSeen: string;
   active: boolean;
+  near?: boolean; // рядом с MEGA (по ЖК/улице из config/area.json)
   history: PricePoint[];
 }
 

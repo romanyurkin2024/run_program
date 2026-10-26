@@ -11,6 +11,7 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
   const [sort, setSort] = useState<Sort>("score");
   const [onlyBudget, setOnlyBudget] = useState(false);
   const [showInactive, setShowInactive] = useState(false);
+  const [nearOnly, setNearOnly] = useState(true);
 
   const complexes = useMemo(
     () => [...new Set(listings.map((l) => l.complex).filter(Boolean) as string[])].sort(),
@@ -20,6 +21,7 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
   const scored = useMemo(() => {
     let xs = scoreListings(listings);
     if (!showInactive) xs = xs.filter((s) => s.listing.active);
+    if (nearOnly) xs = xs.filter((s) => s.listing.near !== false);
     if (complex) xs = xs.filter((s) => s.listing.complex === complex);
     if (onlyBudget) xs = xs.filter((s) => fitForPrice(currentPrice(s.listing), fin).some((f) => f.ok));
     const by: Record<Sort, (a: (typeof xs)[0], b: (typeof xs)[0]) => number> = {
@@ -30,13 +32,13 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
       drop: (a, b) => priceChange(a.listing) - priceChange(b.listing),
     };
     return xs.sort(by[sort]);
-  }, [listings, complex, sort, onlyBudget, showInactive, fin]);
+  }, [listings, complex, sort, onlyBudget, showInactive, nearOnly, fin]);
 
   return (
     <>
       <section className="hero">
         <h1>Квартиры</h1>
-        <p>3 комнаты · вторичка с ремонтом · район MEGA / Розыбакиева / Аль-Фараби</p>
+        <p>3 комнаты · вторичка с ремонтом · Бостандыкский район, акцент на окрестности MEGA</p>
       </section>
       <div className="toolbar">
         <div className="field">
@@ -55,6 +57,10 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
             <option value="drop">Больше снижение цены</option>
             <option value="new">Новые</option>
           </select>
+        </div>
+        <div className="segmented" role="group">
+          <button className={nearOnly ? "on" : ""} onClick={() => setNearOnly(true)}>Рядом с MEGA</button>
+          <button className={nearOnly ? "" : "on"} onClick={() => setNearOnly(false)}>Весь район</button>
         </div>
         <div className="segmented" role="group">
           <button className={onlyBudget ? "" : "on"} onClick={() => setOnlyBudget(false)}>Все</button>

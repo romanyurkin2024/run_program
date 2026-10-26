@@ -13,7 +13,7 @@ export function Overview({ listings, fin }: Props) {
   const budgets = programBudgets(fin);
   const comfortMax = Math.max(0, ...budgets.map((b) => b.comfort.maxPrice));
   const hardMax = Math.max(0, ...budgets.map((b) => b.max.maxPrice));
-  const active = listings.filter((l) => l.active);
+  const active = listings.filter((l) => l.active && l.near !== false);
   const scored = scoreListings(active).sort((a, b) => b.score - a.score);
   const inBudget = active.filter((l) => currentPrice(l) <= hardMax).length;
   const drops = active.filter((l) => priceChange(l) < 0).length;
@@ -49,7 +49,7 @@ export function Overview({ listings, fin }: Props) {
           <div className="stat-sub">банк одобрит платёж до {mln(cap, 2)}</div>
         </div>
         <div className="card">
-          <div className="stat-label">Объявлений в бюджете</div>
+          <div className="stat-label">Рядом с MEGA в бюджете</div>
           <div className="stat-value">{num(inBudget)}<span className="muted" style={{ fontSize: 17 }}> / {num(active.length)}</span></div>
           <div className="stat-sub">{drops ? `${drops} со снижением цены` : "снижений цены пока нет"}</div>
         </div>

@@ -45,7 +45,7 @@ for i in range(12):
         "year": year, "condition": random.choice(conds), "buildingType": "монолитный", "bathroom": "2 с/у и более",
         "photos": photos, "seller": {"name": random.choice(["Айгерим", "Данияр", "Ольга", "Ержан"]), "type": random.choice(["owner", "agent"]), "phones": ["+7 700 000 00 00"]},
         "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
-        "firstSeen": first.isoformat(), "lastSeen": today.isoformat(), "active": i != 11, "history": hist,
+        "firstSeen": first.isoformat(), "lastSeen": today.isoformat(), "active": i != 11, "near": i % 6 != 5, "history": hist,
     })
 (OUT / "demo-listings.json").write_text(json.dumps({"updatedAt": today.isoformat(), "listings": listings}, ensure_ascii=False, indent=1))
 print(len(listings), "demo listings")
