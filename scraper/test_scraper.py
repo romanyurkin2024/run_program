@@ -1,7 +1,10 @@
+import json
+import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
-from scraper import notify
+from scraper import notify, run as run_mod
 from scraper.run import apply_snapshot, group_key, is_near, mark_gone, reject_reason
 from scraper.sources.krisha import parse_preview, parse_search, parse_title, seller_type
 
@@ -147,6 +150,28 @@ class ReportTest(unittest.TestCase):
         parts = notify.chunks("\n".join(["x" * 100] * 100), limit=1000)
         self.assertTrue(all(len(p) <= 1000 for p in parts))
         self.assertEqual("\n".join(parts).count("x"), 100 * 100)
+
+
+class RunTest(unittest.TestCase):
+    """Полный запуск на сохранённой выдаче: данные пишутся, отчёт получает снимок «до»."""
+
+    def test_run_passes_previous_state_to_report(self):
+        cards = parse_search(FIXTURE)
+        with tempfile.TemporaryDirectory() as tmp:
+            data = Path(tmp) / "listings.json"
+            data.write_text(json.dumps({"updatedAt": None, "listings": []}))
+            calls = []
+            with mock.patch.object(run_mod, "DATA", data), \
+                 mock.patch.object(run_mod.Krisha, "search", side_effect=lambda url, cfg, page: cards if page == 1 else []), \
+                 mock.patch.object(run_mod.notify, "daily_report", side_effect=lambda *a: calls.append(a)):
+                run_mod.run()
+                run_mod.run()  # второй день: «до» уже не пустое
+            store = json.loads(data.read_text())
+            self.assertEqual(len(store["listings"]), 3)  # 2 новостройки отброшены
+            first, second = calls
+            self.assertEqual(first[0], {})
+            self.assertTrue(all(isinstance(v, dict) and "price" in v for v in second[0].values()))
+            notify.build_report(second[0], second[1], second[2], second[3])  # не падает
 
 
 if __name__ == "__main__":

@@ -102,7 +102,7 @@ def run(probe: bool = False) -> None:
     today = date.today().isoformat()
     store = json.loads(DATA.read_text()) if DATA.exists() else {"updatedAt": None, "listings": []}
     by_id = {l["id"]: l for l in store["listings"]}
-    before = notify.snapshot(store["listings"])
+    prev_state = notify.snapshot(store["listings"])
 
     debug_dir = None
     if probe:
@@ -162,7 +162,7 @@ def run(probe: bool = False) -> None:
         raise SystemExit("no cards parsed — layout changed or access blocked")
 
     try:
-        notify.daily_report(before, store, cfg, today)
+        notify.daily_report(prev_state, store, cfg, today)
     except Exception as e:  # noqa: BLE001 — уведомление не должно ронять сбор данных
         log.warning("telegram: %s", e)
 

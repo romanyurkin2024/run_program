@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ListingCard } from "../components/ListingCard";
 import { Finances, fitForPrice } from "../lib/finance";
 import { currentPrice, daysOnMarket, dedupe, priceChange, sameFlat, scoreListings } from "../lib/listings";
@@ -6,12 +6,42 @@ import { Listing } from "../lib/types";
 
 type Sort = "score" | "price" | "ppm2" | "new" | "drop";
 
+interface Filters {
+  complex: string;
+  sort: Sort;
+  onlyBudget: boolean;
+  showInactive: boolean;
+  nearOnly: boolean;
+}
+
+const DEFAULT_FILTERS: Filters = { complex: "", sort: "score", onlyBudget: false, showInactive: false, nearOnly: true };
+const FILTERS_KEY = "kt.filters.v1";
+
+/** Фильтры переживают перезагрузку страницы (localStorage), пока их не сбросят кнопкой. */
+function useFilters(): [Filters, (patch: Partial<Filters>) => void, () => void] {
+  const [filters, setFilters] = useState<Filters>(() => {
+    try {
+      const raw = localStorage.getItem(FILTERS_KEY);
+      if (raw) return { ...DEFAULT_FILTERS, ...JSON.parse(raw) };
+    } catch {
+      /* private mode / blocked storage */
+    }
+    return DEFAULT_FILTERS;
+  });
+  useEffect(() => {
+    try {
+      localStorage.setItem(FILTERS_KEY, JSON.stringify(filters));
+    } catch {
+      /* ignore */
+    }
+  }, [filters]);
+  return [filters, (patch) => setFilters((f) => ({ ...f, ...patch })), () => setFilters(DEFAULT_FILTERS)];
+}
+
 export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; fin: Finances; loading: boolean }) {
-  const [complex, setComplex] = useState("");
-  const [sort, setSort] = useState<Sort>("score");
-  const [onlyBudget, setOnlyBudget] = useState(false);
-  const [showInactive, setShowInactive] = useState(false);
-  const [nearOnly, setNearOnly] = useState(true);
+  const [filters, setFilters, resetFilters] = useFilters();
+  const { complex, sort, onlyBudget, showInactive, nearOnly } = filters;
+  const changed = (Object.keys(DEFAULT_FILTERS) as (keyof Filters)[]).some((k) => filters[k] !== DEFAULT_FILTERS[k]);
 
   const complexes = useMemo(
     () => [...new Set(listings.map((l) => l.complex).filter(Boolean) as string[])].sort(),
@@ -45,14 +75,14 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
       <div className="toolbar">
         <div className="field">
           <label>ЖК</label>
-          <select value={complex} onChange={(e) => setComplex(e.target.value)}>
+          <select value={complex} onChange={(e) => setFilters({ complex: e.target.value })}>
             <option value="">Все ЖК</option>
             {complexes.map((c) => <option key={c}>{c}</option>)}
           </select>
         </div>
         <div className="field">
           <label>Сортировка</label>
-          <select value={sort} onChange={(e) => setSort(e.target.value as Sort)}>
+          <select value={sort} onChange={(e) => setFilters({ sort: e.target.value as Sort })}>
             <option value="score">Самые выгодные</option>
             <option value="price">Дешевле</option>
             <option value="ppm2">Дешевле за м²</option>
@@ -61,17 +91,22 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
           </select>
         </div>
         <div className="segmented" role="group">
-          <button className={nearOnly ? "on" : ""} onClick={() => setNearOnly(true)}>Рядом с MEGA</button>
-          <button className={nearOnly ? "" : "on"} onClick={() => setNearOnly(false)}>Весь район</button>
+          <button className={nearOnly ? "on" : ""} onClick={() => setFilters({ nearOnly: true })}>Рядом с MEGA</button>
+          <button className={nearOnly ? "" : "on"} onClick={() => setFilters({ nearOnly: false })}>Весь район</button>
         </div>
         <div className="segmented" role="group">
-          <button className={onlyBudget ? "" : "on"} onClick={() => setOnlyBudget(false)}>Все</button>
-          <button className={onlyBudget ? "on" : ""} onClick={() => setOnlyBudget(true)}>В бюджете</button>
+          <button className={onlyBudget ? "" : "on"} onClick={() => setFilters({ onlyBudget: false })}>Все</button>
+          <button className={onlyBudget ? "on" : ""} onClick={() => setFilters({ onlyBudget: true })}>В бюджете</button>
         </div>
         <label className="small muted" style={{ display: "flex", gap: 6, alignItems: "center", paddingBottom: 6 }}>
-          <input type="checkbox" checked={showInactive} onChange={(e) => setShowInactive(e.target.checked)} />
+          <input type="checkbox" checked={showInactive} onChange={(e) => setFilters({ showInactive: e.target.checked })} />
           Показывать снятые
         </label>
+        {changed && (
+          <button className="btn ghost" style={{ paddingBottom: 6 }} onClick={resetFilters}>
+            Снять все фильтры
+          </button>
+        )}
       </div>
       {loading ? (
         <p className="muted">Загрузка…</p>
