@@ -14,7 +14,9 @@ export function Overview({ listings, fin }: Props) {
   const comfortMax = Math.max(0, ...budgets.map((b) => b.comfort.maxPrice));
   const hardMax = Math.max(0, ...budgets.map((b) => b.max.maxPrice));
   const active = listings.filter((l) => l.active && l.near !== false);
-  const scored = scoreListings(active).sort((a, b) => b.score - a.score);
+  const scored = scoreListings(active)
+    .filter((s) => currentPrice(s.listing) <= hardMax)
+    .sort((a, b) => b.score - a.score);
   const inBudget = active.filter((l) => currentPrice(l) <= hardMax).length;
   const drops = active.filter((l) => priceChange(l) < 0).length;
   const medPpm2 = median(active.map(pricePerM2).filter(Boolean));
@@ -63,7 +65,7 @@ export function Overview({ listings, fin }: Props) {
         </div>
       )}
 
-      <h2 className="section">Лучшие варианты сейчас</h2>
+      <h2 className="section">Лучшие варианты в бюджете</h2>
       {scored.length === 0 ? (
         <div className="card empty">
           <div className="icon">🔍</div>
@@ -77,7 +79,7 @@ export function Overview({ listings, fin }: Props) {
             {scored.slice(0, 6).map((s) => <ListingCard key={s.listing.id} s={s} fin={fin} />)}
           </div>
           <p style={{ textAlign: "center", marginTop: 20 }}>
-            <a href={`${search}#/listings`}>Все {active.length} объявлений →</a>
+            <a href={`${search}#/listings`}>Все {active.length} объявлений рядом с MEGA →</a>
             {medPpm2 > 0 && <span className="muted"> · медиана {num(Math.round(medPpm2))} ₸/м²</span>}
           </p>
         </>

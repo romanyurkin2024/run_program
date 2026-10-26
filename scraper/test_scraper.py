@@ -8,7 +8,7 @@ CFG = {
     "rooms": 3,
     "minYear": 2012,
     "excludeConditions": ["черновая отделка", "требует ремонта"],
-    "near": {"complexes": ["Estet", "Element"], "streets": ["Розыбакиева", "Сатпаева"]},
+    "near": {"complexes": ["Estet", "Element"], "streets": [{"name": "Розыбакиева", "from": 150, "to": 300}]},
 }
 
 # Настоящие карточки из выдачи krisha.kz (сохранены пробным запуском)
@@ -62,8 +62,11 @@ class FilterTest(unittest.TestCase):
 
     def test_near(self):
         self.assertTrue(is_near({"complex": "Estet", "address": "x"}, CFG))
-        self.assertTrue(is_near({"address": "Розыбакиева 197/2"}, CFG))
-        self.assertFalse(is_near({"complex": "Арай", "address": "Жарокова 137"}, CFG))
+        self.assertTrue(is_near({"complex": "ELEMENT", "address": "Тажибаевой 157"}, CFG))
+        self.assertTrue(is_near({"address": "Розыбакиева 247 — MEGA"}, CFG))
+        self.assertFalse(is_near({"address": "ул. Абдуллы Розыбакиева 388Б1"}, CFG))
+        self.assertFalse(is_near({"complex": "Estet Plus", "address": "Жарокова 137"}, CFG))
+        self.assertFalse(is_near({"address": "Розыбакиева"}, CFG))
 
 
 class MergeTest(unittest.TestCase):

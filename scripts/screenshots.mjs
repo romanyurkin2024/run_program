@@ -1,4 +1,4 @@
-// Снимает скриншоты страниц собранного сайта: node scripts/screenshots.mjs <outDir>
+// Снимает скриншоты страниц собранного сайта: node scripts/screenshots.mjs <outDir> [listingId]
 import { createRequire } from "node:module";
 import { spawn } from "node:child_process";
 
@@ -9,13 +9,14 @@ const out = process.argv[2] ?? "screenshots";
 const server = spawn("npx", ["vite", "preview", "--port", "4173", "--strictPort"], { stdio: "ignore" });
 await new Promise((r) => setTimeout(r, 2500));
 const base = "http://localhost:4173/run_program/";
+const listingId = process.argv[3] ?? "demo:1003";
 const shots = [
-  ["01-overview", "?demo#/", 1280],
-  ["02-listings", "?demo#/listings", 1280],
-  ["03-listing", "?demo#/listing/demo%3A1003", 1280],
+  ["01-overview", "#/", 1280],
+  ["02-listings", "#/listings", 1280],
+  ["03-listing", `#/listing/${encodeURIComponent(listingId)}`, 1280],
   ["04-mortgage", "#/mortgage", 1280],
   ["05-plan", "#/plan", 1280],
-  ["06-overview-mobile", "?demo#/", 390],
+  ["06-overview-mobile", "#/", 390],
   ["07-mortgage-dark", "#/mortgage", 1280, "dark"],
 ];
 const browser = await chromium.launch();

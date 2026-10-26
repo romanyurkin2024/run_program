@@ -27,7 +27,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
   const fits = fitForPrice(price, fin).sort((a, b) => Number(b.ok) - Number(a.ok) || a.payment - b.payment);
   const dp = downPayment(fin);
   const t = (d: string) => new Date(d).getTime();
-  const history = l.history.length === 1 ? [...l.history, { date: l.lastSeen, price }] : l.history;
+  const history = l.history;
 
   return (
     <>
@@ -79,21 +79,27 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
             <p className="small muted" style={{ marginBottom: 0 }}>{s.reasons.filter((r) => !r.includes("медианы")).join(" · ")}</p>
           )}
           <h3 style={{ marginTop: 20 }}>История цены</h3>
-          <LineChart
-            height={180}
-            step
-            dots={history.length < 20}
-            series={[{ points: history.map((h) => ({ x: t(h.date), y: h.price })), fill: true }]}
-            formatX={(x) => new Date(x).toLocaleDateString("ru-RU", { day: "numeric", month: "short" })}
-            formatY={(y) => mln(y, 1).replace(" ₸", "")}
-          />
+          {l.history.length > 1 ? (
+            <LineChart
+              height={180}
+              step
+              dots={history.length < 20}
+              series={[{ points: history.map((h) => ({ x: t(h.date), y: h.price })), fill: true }]}
+              formatX={(x) => new Date(x).toLocaleDateString("ru-RU", { day: "numeric", month: "short" })}
+              formatY={(y) => mln(y, 1).replace(" ₸", "")}
+            />
+          ) : (
+            <p className="muted small" style={{ margin: 0 }}>
+              Отслеживаем с {date(l.firstSeen)}. Изменения цены появятся здесь, как только продавец её поменяет.
+            </p>
+          )}
         </div>
 
         <div className="card">
           <h3>Параметры</h3>
           <dl className="kv">
             <dt>Площадь</dt><dd>{l.area} м²{l.kitchenArea ? ` · кухня ${l.kitchenArea} м²` : ""}</dd>
-            <dt>Этаж</dt><dd>{l.floor} из {l.floors}</dd>
+            {l.floor && <><dt>Этаж</dt><dd>{l.floor} из {l.floors}</dd></>}
             {l.year && <><dt>Год постройки</dt><dd>{l.year}</dd></>}
             {l.buildingType && <><dt>Дом</dt><dd>{l.buildingType}</dd></>}
             {l.condition && <><dt>Состояние</dt><dd>{l.condition}</dd></>}

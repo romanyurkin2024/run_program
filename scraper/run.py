@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import re
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -39,9 +40,15 @@ def reject_reason(item: dict, cfg: dict) -> str | None:
 
 def is_near(listing: dict, cfg: dict) -> bool:
     near = cfg["near"]
-    complex_name = (listing.get("complex") or "").lower()
-    address = (listing.get("address") or "").lower()
-    return any(c.lower() in complex_name for c in near["complexes"]) or any(s.lower() in address for s in near["streets"])
+    complex_name = (listing.get("complex") or "").strip().lower()
+    if complex_name and complex_name in {c.lower() for c in near["complexes"]}:
+        return True
+    address = listing.get("address") or ""
+    for st in near["streets"]:
+        m = re.search(re.escape(st["name"]) + r"\S*\s+(\d+)", address, re.IGNORECASE)
+        if m and st["from"] <= int(m.group(1)) <= st["to"]:
+            return True
+    return False
 
 
 def apply_snapshot(listing: dict | None, item: dict, today: str) -> dict:

@@ -62,12 +62,13 @@ export function scoreListings(listings: Listing[], now = new Date()): Scored[] {
     const base = peers && peers.length >= 3 ? median(peers) : all;
     const vsMedian = base && ppm2 ? ppm2 / base - 1 : 0;
     const reasons: string[] = [];
-    let score = 50 - vsMedian * 250; // −10% к медиане → +25
-    if (vsMedian <= -0.05) reasons.push(`на ${Math.round(-vsMedian * 100)}% дешевле медианы`);
+    let score = 50 - Math.max(-0.3, Math.min(0.3, vsMedian)) * 120; // −10% к медиане → +12
+    if (vsMedian <= -0.25) reasons.push("подозрительно дёшево — проверьте объявление");
+    else if (vsMedian <= -0.05) reasons.push(`на ${Math.round(-vsMedian * 100)}% дешевле медианы`);
     if (vsMedian >= 0.05) reasons.push(`на ${Math.round(vsMedian * 100)}% дороже медианы`);
     const drop = -priceChange(listing);
     if (drop > 0) {
-      score += Math.min(15, (drop / firstPrice(listing)) * 300);
+      score += Math.min(12, (drop / firstPrice(listing)) * 240);
       reasons.push("цену снижали");
     }
     const days = daysOnMarket(listing, now);

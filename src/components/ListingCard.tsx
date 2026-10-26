@@ -37,7 +37,7 @@ export function ListingCard({ s, fin }: { s: Scored; fin: Finances }) {
           )}
         </div>
         <div className="listing-meta">
-          {num(Math.round(s.ppm2))} ₸/м² · {l.area} м² · {l.floor}/{l.floors} эт.{l.year ? ` · ${l.year}` : ""}
+          {[`${num(Math.round(s.ppm2))} ₸/м²`, `${l.area} м²`, l.floor && `${l.floor}/${l.floors} эт.`, l.year].filter(Boolean).join(" · ")}
         </div>
         <div style={{ fontWeight: 600 }}>{l.complex ? `ЖК ${l.complex}` : l.title}</div>
         <div className="listing-meta">{l.address}</div>
@@ -50,7 +50,8 @@ export function ListingCard({ s, fin }: { s: Scored; fin: Finances }) {
           ) : (
             <span className="badge red">Не проходит по ипотеке</span>
           )}
-          {s.vsMedian <= -0.03 && <span className="badge blue">−{pct(-s.vsMedian * 100, 0)} к медиане</span>}
+          {s.vsMedian <= -0.25 && <span className="badge orange">Проверить цену</span>}
+          {s.vsMedian <= -0.03 && s.vsMedian > -0.25 && <span className="badge blue">−{pct(-s.vsMedian * 100, 0)} к медиане</span>}
           {l.condition && <span className="badge">{l.condition}</span>}
         </div>
       </div>

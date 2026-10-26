@@ -1,17 +1,67 @@
 {
-  "_comment": "Что ищем. near — признаки района у MEGA Alma-Ata: объявление считается «рядом», если ЖК или адрес содержит одно из слов. Правьте списки свободно.",
+  "_comment": "Что ищем. near — район у MEGA Alma-Ata: объявление «рядом», если его ЖК в списке complexes (точное совпадение) или адрес на улице из streets с номером дома в диапазоне. Правьте списки свободно.",
   "rooms": 3,
   "minYear": 2012,
   "minPrice": 50000000,
   "maxPrice": 160000000,
   "minArea": 70,
-  "excludeConditions": ["черновая отделка", "свободная планировка", "требует ремонта", "предчистовая"],
+  "excludeConditions": [
+    "черновая отделка",
+    "свободная планировка",
+    "требует ремонта",
+    "предчистовая"
+  ],
   "near": {
-    "complexes": ["Estet", "Element", "Terra", "Mega", "ATRIA"],
-    "streets": ["Розыбакиева", "Ескараева", "Радостовца", "Мустафина", "Березовского", "Кожамкулова", "Гагарина", "Жарокова", "Тимирязева", "Аль-Фараби", "Сатпаева"]
+    "complexes": [
+      "Estet",
+      "Element",
+      "Terra",
+      "4YOU",
+      "Вавилон",
+      "R-House",
+      "Galileo Terrace",
+      "Seven Hills",
+      "Atameken",
+      "Elif Garden",
+      "Космо"
+    ],
+    "streets": [
+      {
+        "name": "Розыбакиева",
+        "from": 150,
+        "to": 300
+      },
+      {
+        "name": "Гагарина",
+        "from": 200,
+        "to": 320
+      },
+      {
+        "name": "Тажибаевой",
+        "from": 100,
+        "to": 200
+      },
+      {
+        "name": "Серкебаева",
+        "from": 200,
+        "to": 260
+      },
+      {
+        "name": "Радостовца",
+        "from": 150,
+        "to": 300
+      },
+      {
+        "name": "Ескараева",
+        "from": 0,
+        "to": 999
+      }
+    ]
   },
   "krisha": {
-    "searchUrls": ["https://krisha.kz/prodazha/kvartiry/almaty-bostandykskij/"],
+    "searchUrls": [
+      "https://krisha.kz/prodazha/kvartiry/almaty-bostandykskij/"
+    ],
     "maxPages": 90
   }
 }
