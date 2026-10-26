@@ -1,0 +1,60 @@
+name: Scrape
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # 07:00 по Алматы
+  workflow_dispatch:
+    inputs:
+      probe:
+        description: "Отладка: сохранить сырые страницы в ветку probe"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: scrape
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scraper/requirements.txt
+      - run: pip install -r scraper/requirements.txt
+      - run: python -m unittest scraper.test_scraper
+      - name: Scrape
+        shell: bash # включает pipefail, чтобы ошибка парсера не терялась за tee
+        run: python -m scraper.run ${{ inputs.probe && '--probe' || '' }} 2>&1 | tee scrape.log
+      - name: Push probe pages
+        if: ${{ inputs.probe }}
+        run: |
+          mkdir -p debug && cp scrape.log debug/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan probe
+          git rm -rfq --cached .
+          git add -f debug
+          git commit -qm "Probe pages $(date -u +%FT%TZ)"
+          git push -f origin probe
+      - name: Commit data
+        if: ${{ !inputs.probe }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data
+          git diff --cached --quiet && exit 0
+          git commit -m "Data: $(date -u +%F)"
+          git push
+
+  deploy:
+    needs: scrape
+    if: ${{ !inputs.probe }}
+    uses: ./.github/workflows/deploy.yml

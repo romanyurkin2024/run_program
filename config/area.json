@@ -1,0 +1,15 @@
+{
+  "_comment": "Район поиска: окрестности ТРЦ MEGA Alma-Ata (Розыбакиева / Аль-Фараби / Гагарина / Тимирязева). Координаты — прямоугольник на карте.",
+  "rooms": 3,
+  "minYear": 2012,
+  "maxPrice": 160000000,
+  "minArea": 70,
+  "bbox": { "latMin": 43.192, "latMax": 43.232, "lonMin": 76.862, "lonMax": 76.922 },
+  "excludeConditions": ["черновая отделка", "свободная планировка", "требует ремонта", "предчистовая"],
+  "krisha": {
+    "searchUrls": [
+      "https://krisha.kz/prodazha/kvartiry/almaty-bostandykskij/"
+    ],
+    "maxPages": 15
+  }
+}

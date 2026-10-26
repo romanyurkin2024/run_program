@@ -1,0 +1,43 @@
+export interface PricePoint {
+  date: string; // YYYY-MM-DD
+  price: number;
+}
+
+export interface Seller {
+  name?: string;
+  type?: "owner" | "agent" | "developer" | string;
+  phones?: string[];
+}
+
+export interface Listing {
+  id: string; // "krisha:123456"
+  source: string; // "krisha"
+  url: string;
+  title: string;
+  complex?: string;
+  address?: string;
+  district?: string;
+  lat?: number;
+  lon?: number;
+  rooms?: number;
+  area?: number;
+  kitchenArea?: number;
+  floor?: number;
+  floors?: number;
+  year?: number;
+  condition?: string;
+  buildingType?: string;
+  bathroom?: string;
+  photos: string[];
+  seller?: Seller;
+  description?: string;
+  firstSeen: string;
+  lastSeen: string;
+  active: boolean;
+  history: PricePoint[];
+}
+
+export interface ListingsFile {
+  updatedAt: string | null;
+  listings: Listing[];
+}

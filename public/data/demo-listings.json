@@ -1,0 +1,573 @@
+{
+ "updatedAt": "2026-10-26",
+ "listings": [
+  {
+   "id": "demo:1000",
+   "source": "olx",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 93.7 м²",
+   "complex": "Estet",
+   "address": "Алматы, Бостандыкский р-н, Розыбакиева 197/2",
+   "district": "Бостандыкский",
+   "lat": 43.19850608067103,
+   "lon": 76.89465576011807,
+   "rooms": 3,
+   "area": 93.7,
+   "kitchenArea": 14.1,
+   "floor": 9,
+   "floors": 12,
+   "year": 2019,
+   "condition": "евроремонт",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/0-0.svg",
+    "data/demo/0-1.svg",
+    "data/demo/0-2.svg",
+    "data/demo/0-3.svg",
+    "data/demo/0-4.svg"
+   ],
+   "seller": {
+    "name": "Айгерим",
+    "type": "owner",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-08-01",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-08-01",
+     "price": 85800000
+    }
+   ]
+  },
+  {
+   "id": "demo:1001",
+   "source": "olx",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 97.6 м²",
+   "complex": "Element",
+   "address": "Алматы, Бостандыкский р-н, Розыбакиева 247",
+   "district": "Бостандыкский",
+   "lat": 43.207038931558486,
+   "lon": 76.90195417884914,
+   "rooms": 3,
+   "area": 97.6,
+   "kitchenArea": 14.6,
+   "floor": 13,
+   "floors": 16,
+   "year": 2021,
+   "condition": "евроремонт",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/1-0.svg",
+    "data/demo/1-1.svg",
+    "data/demo/1-2.svg",
+    "data/demo/1-3.svg",
+    "data/demo/1-4.svg"
+   ],
+   "seller": {
+    "name": "Данияр",
+    "type": "owner",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-10-12",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-10-12",
+     "price": 87500000
+    },
+    {
+     "date": "2026-10-15",
+     "price": 85000000
+    },
+    {
+     "date": "2026-10-19",
+     "price": 84500000
+    },
+    {
+     "date": "2026-10-22",
+     "price": 84000000
+    }
+   ]
+  },
+  {
+   "id": "demo:1002",
+   "source": "olx",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 102.0 м²",
+   "complex": "Terra",
+   "address": "Алматы, Бостандыкский р-н, Гагарина 233",
+   "district": "Бостандыкский",
+   "lat": 43.201935709185626,
+   "lon": 76.8993225271824,
+   "rooms": 3,
+   "area": 102.0,
+   "kitchenArea": 15.3,
+   "floor": 3,
+   "floors": 12,
+   "year": 2017,
+   "condition": "евроремонт",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/2-0.svg",
+    "data/demo/2-1.svg",
+    "data/demo/2-2.svg",
+    "data/demo/2-3.svg",
+    "data/demo/2-4.svg"
+   ],
+   "seller": {
+    "name": "Данияр",
+    "type": "agent",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-08-31",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-08-31",
+     "price": 93000000
+    }
+   ]
+  },
+  {
+   "id": "demo:1003",
+   "source": "krisha",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 85.5 м²",
+   "complex": "Mega Towers",
+   "address": "Алматы, Бостандыкский р-н, Розыбакиева 220",
+   "district": "Бостандыкский",
+   "lat": 43.20788639957091,
+   "lon": 76.89155184611339,
+   "rooms": 3,
+   "area": 85.5,
+   "kitchenArea": 12.8,
+   "floor": 11,
+   "floors": 16,
+   "year": 2020,
+   "condition": "хорошее",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/3-0.svg",
+    "data/demo/3-1.svg",
+    "data/demo/3-2.svg",
+    "data/demo/3-3.svg",
+    "data/demo/3-4.svg"
+   ],
+   "seller": {
+    "name": "Ержан",
+    "type": "agent",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-08-12",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-08-12",
+     "price": 89900000
+    }
+   ]
+  },
+  {
+   "id": "demo:1004",
+   "source": "olx",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 92.8 м²",
+   "complex": "Alma City",
+   "address": "Алматы, Бостандыкский р-н, Аль-Фараби 98",
+   "district": "Бостандыкский",
+   "lat": 43.20492186175288,
+   "lon": 76.88986951379917,
+   "rooms": 3,
+   "area": 92.8,
+   "kitchenArea": 13.9,
+   "floor": 15,
+   "floors": 18,
+   "year": 2018,
+   "condition": "хорошее",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/4-0.svg",
+    "data/demo/4-1.svg",
+    "data/demo/4-2.svg",
+    "data/demo/4-3.svg",
+    "data/demo/4-4.svg"
+   ],
+   "seller": {
+    "name": "Айгерим",
+    "type": "owner",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-09-22",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-09-22",
+     "price": 99400000
+    }
+   ]
+  },
+  {
+   "id": "demo:1005",
+   "source": "krisha",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 100.4 м²",
+   "complex": "Estet",
+   "address": "Алматы, Бостандыкский р-н, Розыбакиева 197/2",
+   "district": "Бостандыкский",
+   "lat": 43.19762731611276,
+   "lon": 76.89636431713069,
+   "rooms": 3,
+   "area": 100.4,
+   "kitchenArea": 15.1,
+   "floor": 18,
+   "floors": 22,
+   "year": 2019,
+   "condition": "дизайнерский ремонт",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/5-0.svg",
+    "data/demo/5-1.svg",
+    "data/demo/5-2.svg",
+    "data/demo/5-3.svg",
+    "data/demo/5-4.svg"
+   ],
+   "seller": {
+    "name": "Ольга",
+    "type": "agent",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-09-10",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-09-10",
+     "price": 92300000
+    }
+   ]
+  },
+  {
+   "id": "demo:1006",
+   "source": "krisha",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 107.0 м²",
+   "complex": "Element",
+   "address": "Алматы, Бостандыкский р-н, Розыбакиева 247",
+   "district": "Бостандыкский",
+   "lat": 43.20815267308523,
+   "lon": 76.88429999951433,
+   "rooms": 3,
+   "area": 107.0,
+   "kitchenArea": 16.1,
+   "floor": 10,
+   "floors": 18,
+   "year": 2021,
+   "condition": "дизайнерский ремонт",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/6-0.svg",
+    "data/demo/6-1.svg",
+    "data/demo/6-2.svg",
+    "data/demo/6-3.svg",
+    "data/demo/6-4.svg"
+   ],
+   "seller": {
+    "name": "Ержан",
+    "type": "agent",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-08-10",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-08-10",
+     "price": 109400000
+    },
+    {
+     "date": "2026-08-29",
+     "price": 108900000
+    },
+    {
+     "date": "2026-09-17",
+     "price": 108400000
+    }
+   ]
+  },
+  {
+   "id": "demo:1007",
+   "source": "krisha",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 107.8 м²",
+   "complex": "Terra",
+   "address": "Алматы, Бостандыкский р-н, Гагарина 233",
+   "district": "Бостандыкский",
+   "lat": 43.1996887740625,
+   "lon": 76.88534191588964,
+   "rooms": 3,
+   "area": 107.8,
+   "kitchenArea": 16.2,
+   "floor": 2,
+   "floors": 22,
+   "year": 2017,
+   "condition": "евроремонт",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/7-0.svg",
+    "data/demo/7-1.svg",
+    "data/demo/7-2.svg",
+    "data/demo/7-3.svg",
+    "data/demo/7-4.svg"
+   ],
+   "seller": {
+    "name": "Ольга",
+    "type": "owner",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-09-09",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-09-09",
+     "price": 117800000
+    }
+   ]
+  },
+  {
+   "id": "demo:1008",
+   "source": "krisha",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 108.6 м²",
+   "complex": "Mega Towers",
+   "address": "Алматы, Бостандыкский р-н, Розыбакиева 220",
+   "district": "Бостандыкский",
+   "lat": 43.20342630810135,
+   "lon": 76.8885567826157,
+   "rooms": 3,
+   "area": 108.6,
+   "kitchenArea": 16.3,
+   "floor": 5,
+   "floors": 16,
+   "year": 2020,
+   "condition": "хорошее",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/8-0.svg",
+    "data/demo/8-1.svg",
+    "data/demo/8-2.svg",
+    "data/demo/8-3.svg",
+    "data/demo/8-4.svg"
+   ],
+   "seller": {
+    "name": "Ольга",
+    "type": "agent",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-08-21",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-08-21",
+     "price": 105900000
+    }
+   ]
+  },
+  {
+   "id": "demo:1009",
+   "source": "krisha",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 117.5 м²",
+   "complex": "Alma City",
+   "address": "Алматы, Бостандыкский р-н, Аль-Фараби 98",
+   "district": "Бостандыкский",
+   "lat": 43.199819483655844,
+   "lon": 76.8876391373364,
+   "rooms": 3,
+   "area": 117.5,
+   "kitchenArea": 17.6,
+   "floor": 8,
+   "floors": 16,
+   "year": 2018,
+   "condition": "евроремонт",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/9-0.svg",
+    "data/demo/9-1.svg",
+    "data/demo/9-2.svg",
+    "data/demo/9-3.svg",
+    "data/demo/9-4.svg"
+   ],
+   "seller": {
+    "name": "Ержан",
+    "type": "owner",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-09-05",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-09-05",
+     "price": 122700000
+    }
+   ]
+  },
+  {
+   "id": "demo:1010",
+   "source": "krisha",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 91.5 м²",
+   "complex": "Estet",
+   "address": "Алматы, Бостандыкский р-н, Розыбакиева 197/2",
+   "district": "Бостандыкский",
+   "lat": 43.21139252816093,
+   "lon": 76.89859938981412,
+   "rooms": 3,
+   "area": 91.5,
+   "kitchenArea": 13.7,
+   "floor": 11,
+   "floors": 12,
+   "year": 2019,
+   "condition": "дизайнерский ремонт",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/10-0.svg",
+    "data/demo/10-1.svg",
+    "data/demo/10-2.svg",
+    "data/demo/10-3.svg",
+    "data/demo/10-4.svg"
+   ],
+   "seller": {
+    "name": "Ержан",
+    "type": "agent",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-08-31",
+   "lastSeen": "2026-10-26",
+   "active": true,
+   "history": [
+    {
+     "date": "2026-08-31",
+     "price": 80600000
+    },
+    {
+     "date": "2026-09-14",
+     "price": 79100000
+    },
+    {
+     "date": "2026-09-28",
+     "price": 77600000
+    },
+    {
+     "date": "2026-10-12",
+     "price": 76600000
+    }
+   ]
+  },
+  {
+   "id": "demo:1011",
+   "source": "krisha",
+   "url": "https://krisha.kz/",
+   "title": "3-комнатная квартира · 96.4 м²",
+   "complex": "Element",
+   "address": "Алматы, Бостандыкский р-н, Розыбакиева 247",
+   "district": "Бостандыкский",
+   "lat": 43.204050029893196,
+   "lon": 76.88519856610002,
+   "rooms": 3,
+   "area": 96.4,
+   "kitchenArea": 14.5,
+   "floor": 10,
+   "floors": 12,
+   "year": 2021,
+   "condition": "евроремонт",
+   "buildingType": "монолитный",
+   "bathroom": "2 с/у и более",
+   "photos": [
+    "data/demo/11-0.svg",
+    "data/demo/11-1.svg",
+    "data/demo/11-2.svg",
+    "data/demo/11-3.svg",
+    "data/demo/11-4.svg"
+   ],
+   "seller": {
+    "name": "Айгерим",
+    "type": "owner",
+    "phones": [
+     "+7 700 000 00 00"
+    ]
+   },
+   "description": "Демо-описание. Светлая квартира с ремонтом, встроенная кухня, паркинг, закрытый двор.",
+   "firstSeen": "2026-08-03",
+   "lastSeen": "2026-10-26",
+   "active": false,
+   "history": [
+    {
+     "date": "2026-08-03",
+     "price": 87200000
+    },
+    {
+     "date": "2026-08-24",
+     "price": 86700000
+    },
+    {
+     "date": "2026-09-14",
+     "price": 85700000
+    }
+   ]
+  }
+ ]
+}
