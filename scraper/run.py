@@ -25,8 +25,9 @@ log = logging.getLogger("scraper")
 
 def reject_reason(item: dict, cfg: dict) -> str | None:
     """Почему объявление не подходит под наш поиск (None — подходит)."""
-    if item.get("seller", {}).get("type") == "developer":
-        return "новостройка от застройщика"
+    # квартиры от застройщика оставляем (для них работают партнёрские ипотеки), но только в сданных домах
+    if item.get("seller", {}).get("type") == "developer" and item.get("year") and item["year"] > date.today().year:
+        return "ещё строится"
     if item.get("rooms") != cfg["rooms"]:
         return "не 3 комнаты"
     if item.get("year") and item["year"] < cfg["minYear"]:

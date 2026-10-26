@@ -105,7 +105,14 @@ export interface ProgramFit {
   reasons: string[];
 }
 
-export function fitForPrice(price: number, fin: Finances): ProgramFit[] {
+/** Подходит ли партнёрская программа к квартире: продаёт ли её нужный застройщик. */
+function developerMatches(program: MortgageProgram, developer: string | undefined): boolean {
+  const d = (developer ?? "").toUpperCase();
+  return !!d && (program.developers ?? []).some((x) => d.includes(x.toUpperCase()));
+}
+
+/** listing.developer — застройщик-продавец; без него партнёрские программы показываются как условные. */
+export function fitForPrice(price: number, fin: Finances, listing?: { developer?: string }): ProgramFit[] {
   const dp = downPayment(fin);
   const loan = Math.max(0, price - dp);
   const cap = bankPaymentCap(fin);
@@ -117,8 +124,13 @@ export function fitForPrice(price: number, fin: Finances): ProgramFit[] {
     if (program.maxLoan != null && loan > program.maxLoan) reasons.push("сумма больше лимита банка");
     if (payment > cap) reasons.push("платёж > 50% дохода");
     if (payment > fin.maxPayment) reasons.push("платёж выше вашего максимума");
+    let condition = program.condition;
+    if (program.developers && listing) {
+      if (developerMatches(program, listing.developer)) condition = undefined; // квартиру продаёт партнёр — программа доступна
+      else reasons.push("только у застройщика-партнёра");
+    }
     const ok = reasons.length === 0;
-    return { program, loan, payment, ok, comfortable: ok && payment <= fin.comfortPayment, condition: program.condition, reasons };
+    return { program, loan, payment, ok, comfortable: ok && payment <= fin.comfortPayment, condition, reasons };
   });
 }
 

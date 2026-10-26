@@ -27,7 +27,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
   const others = sameFlat(l, groups).sort((a, b) => Number(b.active) - Number(a.active) || currentPrice(a) - currentPrice(b));
   const price = currentPrice(l);
   const change = price - firstPrice(l);
-  const fits = fitForPrice(price, fin);
+  const fits = fitForPrice(price, fin, { developer: l.seller?.developer });
   const dp = downPayment(fin);
   const t = (d: string) => new Date(d).getTime();
   const history = l.history;
@@ -128,7 +128,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
           <h3 style={{ marginTop: 20 }}>Продавец</h3>
           <dl className="kv">
             {l.seller?.name && <><dt>Имя</dt><dd>{l.seller.name}</dd></>}
-            {l.seller?.type && <><dt>Кто</dt><dd>{SELLER_TYPES[l.seller.type] ?? l.seller.type}</dd></>}
+            {l.seller?.type && <><dt>Кто</dt><dd>{SELLER_TYPES[l.seller.type] ?? l.seller.type}{l.seller.developer ? ` ${l.seller.developer}` : ""}</dd></>}
             {l.seller?.phones?.map((p) => (
               <Fragment key={p}><dt>Телефон</dt><dd><a href={`tel:${p.replace(/[^\d+]/g, "")}`}>{p}</a></dd></Fragment>
             ))}

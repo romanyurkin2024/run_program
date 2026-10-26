@@ -151,6 +151,8 @@ def parse_card(card: Tag) -> dict | None:
             "type": seller_type(owner_label),
             # «Крыша Агент» / «Хозяин недвижимости» — это метки, а не имена; имя есть только у застройщика
             "name": owner_label if seller_type(owner_label) == "developer" else None,
+            # «Новостройка ЖК «Estet» от застройщика «BAZIS–А»» → «BAZIS–А»: по нему подбираются партнёрские ипотеки
+            "developer": (m.group(1) if (m := re.search(r"застройщика\s*«([^»]+)»", owner_label)) else None),
         },
         "price": _int(_text(card.select_one(".a-card__price"))),
         **parse_title(title),

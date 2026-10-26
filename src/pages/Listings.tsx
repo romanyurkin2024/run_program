@@ -12,9 +12,10 @@ interface Filters {
   onlyBudget: boolean;
   showInactive: boolean;
   nearOnly: boolean;
+  seller: "" | "resale" | "developer";
 }
 
-const DEFAULT_FILTERS: Filters = { complex: "", sort: "score", onlyBudget: false, showInactive: false, nearOnly: true };
+const DEFAULT_FILTERS: Filters = { complex: "", sort: "score", onlyBudget: false, showInactive: false, nearOnly: true, seller: "" };
 const FILTERS_KEY = "kt.filters.v1";
 
 /** Фильтры переживают перезагрузку страницы (localStorage), пока их не сбросят кнопкой. */
@@ -40,7 +41,7 @@ function useFilters(): [Filters, (patch: Partial<Filters>) => void, () => void] 
 
 export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; fin: Finances; loading: boolean }) {
   const [filters, setFilters, resetFilters] = useFilters();
-  const { complex, sort, onlyBudget, showInactive, nearOnly } = filters;
+  const { complex, sort, onlyBudget, showInactive, nearOnly, seller } = filters;
   const changed = (Object.keys(DEFAULT_FILTERS) as (keyof Filters)[]).some((k) => filters[k] !== DEFAULT_FILTERS[k]);
 
   const complexes = useMemo(
@@ -55,7 +56,8 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
     if (!showInactive) xs = xs.filter((s) => s.listing.active);
     if (nearOnly) xs = xs.filter((s) => s.listing.near !== false);
     if (complex) xs = xs.filter((s) => s.listing.complex === complex);
-    if (onlyBudget) xs = xs.filter((s) => fitForPrice(currentPrice(s.listing), fin).some((f) => f.ok));
+    if (seller) xs = xs.filter((s) => (s.listing.seller?.type === "developer") === (seller === "developer"));
+    if (onlyBudget) xs = xs.filter((s) => fitForPrice(currentPrice(s.listing), fin, { developer: s.listing.seller?.developer }).some((f) => f.ok));
     const by: Record<Sort, (a: (typeof xs)[0], b: (typeof xs)[0]) => number> = {
       score: (a, b) => b.score - a.score,
       price: (a, b) => currentPrice(a.listing) - currentPrice(b.listing),
@@ -64,7 +66,7 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
       drop: (a, b) => priceChange(a.listing) - priceChange(b.listing),
     };
     return xs.sort(by[sort]);
-  }, [primaries, complex, sort, onlyBudget, showInactive, nearOnly, fin]);
+  }, [primaries, complex, sort, onlyBudget, showInactive, nearOnly, seller, fin]);
 
   return (
     <>
@@ -88,6 +90,14 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
             <option value="ppm2">Дешевле за м²</option>
             <option value="drop">Больше снижение цены</option>
             <option value="new">Новые</option>
+          </select>
+        </div>
+        <div className="field">
+          <label>Продавец</label>
+          <select value={seller} onChange={(e) => setFilters({ seller: e.target.value as Filters["seller"] })}>
+            <option value="">Все</option>
+            <option value="resale">Вторичка (собственник, агент)</option>
+            <option value="developer">От застройщика (партнёрская ипотека)</option>
           </select>
         </div>
         <div className="segmented" role="group">

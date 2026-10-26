@@ -37,6 +37,7 @@ class ParseTest(unittest.TestCase):
         self.assertTrue(c["description"].startswith("🏡 Продаётся"))
         self.assertEqual(cards["krisha:1016900411"]["seller"]["type"], "owner")
         self.assertEqual(cards["krisha:1005293694"]["seller"]["type"], "developer")
+        self.assertEqual(cards["krisha:1005293694"]["seller"]["developer"], "ТОО ADS Capital")
 
     def test_title(self):
         self.assertEqual(parse_title("3-комнатная квартира · 111.2 м²"), {"rooms": 3, "area": 111.2})
@@ -63,7 +64,8 @@ class FilterTest(unittest.TestCase):
         self.assertEqual(reject_reason(self.base(year=1975), CFG), "старый дом")
         self.assertEqual(reject_reason(self.base(condition="черновая отделка"), CFG), "без ремонта")
         self.assertEqual(reject_reason(self.base(rooms=4), CFG), "не 3 комнаты")
-        self.assertEqual(reject_reason(self.base(seller={"type": "developer"}), CFG), "новостройка от застройщика")
+        self.assertIsNone(reject_reason(self.base(seller={"type": "developer"}), CFG))  # сданный дом от застройщика оставляем
+        self.assertEqual(reject_reason(self.base(seller={"type": "developer"}, year=2099), CFG), "ещё строится")
         self.assertIsNone(reject_reason(self.base(), CFG))
 
     def test_near(self):
@@ -183,7 +185,7 @@ class RunTest(unittest.TestCase):
                 run_mod.run()
                 run_mod.run()  # второй день: «до» уже не пустое
             store = json.loads(data.read_text())
-            self.assertEqual(len(store["listings"]), 3)  # 2 новостройки отброшены
+            self.assertEqual(len(store["listings"]), 4)  # 4-комнатная от застройщика отброшена, 3-комнатная оставлена
             first, second = calls
             self.assertEqual(first[0], {})
             self.assertTrue(all(isinstance(v, dict) and "price" in v for v in second[0].values()))

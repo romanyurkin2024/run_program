@@ -37,6 +37,16 @@ describe("finance", () => {
     expect(over.reasons).toContain("взнос < 50%");
   });
 
+  it("partner mortgage applies only to flats sold by that developer", () => {
+    const find = (dev?: string) => fitForPrice(75_000_000, DEFAULT_FINANCES, { developer: dev }).find((f) => f.program.id === "altyn-tamasha")!;
+    expect(find("BAZIS–А").ok).toBe(true);
+    expect(find("BAZIS–А").condition).toBeUndefined();
+    expect(find(undefined).reasons).toContain("только у застройщика-партнёра");
+    expect(find("BI Group").ok).toBe(false);
+    // без контекста квартиры (страница «Ипотека») — показываем как условную
+    expect(fitForPrice(80_000_000, DEFAULT_FINANCES).find((f) => f.program.id === "altyn-tamasha")!.condition).toMatch(/BAZIS/);
+  });
+
   it("monthsUntil counts calendar months", () => {
     expect(monthsUntil("2027-03", new Date(2026, 9, 26))).toBe(5);
     expect(monthsUntil("2026-01", new Date(2026, 9, 26))).toBe(0);

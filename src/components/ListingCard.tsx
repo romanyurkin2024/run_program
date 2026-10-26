@@ -17,7 +17,7 @@ export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances;
   const l = s.listing;
   const price = currentPrice(l);
   const change = priceChange(l);
-  const all = fitForPrice(price, fin);
+  const all = fitForPrice(price, fin, { developer: l.seller?.developer });
   const fits = all.filter((f) => f.ok && !f.condition);
   const comfy = fits.some((f) => f.comfortable);
   // Отбасы под 8,5% при 50% на депозите — показываем отдельно, это самый дешёвый путь
@@ -66,6 +66,7 @@ export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances;
             </span>
           )}
           {l.seller?.type === "owner" && <span className="badge blue">Собственник</span>}
+          {l.seller?.type === "developer" && <span className="badge blue">От застройщика{l.seller.developer ? ` ${l.seller.developer}` : ""}</span>}
           {l.condition && <span className="badge">{l.condition}</span>}
         </div>
       </div>

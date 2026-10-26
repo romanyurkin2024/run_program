@@ -14,6 +14,8 @@ export interface MortgageProgram {
   commissionPct?: number; // разовая комиссия банка от суммы займа
   /** Условие, без выполнения которого программа недоступна (показывается как «условно»). */
   condition?: string;
+  /** Партнёрская программа: работает только при покупке у этих застройщиков (сравнение по подстроке, без регистра). */
+  developers?: string[];
   /** Доступно только через годы (не к дате покупки) — показываем в конце как вариант на будущее. */
   later?: boolean;
   note?: string;
@@ -39,6 +41,22 @@ export const PROGRAMS: MortgageProgram[] = [
       "С июня 2026 единая ставка 8,5% (ГЭСВ 9–9,6%), раньше было 6–7,5%. 50% стоимости должно лежать на депозите Отбасы. " +
       "После выполнения оценочного показателя заём переводят в жилищный под 3,5–5%. Можно ли внести сумму разом и сроки — уточнить в отделении.",
     source: "https://krisha.kz/content/news/2026/2026-otbasy-bank-povyshaet-stavku-po-ipoteke",
+    checkedAt: "2026-10-26",
+  },
+  {
+    id: "altyn-tamasha",
+    bank: "Altyn Bank",
+    name: "Ипотека «Тамаша» (партнёр BAZIS-A)",
+    rate: 18.5,
+    minDownPct: 20,
+    maxLoan: 175_000_000,
+    maxYears: 20,
+    developers: ["BAZIS"],
+    condition: "покупать у застройщика BAZIS-A (в т.ч. готовые квартиры в Estet), не у частного продавца",
+    note:
+      "Ставка 0,1–18,5% (ГЭСВ до 20,31%) зависит от субсидии застройщика и срока; в расчёте взята верхняя граница. " +
+      "Низкую ставку застройщик обычно закладывает в цену — спросите у BAZIS-A цену при оплате без ипотеки и сравните полную стоимость.",
+    source: "https://altynbank.kz/ru/personal/ipoteka-tamasha",
     checkedAt: "2026-10-26",
   },
   {
@@ -172,9 +190,9 @@ export const NOT_FOR_SECONDARY: { name: string; rate: string; reason: string; so
     source: "https://informburo.kz/novosti/otbasy-bank-opublikoval-spisok-ucastnikov-programmy-nauryz-2026",
   },
   {
-    name: "Партнёрская ипотека (Halyk, Freedom + BI Group и др.)",
+    name: "Другие партнёрские ипотеки (Halyk, Freedom + BI Group и др.)",
     rate: "0,1–18,5%",
-    reason: "субсидирует застройщик — только новостройки от партнёров банка",
+    reason: "работают только при покупке у застройщика-партнёра; у BI Group и других рядом с MEGA сданных квартир от застройщика мы пока не нашли. «Тамаша» Altyn + BAZIS-A учтена в списке выше",
     source: "https://profinance.kz/ipoteka",
   },
   {

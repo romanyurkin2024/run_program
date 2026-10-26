@@ -6,6 +6,7 @@ export interface PricePoint {
 export interface Seller {
   name?: string;
   type?: "owner" | "agent" | "developer" | string;
+  developer?: string; // название застройщика, если продаёт он сам
   phones?: string[];
 }
 
