@@ -408,3 +408,12 @@ details summary { cursor: pointer; }
   .digest-row { flex-direction: column; align-items: stretch; }
   .digest-price { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; }
 }
+.digest-toggle { width: 100%; display: grid; grid-template-columns: 14px 1fr; align-items: baseline; gap: 4px 8px; text-align: left; font: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 12px 14px; cursor: pointer; }
+.digest-toggle:hover { border-color: var(--accent); }
+.digest-toggle-title { font-size: 17px; font-weight: 600; }
+.digest-chevron { display: inline-block; width: 12px; color: var(--text-2); font-weight: 700; transition: transform .15s; }
+.digest-block.open .digest-chevron { transform: rotate(90deg); }
+.digest-preview { grid-column: 2; }
+.digest-block.open .digest-list { margin-top: 8px; }
+.digest-block { margin-top: 10px; }
+.digest-expand { display: flex; justify-content: flex-end; margin-top: 8px; }

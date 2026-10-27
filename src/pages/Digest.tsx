@@ -48,19 +48,66 @@ function Row({ l, fin, move, note }: { l: Listing; fin: Finances; move?: PriceMo
   );
 }
 
-function Block({ title, hint, children, count }: { title: string; hint?: string; count: number; children: React.ReactNode }) {
+// какие списки развёрнуты — запоминаем в браузере (по умолчанию все свёрнуты)
+const OPEN_KEY = "kt.digestOpen.v1";
+type Open = { has: (id: string) => boolean; toggle: (id: string) => void };
+
+function useOpen(): [Open, (ids: string[] | null) => void, number] {
+  const [open, setOpen] = useState<Set<string>>(() => {
+    try {
+      return new Set(JSON.parse(localStorage.getItem(OPEN_KEY) ?? "[]"));
+    } catch {
+      return new Set();
+    }
+  });
+  const save = (next: Set<string>) => {
+    setOpen(next);
+    try {
+      localStorage.setItem(OPEN_KEY, JSON.stringify([...next]));
+    } catch {
+      /* private mode */
+    }
+  };
+  const api: Open = {
+    has: (id) => open.has(id),
+    toggle: (id) => {
+      const next = new Set(open);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      save(next);
+    },
+  };
+  return [api, (ids) => save(new Set(ids ?? [])), open.size];
+}
+
+/** Список-аккордеон: заголовок с количеством, содержимое рисуем только когда развёрнут. */
+function Block({ id, open, title, hint, children, count, preview }: {
+  id: string; open: Open; title: string; hint?: string; count: number; preview?: string; children: () => React.ReactNode;
+}) {
   if (!count) return null;
+  const on = open.has(id);
   return (
-    <div className="digest-block">
-      <h3>{title} <span className="muted small">· {count}</span></h3>
-      {hint && <p className="muted small" style={{ margin: "-4px 0 8px" }}>{hint}</p>}
-      <div className="card digest-list">{children}</div>
+    <div className={`digest-block ${on ? "open" : ""}`}>
+      <button type="button" className="digest-toggle" aria-expanded={on} onClick={() => open.toggle(id)}>
+        <span className="digest-chevron" aria-hidden>›</span>
+        <span className="digest-toggle-title">{title} <span className="muted small">· {count}</span></span>
+        {!on && preview && <span className="digest-preview muted small">{preview}</span>}
+      </button>
+      {on && (
+        <>
+          {hint && <p className="muted small" style={{ margin: "4px 0 8px" }}>{hint}</p>}
+          <div className="card digest-list">{children()}</div>
+        </>
+      )}
     </div>
   );
 }
 
-function Part({ title, p, fin }: { title: string; p: DigestPart; fin: Finances }) {
-  const [showOld, setShowOld] = useState(false);
+/** Все id списков раздела — для «Развернуть все». */
+const KINDS = ["fresh", "drops", "rises", "removed", "missing", "old"] as const;
+
+function Part({ area, title, p, fin, open }: { area: string; title: string; p: DigestPart; fin: Finances; open: Open }) {
+  const top = (m?: PriceMove) => m && `${m.listing.complex ?? m.listing.address ?? ""}: ${mln(m.from, 1)} → ${mln(m.to, 1)}`;
   const relistedNote = (l: Listing) => {
     const r = p.relisted.find((x) => x.fresh.id === l.id);
     return r && `👀 Та же площадь и этаж, что у пропавшего объявления за ${mln(currentPrice(r.gone), 1)} — возможно, та же квартира (проверить по фото)`;
@@ -70,34 +117,31 @@ function Part({ title, p, fin }: { title: string; p: DigestPart; fin: Finances }
     <section className="digest-part">
       <h2>{title}</h2>
       {changes === 0 && <p className="muted">Без изменений.</p>}
-      <Block title="🆕 Новые объявления" count={p.fresh.length} hint="Вышли после прошлого сбора">
-        {p.fresh.map((l) => <Row key={l.id} l={l} fin={fin} note={relistedNote(l)} />)}
+      <Block id={`${area}-fresh`} open={open} title="🆕 Новые объявления" count={p.fresh.length} hint="Вышли после прошлого сбора"
+        preview={p.fresh.length ? `от ${mln(currentPrice(p.fresh[0]), 1)}${p.relisted.length ? " · 👀 есть возможные переопубликации" : ""}` : undefined}>
+        {() => p.fresh.map((l) => <Row key={l.id} l={l} fin={fin} note={relistedNote(l)} />)}
       </Block>
-      <Block title="↓ Подешевели" count={p.drops.length}>
-        {p.drops.map((m) => <Row key={m.listing.id} l={m.listing} fin={fin} move={m} />)}
+      <Block id={`${area}-drops`} open={open} title="↓ Подешевели" count={p.drops.length} preview={top(p.drops[0]) && `сильнее всего — ${top(p.drops[0])}`}>
+        {() => p.drops.map((m) => <Row key={m.listing.id} l={m.listing} fin={fin} move={m} />)}
       </Block>
-      <Block title="↑ Подорожали" count={p.rises.length}>
-        {p.rises.map((m) => <Row key={m.listing.id} l={m.listing} fin={fin} move={m} />)}
+      <Block id={`${area}-rises`} open={open} title="↑ Подорожали" count={p.rises.length} preview={top(p.rises[0]) && `сильнее всего — ${top(p.rises[0])}`}>
+        {() => p.rises.map((m) => <Row key={m.listing.id} l={m.listing} fin={fin} move={m} />)}
       </Block>
-      <Block title="❌ Сняты" count={p.removed.length}>
-        {p.removed.map((l) => <Row key={l.id} l={l} fin={fin} />)}
+      <Block id={`${area}-removed`} open={open} title="❌ Сняты" count={p.removed.length}>
+        {() => p.removed.map((l) => <Row key={l.id} l={l} fin={fin} />)}
       </Block>
-      <Block title="❔ Не нашлись в выдаче" count={p.missing.length} hint="Были в прошлом сборе, в этом — нет. Снятыми считаем, если их нет 2 дня подряд.">
-        {p.missing.map((l) => <Row key={l.id} l={l} fin={fin} />)}
+      <Block id={`${area}-missing`} open={open} title="❔ Не нашлись в выдаче" count={p.missing.length} hint="Были в прошлом сборе, в этом — нет. Снятыми считаем, если их нет 2 дня подряд.">
+        {() => p.missing.map((l) => <Row key={l.id} l={l} fin={fin} />)}
       </Block>
-      {p.firstTracked.length > 0 && (
-        <div className="digest-block">
-          <button className="btn ghost inline" onClick={() => setShowOld(!showOld)}>
-            {showOld ? "Скрыть" : "Показать"} объявления, впервые попавшие в трекер, но опубликованные раньше · {p.firstTracked.length}
-          </button>
-          {showOld && <div className="card digest-list" style={{ marginTop: 8 }}>{p.firstTracked.map((l) => <Row key={l.id} l={l} fin={fin} />)}</div>}
-        </div>
-      )}
+      <Block id={`${area}-old`} open={open} title="🗂 Впервые в трекере, но опубликованы раньше" count={p.firstTracked.length} hint="Старые объявления, которые трекер увидел впервые (например, после расширения поиска) — не новинки рынка">
+        {() => p.firstTracked.map((l) => <Row key={l.id} l={l} fin={fin} />)}
+      </Block>
     </section>
   );
 }
 
 export function DigestPage({ listings, fin, loading, day }: { listings: Listing[]; fin: Finances; loading: boolean; day?: string }) {
+  const [open, setAll, openCount] = useOpen();
   const days = useMemo(() => scrapeDays(listings), [listings]);
   const current = day && days.includes(day) ? day : days[0];
   const d = useMemo(() => (current ? buildDigest(listings, current) : null), [listings, current]);
@@ -141,8 +185,13 @@ export function DigestPage({ listings, fin, loading, day }: { listings: Listing[
               </div>
             ))}
           </div>
-          <Part title="📍 Рядом с MEGA" p={d.near} fin={fin} />
-          <Part title="🗺 Остальной Бостандыкский район" p={d.rest} fin={fin} />
+          <div className="digest-expand">
+            <button className="btn ghost inline" onClick={() => setAll(openCount ? null : ["near", "rest"].flatMap((a) => KINDS.filter((k) => k !== "old").map((k) => `${a}-${k}`)))}>
+              {openCount ? "Свернуть все" : "Развернуть все"}
+            </button>
+          </div>
+          <Part area="near" title="📍 Рядом с MEGA" p={d.near} fin={fin} open={open} />
+          <Part area="rest" title="🗺 Остальной Бостандыкский район" p={d.rest} fin={fin} open={open} />
         </>
       )}
     </>
