@@ -2,7 +2,10 @@ name: Scrape
 
 on:
   schedule:
-    - cron: "0 2 * * *" # 07:00 по Алматы
+    # GitHub откладывает и иногда пропускает запуски «ровно в час» (пиковая нагрузка), поэтому:
+    # основной запуск не на :00, и страховочный через час — он ничего не делает, если данные за сегодня уже есть
+    - cron: "13 1 * * *" # 06:13 по Алматы
+    - cron: "23 2 * * *" # 07:23 по Алматы, страховка
   workflow_dispatch:
     inputs:
       probe:
@@ -35,7 +38,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python -m scraper.run ${{ inputs.probe && '--probe' || '' }} 2>&1 | tee scrape.log
+        run: python -m scraper.run ${{ inputs.probe && '--probe' || '' }} ${{ github.event_name == 'schedule' && '--if-stale' || '' }} 2>&1 | tee scrape.log
       - name: Push probe pages
         if: ${{ inputs.probe }}
         run: |

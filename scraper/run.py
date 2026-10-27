@@ -98,10 +98,18 @@ def mark_gone(listings: dict[str, dict], today: str) -> int:
     return n
 
 
-def run(probe: bool = False) -> None:
+def already_collected_today(store: dict, today: str) -> bool:
+    """Данные за сегодня уже есть — повторный (страховочный) запуск по расписанию не нужен."""
+    return bool(store.get("updatedAt")) and store["updatedAt"][:10] == today
+
+
+def run(probe: bool = False, if_stale: bool = False) -> None:
     cfg = json.loads(CONFIG.read_text())
     today = date.today().isoformat()
     store = json.loads(DATA.read_text()) if DATA.exists() else {"updatedAt": None, "listings": []}
+    if if_stale and already_collected_today(store, today):
+        log.info("данные за %s уже собраны — пропускаю", today)
+        return
     by_id = {l["id"]: l for l in store["listings"]}
     prev_state = notify.snapshot(store["listings"])
 
@@ -171,6 +179,7 @@ def run(probe: bool = False) -> None:
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--probe", action="store_true")
+    ap.add_argument("--if-stale", action="store_true", help="ничего не делать, если данные за сегодня уже собраны")
     args = ap.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-    run(probe=args.probe)
+    run(probe=args.probe, if_stale=args.if_stale)

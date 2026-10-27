@@ -192,5 +192,13 @@ class RunTest(unittest.TestCase):
             notify.build_report(second[0], second[1], second[2], second[3])  # не падает
 
 
+class StaleTest(unittest.TestCase):
+    def test_already_collected_today(self):
+        from scraper.run import already_collected_today
+        self.assertTrue(already_collected_today({"updatedAt": "2026-10-27T01:20:00+00:00"}, "2026-10-27"))
+        self.assertFalse(already_collected_today({"updatedAt": "2026-10-26T17:00:56+00:00"}, "2026-10-27"))
+        self.assertFalse(already_collected_today({"updatedAt": None}, "2026-10-27"))
+
+
 if __name__ == "__main__":
     unittest.main()
