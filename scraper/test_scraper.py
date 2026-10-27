@@ -172,6 +172,14 @@ class ReportTest(unittest.TestCase):
         self.assertAlmostEqual(notify.otbasy_payment(83e6, cfg), 330_000, delta=1500)
         self.assertIsNone(notify.otbasy_payment(95e6, cfg))  # взнос меньше 50%
 
+    def test_send_falls_back_to_plain_text_on_bad_html(self):
+        bad = mock.Mock(ok=False, status_code=400, text="Bad Request: can't parse entities")
+        good = mock.Mock(ok=True, status_code=200, text="{}")
+        with mock.patch.object(notify.requests, "post", side_effect=[bad, good]) as post:
+            notify.send("a < b", "t", "1")
+        self.assertEqual(post.call_count, 2)
+        self.assertNotIn("parse_mode", post.call_args.kwargs["json"])
+
     def test_chunks(self):
         parts = notify.chunks("\n".join(["x" * 100] * 100), limit=1000)
         self.assertTrue(all(len(p) <= 1000 for p in parts))

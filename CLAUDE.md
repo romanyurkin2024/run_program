@@ -11,5 +11,6 @@
 ## Проект
 - Сайт: Vite + React + TS (`src/`), деплой на GitHub Pages через Actions. Сборщик Krisha — `scraper/` (Python), данные — `public/data/listings.json`.
 - Ипотечные программы и реестр партнёрских предложений — `src/config/banks.ts`; страница «Банки» (`#/programs`).
+- Разбор Claude уходит в Telegram через ветку `outbox` (файл `outbox/telegram.html`, workflow `telegram-outbox.yml`), токен только в секретах GitHub.
 - Тесты: `npm test`, `python -m unittest scraper.test_scraper`. Скриншоты: `node scripts/screenshots.mjs <папка>`.
 - Финансы семьи (ориентиры): взнос ≈ 43 млн, доход 1,77 млн/мес, обязательства 300 тыс/мес, оба — сотрудники и зарплатные клиенты БЦК.

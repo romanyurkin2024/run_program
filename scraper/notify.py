@@ -4,6 +4,7 @@
 
     python -m scraper.notify --setup   — бот ответит каждому, кто ему написал, его chat id
                                          (а если TELEGRAM_CHAT_ID уже задан — пришлёт тестовое сообщение)
+    python -m scraper.notify --send-file outbox/telegram.html — отправить готовый текст (разбор Claude)
 """
 from __future__ import annotations
 
@@ -189,11 +190,12 @@ def chunks(text: str, limit: int = LIMIT) -> list[str]:
 
 def send(text: str, token: str, chat_id: str) -> None:
     for part in chunks(text):
-        r = requests.post(
-            API.format(token=token, method="sendMessage"),
-            json={"chat_id": chat_id, "text": part, "parse_mode": "HTML", "disable_web_page_preview": True},
-            timeout=30,
-        )
+        payload = {"chat_id": chat_id, "text": part, "parse_mode": "HTML", "disable_web_page_preview": True}
+        r = requests.post(API.format(token=token, method="sendMessage"), json=payload, timeout=30)
+        if r.status_code == 400 and "parse entities" in r.text:
+            # битая HTML-разметка (обычно в тексте, написанном не нами) — лучше отправить как есть, чем потерять
+            payload.pop("parse_mode")
+            r = requests.post(API.format(token=token, method="sendMessage"), json=payload, timeout=30)
         if not r.ok:
             raise RuntimeError(f"sendMessage {r.status_code}: {r.text[:300]}")
 
@@ -234,9 +236,19 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--setup", action="store_true")
     ap.add_argument("--preview", action="store_true", help="напечатать отчёт по текущим данным, ничего не отправляя")
+    ap.add_argument("--send-file", help="отправить текст из файла (HTML-разметка Telegram)")
     args = ap.parse_args()
     if args.setup:
         setup()
+    elif args.send_file:
+        token, chat_id = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
+        if not token or not chat_id:
+            raise SystemExit("нужны секреты TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID")
+        text = Path(args.send_file).read_text().strip()
+        if not text:
+            raise SystemExit(f"{args.send_file} пустой")
+        send(text, token, chat_id)
+        log.info("telegram: отправлено %d символов", len(text))
     elif args.preview:
         root = Path(__file__).resolve().parent.parent
         store = json.loads((root / "public/data/listings.json").read_text())

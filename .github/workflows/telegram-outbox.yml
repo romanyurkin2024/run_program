@@ -1,0 +1,29 @@
+name: Telegram outbox
+
+# Утренний разбор Claude кладёт текст в outbox/telegram.html и пушит в ветку outbox —
+# отправляем его в Telegram секретами репозитория (токен не нужен в окружении Claude).
+on:
+  push:
+    branches: [outbox]
+    paths: [outbox/telegram.html]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: telegram-outbox
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scraper/requirements.txt
+      - run: python -m scraper.notify --send-file outbox/telegram.html
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
