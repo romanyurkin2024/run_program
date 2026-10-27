@@ -226,6 +226,25 @@ class FinishTest(unittest.TestCase):
         self.assertEqual(classify_finish({}), (None, None))
 
 
+class PostedDateTest(unittest.TestCase):
+    def test_card_date(self):
+        from datetime import date
+        from scraper.sources.krisha import parse_card_date
+        today = date(2026, 10, 27)
+        self.assertEqual(parse_card_date("26 окт.", today), "2026-10-26")
+        self.assertEqual(parse_card_date("3 дек.", today), "2025-12-03")  # года нет — значит прошлый
+        self.assertEqual(parse_card_date("сегодня", today), "2026-10-27")
+        self.assertEqual(parse_card_date("вчера", today), "2026-10-26")
+        self.assertIsNone(parse_card_date("Алматы", today))
+
+    def test_from_fixture_and_first_posted_is_kept(self):
+        cards = parse_search(FIXTURE)
+        self.assertTrue(all(c["posted"] for c in cards))
+        l = run_mod.apply_snapshot(None, {**cards[0], "posted": "2026-10-20"}, "2026-10-26")
+        l = run_mod.apply_snapshot(l, {**cards[0], "posted": "2026-10-27"}, "2026-10-27")
+        self.assertEqual((l["posted"], l["postedFirst"]), ("2026-10-27", "2026-10-20"))
+
+
 class StaleTest(unittest.TestCase):
     def test_already_collected_today(self):
         from scraper.run import already_collected_today

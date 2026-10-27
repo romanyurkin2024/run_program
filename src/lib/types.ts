@@ -45,6 +45,9 @@ export interface Listing {
   seller?: Seller;
   description?: string;
   firstSeen: string;
+  /** Дата на карточке Krisha (публикация или поднятие — Krisha не уточняет) и самая ранняя из увиденных */
+  posted?: string;
+  postedFirst?: string;
   lastSeen: string;
   active: boolean;
   near?: boolean; // рядом с MEGA (по ЖК/улице из config/area.json)

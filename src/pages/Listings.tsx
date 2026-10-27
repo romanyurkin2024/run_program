@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { ListingCard } from "../components/ListingCard";
 import { Finances, fitForPrice } from "../lib/finance";
-import { currentPrice, daysOnMarket, dedupe, priceChange, sameFlat, scoreListings } from "../lib/listings";
+import { currentPrice, dedupe, postedDate, priceChange, sameFlat, scoreListings } from "../lib/listings";
+import { dayHeading } from "../lib/format";
 import { FINISH_LABELS, Finish, Listing } from "../lib/types";
 
 type Sort = "score" | "price" | "ppm2" | "new" | "drop";
@@ -40,6 +41,17 @@ function useFilters(): [Filters, (patch: Partial<Filters>) => void, () => void] 
   return [filters, (patch) => setFilters((f) => ({ ...f, ...patch })), () => setFilters(DEFAULT_FILTERS)];
 }
 
+/** Уже отсортированный по дате список → [[день, объявления], ...] */
+function byDay<T extends { listing: Listing }>(xs: T[]): [string, T[]][] {
+  const out: [string, T[]][] = [];
+  for (const x of xs) {
+    const d = postedDate(x.listing);
+    if (out.length && out[out.length - 1][0] === d) out[out.length - 1][1].push(x);
+    else out.push([d, [x]]);
+  }
+  return out;
+}
+
 export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; fin: Finances; loading: boolean }) {
   const [filters, setFilters, resetFilters] = useFilters();
   const { complex, sort, onlyBudget, showInactive, nearOnly, seller, finish } = filters;
@@ -66,7 +78,7 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
       score: (a, b) => b.score - a.score,
       price: (a, b) => currentPrice(a.listing) - currentPrice(b.listing),
       ppm2: (a, b) => a.ppm2 - b.ppm2,
-      new: (a, b) => daysOnMarket(a.listing) - daysOnMarket(b.listing),
+      new: (a, b) => postedDate(b.listing).localeCompare(postedDate(a.listing)) || b.score - a.score,
       drop: (a, b) => priceChange(a.listing) - priceChange(b.listing),
     };
     return xs.sort(by[sort]);
@@ -93,7 +105,7 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
             <option value="price">Дешевле</option>
             <option value="ppm2">Дешевле за м²</option>
             <option value="drop">Больше снижение цены</option>
-            <option value="new">Новые</option>
+            <option value="new">По дате (новые сверху, по дням)</option>
           </select>
         </div>
         <div className="field">
@@ -142,9 +154,22 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
       ) : (
         <>
           <p className="muted small" style={{ marginTop: 0 }}>{scored.length} квартир · одинаковые объявления разных продавцов склеены в одну карточку</p>
-          <div className="grid grid-3">
-            {scored.map((s) => <ListingCard key={s.listing.id} s={s} fin={fin} others={sameFlat(s.listing, groups)} />)}
-          </div>
+          {sort === "new" ? (
+            byDay(scored).map(([day, xs]) => (
+              <section key={day} className="day-group">
+                <h2 className="day-heading">
+                  {dayHeading(day)} <span className="muted small">· {xs.length}</span>
+                </h2>
+                <div className="grid grid-3">
+                  {xs.map((s) => <ListingCard key={s.listing.id} s={s} fin={fin} others={sameFlat(s.listing, groups)} />)}
+                </div>
+              </section>
+            ))
+          ) : (
+            <div className="grid grid-3">
+              {scored.map((s) => <ListingCard key={s.listing.id} s={s} fin={fin} others={sameFlat(s.listing, groups)} />)}
+            </div>
+          )}
         </>
       )}
     </>

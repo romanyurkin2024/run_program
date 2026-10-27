@@ -122,6 +122,16 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
             {l.year && <><dt>Год постройки</dt><dd>{l.year}</dd></>}
             {l.buildingType && <><dt>Дом</dt><dd>{l.buildingType}</dd></>}
             <dt>Отделка</dt><dd><FinishBadge l={l} /></dd>
+            {l.posted && (
+              <>
+                <dt>Дата на Krisha</dt>
+                <dd>
+                  {date(l.posted)}
+                  {l.postedFirst && l.postedFirst < l.posted ? ` (раньше было ${date(l.postedFirst)} — объявление поднимали)` : ""}
+                  <div className="muted small">Krisha не уточняет, это дата публикации или последнего поднятия</div>
+                </dd>
+              </>
+            )}
             {l.bathroom && <><dt>Санузел</dt><dd>{l.bathroom}</dd></>}
             <dt>Адрес</dt><dd>{l.address}</dd>
           </dl>

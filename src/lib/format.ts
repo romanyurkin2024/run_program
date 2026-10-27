@@ -21,6 +21,21 @@ export function date(iso: string): string {
   return new Date(iso).toLocaleDateString("ru-RU", { day: "numeric", month: "short", year: "numeric" });
 }
 
+/** «2026-10-26» → «26 окт.» (год — только если не текущий) */
+export function shortDate(iso: string, now = new Date()): string {
+  const d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString("ru-RU", { day: "numeric", month: "short", ...(d.getFullYear() !== now.getFullYear() && { year: "numeric" }) });
+}
+
+/** Заголовок дня в ленте: «Сегодня, 27 октября», «Вчера, 26 октября», «20 октября» */
+export function dayHeading(iso: string, now = new Date()): string {
+  const d = new Date(iso + "T00:00:00");
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const diff = Math.round((today.getTime() - d.getTime()) / 86_400_000);
+  const full = d.toLocaleDateString("ru-RU", { day: "numeric", month: "long", ...(d.getFullYear() !== now.getFullYear() && { year: "numeric" }) });
+  return diff === 0 ? `Сегодня, ${full}` : diff === 1 ? `Вчера, ${full}` : full;
+}
+
 export function plural(n: number, one: string, few: string, many: string): string {
   const m10 = n % 10;
   const m100 = n % 100;

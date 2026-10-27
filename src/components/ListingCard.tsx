@@ -1,5 +1,5 @@
 import { Finances, fitForPrice } from "../lib/finance";
-import { mln, num, pct } from "../lib/format";
+import { mln, num, pct, shortDate } from "../lib/format";
 import { currentPrice, isDemo, priceChange, Scored } from "../lib/listings";
 import { FINISH_LABELS, Listing } from "../lib/types";
 
@@ -19,6 +19,18 @@ export function FinishBadge({ l }: { l: Listing }) {
   const cls = l.finish === "repair" || l.finish === "clean" ? "green" : l.finish === "rough" || l.finish === "needs_repair" ? "orange" : "";
   const label = l.finishSource === "krisha" && l.condition ? l.condition : FINISH_LABELS[l.finish].toLowerCase();
   return <span className={`badge ${cls}`}>{label}{l.finishSource === "description" ? " (по описанию)" : ""}</span>;
+}
+
+/** Когда объявление появилось: дата на Krisha и с какого дня оно у нас в трекере. */
+export function PostedLine({ l }: { l: Listing }) {
+  const parts = [l.posted ? `📅 на Krisha ${shortDate(l.posted)}` : null];
+  if (l.posted && l.postedFirst && l.postedFirst < l.posted) parts.push(`раньше было ${shortDate(l.postedFirst)}`);
+  parts.push(`в трекере с ${shortDate(l.firstSeen)}`);
+  return (
+    <div className="listing-meta" title="Krisha не поясняет, это дата публикации или последнего поднятия объявления">
+      {parts.filter(Boolean).join(" · ")}
+    </div>
+  );
 }
 
 export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances; others?: Listing[] }) {
@@ -56,6 +68,7 @@ export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances;
         </div>
         <div style={{ fontWeight: 600 }}>{l.complex ? `ЖК ${l.complex}` : l.title}</div>
         <div className="listing-meta">{l.address}</div>
+        <PostedLine l={l} />
         <div className="badges" style={{ marginTop: 4 }}>
           {fits.length ? (
             <span className={`badge ${comfy ? "green" : "orange"}`}>

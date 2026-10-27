@@ -105,6 +105,10 @@ def apply_snapshot(listing: dict | None, item: dict, today: str) -> dict:
             listing.setdefault("seller", {})["phones"] = phones
     listing["lastSeen"] = today
     listing["active"] = True
+    # «posted» — последняя дата на карточке Krisha; «postedFirst» — самая ранняя из увиденных:
+    # если дата на карточке со временем сдвигается (поднятие), первая ближе к реальной публикации
+    if item.get("posted"):
+        listing["postedFirst"] = min(filter(None, [listing.get("postedFirst"), item["posted"]]))
     if not listing["history"] or listing["history"][-1]["price"] != price:
         listing["history"].append({"date": today, "price": price})
     return listing

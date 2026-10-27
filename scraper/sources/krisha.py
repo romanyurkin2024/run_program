@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import logging
+from datetime import date, timedelta
 import random
 import re
 import time
@@ -121,6 +122,35 @@ def seller_type(label: str) -> str | None:
     return None
 
 
+_MONTHS = ["янв", "фев", "мар", "апр", "мая", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"]
+
+
+def parse_card_date(text: str, today: date | None = None) -> str | None:
+    """«26 окт.» из карточки → ISO-дата. Года на карточке нет: если дата позже сегодняшней — это прошлый год.
+
+    Что именно это за дата (публикация или последнее поднятие платной услугой), Krisha не поясняет —
+    поэтому сохраняем её как «дату на Krisha» и отдельно самую раннюю из увиденных.
+    """
+    today = today or date.today()
+    t = text.strip().lower()
+    if t.startswith("сегодня"):
+        return today.isoformat()
+    if t.startswith("вчера"):
+        return (today - timedelta(days=1)).isoformat()
+    m = re.fullmatch(r"(\d{1,2})\s+([а-я]{3})[а-я]*\.?(?:\s+(\d{4}))?", t)
+    if not m or m.group(2) not in _MONTHS:
+        return None
+    month, day = _MONTHS.index(m.group(2)) + 1, int(m.group(1))
+    year = int(m.group(3)) if m.group(3) else today.year
+    try:
+        d = date(year, month, day)
+    except ValueError:
+        return None
+    if not m.group(3) and d > today:
+        d = date(year - 1, month, day)
+    return d.isoformat()
+
+
 def parse_card(card: Tag) -> dict | None:
     aid = card.get("data-id")
     title_el = card.select_one(".a-card__title")
@@ -138,6 +168,7 @@ def parse_card(card: Tag) -> dict | None:
     elif img := card.select_one("img.a-image__img"):
         photo = img.get("src")
     nb = card.select_one("a.a-card__image[data-nb]")
+    posted = next((d for el in card.select(".a-card__stats-item") if (d := parse_card_date(_text(el)))), None)
     item = {
         "id": f"krisha:{aid}",
         "source": "krisha",
@@ -155,6 +186,7 @@ def parse_card(card: Tag) -> dict | None:
             "developer": (m.group(1) if (m := re.search(r"застройщика\s*«([^»]+)»", owner_label)) else None),
         },
         "price": _int(_text(card.select_one(".a-card__price"))),
+        "posted": posted,  # дата, которую Krisha показывает на карточке
         **parse_title(title),
         **parse_preview(_text(card.select_one(".a-card__text-preview"))),
     }
