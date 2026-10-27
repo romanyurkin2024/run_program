@@ -5,6 +5,7 @@ import { Overview } from "./pages/Overview";
 import { ListingsPage } from "./pages/Listings";
 import { ScrapeControl } from "./components/ScrapeControl";
 import { FavoritesPage, JoinPage } from "./pages/Favorites";
+import { DigestPage } from "./pages/Digest";
 import { useFavorites } from "./lib/favorites";
 import { ListingDetail } from "./pages/ListingDetail";
 import { MortgagePage } from "./pages/Mortgage";
@@ -31,6 +32,7 @@ function useHashRoute(): string {
 const TABS = [
   { path: "/", label: "Обзор" },
   { path: "/listings", label: "Квартиры" },
+  { path: "/digest", label: "Сводка" },
   { path: "/favorites", label: "Избранное" },
   { path: "/mortgage", label: "Ипотека" },
   { path: "/programs", label: "Банки" },
@@ -54,6 +56,8 @@ export function App() {
     page = <ImportPage payload={route.slice("/import/".length)} listings={listings} loading={!data && !error} />;
   } else if (route === "/favorites" || route.startsWith("/favorites/import/")) {
     page = <FavoritesPage listings={listings} fin={fin} loading={!data && !error} importPayload={route.startsWith("/favorites/import/") ? route.slice("/favorites/import/".length) : undefined} />;
+  } else if (route === "/digest" || route.startsWith("/digest/")) {
+    page = <DigestPage listings={listings} fin={fin} loading={!data && !error} day={route.slice("/digest/".length) || undefined} />;
   } else if (route.startsWith("/join/")) {
     page = <JoinPage listId={route.slice("/join/".length)} />;
   } else if (route === "/programs") {
@@ -70,7 +74,7 @@ export function App() {
     page = <Overview listings={listings} fin={fin} />;
   }
 
-  const active = route.startsWith("/listing/") || route === "/listings" ? "/listings" : route.startsWith("/favorites") || route.startsWith("/join/") ? "/favorites" : route;
+  const active = route.startsWith("/listing/") || route === "/listings" ? "/listings" : route.startsWith("/favorites") || route.startsWith("/join/") ? "/favorites" : route.startsWith("/digest") ? "/digest" : route;
 
   return (
     <>
