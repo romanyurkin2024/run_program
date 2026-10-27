@@ -347,3 +347,19 @@ details summary { cursor: pointer; }
 .scrape-token input { flex: 1; min-width: 0; font: inherit; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--surface-2); color: var(--text); }
 .small-link { font-size: 13px; padding: 4px 0 0; }
 .text-red { color: var(--red); }
+
+/* Избранное */
+.fav {
+  position: absolute; right: 12px; bottom: 12px;
+  width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer;
+  font-size: 22px; line-height: 1; color: var(--text);
+  background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.fav.on { color: #ff9f0a; }
+.fav.big { position: static; width: auto; height: auto; border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 600; background: var(--surface-2); border: 1px solid var(--line); }
+.fav.big.on { border-color: #ff9f0a; }
+.fav-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; margin-top: 8px; }
+.fav-note { width: 100%; margin-top: 8px; font: inherit; font-size: 14px; padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--surface-2); color: var(--text); resize: vertical; min-height: 38px; }
+.fav-item { display: flex; flex-direction: column; }
+.fav-gone { padding: 16px 18px; }
+.tab-count { margin-left: 6px; font-size: 12px; font-weight: 700; padding: 1px 7px; border-radius: 999px; background: #ff9f0a; color: #fff; }

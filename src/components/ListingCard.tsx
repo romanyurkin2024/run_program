@@ -2,6 +2,7 @@ import { Finances, fitForPrice } from "../lib/finance";
 import { mln, num, pct, shortDate } from "../lib/format";
 import { currentPrice, isDemo, priceChange, Scored } from "../lib/listings";
 import { FINISH_LABELS, Listing } from "../lib/types";
+import { findFavorite, toggleFavorite, useFavorites } from "../lib/favorites";
 
 export const SOURCE_NAMES: Record<string, string> = { krisha: "Krisha.kz", olx: "OLX", kn: "kn.kz" };
 
@@ -19,6 +20,27 @@ export function FinishBadge({ l }: { l: Listing }) {
   const cls = l.finish === "repair" || l.finish === "clean" ? "green" : l.finish === "rough" || l.finish === "needs_repair" ? "orange" : "";
   const label = l.finishSource === "krisha" && l.condition ? l.condition : FINISH_LABELS[l.finish].toLowerCase();
   return <span className={`badge ${cls}`}>{label}{l.finishSource === "description" ? " (по описанию)" : ""}</span>;
+}
+
+/** Звёздочка «в избранное». Внутри карточки-ссылки — поэтому гасим переход по клику. */
+export function FavButton({ l, big = false }: { l: Listing; big?: boolean }) {
+  const on = !!findFavorite(useFavorites(), l);
+  return (
+    <button
+      type="button"
+      className={`fav ${on ? "on" : ""} ${big ? "big" : ""}`}
+      aria-pressed={on}
+      title={on ? "Убрать из избранного" : "В избранное"}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleFavorite(l);
+      }}
+    >
+      {on ? "★" : "☆"}
+      {big && <span>{on ? " В избранном" : " В избранное"}</span>}
+    </button>
+  );
 }
 
 export const PUBLISHED_ESTIMATE_HINT =
@@ -59,6 +81,7 @@ export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances;
           )}
         </div>
         <div className={`score badge ${scoreClass(s.score)}`} title="Оценка выгодности">{s.score}</div>
+        <FavButton l={l} />
       </div>
       <div className="listing-body">
         <div className="listing-price">

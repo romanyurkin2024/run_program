@@ -4,6 +4,8 @@ import { isDemo, useListings } from "./lib/listings";
 import { Overview } from "./pages/Overview";
 import { ListingsPage } from "./pages/Listings";
 import { ScrapeControl } from "./components/ScrapeControl";
+import { FavoritesPage } from "./pages/Favorites";
+import { useFavorites } from "./lib/favorites";
 import { ListingDetail } from "./pages/ListingDetail";
 import { MortgagePage } from "./pages/Mortgage";
 import { PlanPage } from "./pages/Plan";
@@ -29,6 +31,7 @@ function useHashRoute(): string {
 const TABS = [
   { path: "/", label: "Обзор" },
   { path: "/listings", label: "Квартиры" },
+  { path: "/favorites", label: "Избранное" },
   { path: "/mortgage", label: "Ипотека" },
   { path: "/programs", label: "Банки" },
   { path: "/plan", label: "План" },
@@ -41,6 +44,7 @@ export function App() {
   const extras = useExtras();
   const listings = useMemo(() => withExtras(data?.listings ?? [], extras), [data, extras]);
   const search = isDemo ? "?demo" : "";
+  const favCount = useFavorites().length;
 
   let page;
   if (route.startsWith("/listing/")) {
@@ -48,6 +52,8 @@ export function App() {
     page = <ListingDetail listing={listings.find((l) => l.id === id)} listings={listings} fin={fin} loading={!data && !error} />;
   } else if (route.startsWith("/import/")) {
     page = <ImportPage payload={route.slice("/import/".length)} listings={listings} loading={!data && !error} />;
+  } else if (route === "/favorites" || route.startsWith("/favorites/import/")) {
+    page = <FavoritesPage listings={listings} fin={fin} loading={!data && !error} importPayload={route.startsWith("/favorites/import/") ? route.slice("/favorites/import/".length) : undefined} />;
   } else if (route === "/programs") {
     page = <ProgramsPage />;
   } else if (route === "/bookmarklet") {
@@ -62,7 +68,7 @@ export function App() {
     page = <Overview listings={listings} fin={fin} />;
   }
 
-  const active = route.startsWith("/listing") ? "/listings" : route;
+  const active = route.startsWith("/listing/") || route === "/listings" ? "/listings" : route.startsWith("/favorites") ? "/favorites" : route;
 
   return (
     <>
@@ -74,6 +80,7 @@ export function App() {
             {TABS.map((t) => (
               <a key={t.path} className={`tab ${active === t.path ? "active" : ""}`} href={`${search}#${t.path}`}>
                 {t.label}
+                {t.path === "/favorites" && favCount > 0 && <span className="tab-count">{favCount}</span>}
               </a>
             ))}
           </div>

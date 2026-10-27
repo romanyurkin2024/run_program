@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { LineChart } from "../components/LineChart";
 import { ProgramFits } from "../components/ProgramFits";
-import { FinishBadge, PUBLISHED_ESTIMATE_HINT, SOURCE_NAMES, scoreClass } from "../components/ListingCard";
+import { FavButton, FinishBadge, PUBLISHED_ESTIMATE_HINT, SOURCE_NAMES, scoreClass } from "../components/ListingCard";
 import { Finances, downPayment, fitForPrice } from "../lib/finance";
 import { date, mln, money, num, pct } from "../lib/format";
 import { currentPrice, dedupe, firstPrice, isDemo, sameFlat, scoreListings } from "../lib/listings";
@@ -40,6 +40,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
           <span className="badge">{SOURCE_NAMES[l.source] ?? l.source}</span>
           {l.active ? <span className="badge green">Отслеживаем с {date(l.firstSeen)}</span> : <span className="badge red">Снято</span>}
           <span className={`badge ${scoreClass(s.score)}`}>Оценка {s.score}/100</span>
+          <FavButton l={l} big />
         </div>
         <h1 style={{ fontSize: "clamp(28px, 4.5vw, 40px)", letterSpacing: "-0.03em", margin: 0, lineHeight: 1.1 }}>
           {l.complex ? `ЖК ${l.complex}` : l.title}
