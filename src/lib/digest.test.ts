@@ -13,6 +13,8 @@ describe("digest", () => {
     L("gone", { lastSeen: "2026-10-26", group: "elif|85|12/13", history: [{ date: "2026-10-26", price: 90e6 }] }),
     L("old-new-to-tracker", { firstSeen: "2026-10-27", publishedExact: false, history: [{ date: "2026-10-27", price: 70e6 }] }),
     L("same", {}),
+    L("drop-other-seller", { group: "terra|100|13/16", history: [{ date: "2026-10-26", price: 108e6 }, { date: "2026-10-27", price: 106e6 }] }),
+    L("drop-same-flat", { group: "terra|100|13/16", history: [{ date: "2026-10-26", price: 107e6 }, { date: "2026-10-27", price: 105e6 }] }),
     L("intraday", { near: false, firstSeen: "2026-10-27", history: [{ date: "2026-10-27", price: 89e6 }, { date: "2026-10-27", price: 88e6 }] }),
   ];
 
@@ -23,7 +25,8 @@ describe("digest", () => {
   it("splits changes by area and kind", () => {
     const d = buildDigest(data, "2026-10-27");
     expect(d.prev).toBe("2026-10-26");
-    expect(d.near.drops.map((m) => m.listing.id)).toEqual(["drop"]);
+    // одна квартира у двух продавцов — одна строка, самая дешёвая
+    expect(d.near.drops.map((m) => m.listing.id).sort()).toEqual(["drop", "drop-same-flat"]);
     expect(d.rest.rises.map((m) => m.listing.id)).toEqual(["rise"]);
     // цена поменялась между двумя сборами одного дня
     expect(d.rest.drops.map((m) => [m.listing.id, m.from, m.to])).toEqual([["intraday", 89e6, 88e6]]);

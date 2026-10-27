@@ -45,6 +45,19 @@ export function scrapeDays(listings: Listing[]): string[] {
 
 const empty = (): DigestPart => ({ fresh: [], firstTracked: [], drops: [], rises: [], missing: [], removed: [], relisted: [] });
 
+/** Оставляет по одной записи на квартиру (group), предпочитая самую дешёвую. */
+function uniq<T>(xs: T[], listing: (x: T) => Listing): T[] {
+  const price = (l: Listing) => l.history[l.history.length - 1]?.price ?? 0;
+  const best = new Map<string, T>();
+  for (const x of xs) {
+    const l = listing(x);
+    const key = l.group ?? l.id;
+    const cur = best.get(key);
+    if (!cur || price(l) < price(listing(cur))) best.set(key, x);
+  }
+  return xs.filter((x) => best.get(listing(x).group ?? listing(x).id) === x);
+}
+
 export function buildDigest(listings: Listing[], day: string): Digest {
   const days = scrapeDays(listings);
   const prev = days.find((d) => d < day);
@@ -70,6 +83,13 @@ export function buildDigest(listings: Listing[], day: string): Digest {
   }
 
   for (const p of [near, rest]) {
+    // одну квартиру часто выставляют несколько продавцов — в сводке одна строка на квартиру
+    p.fresh = uniq(p.fresh, (l) => l);
+    p.firstTracked = uniq(p.firstTracked, (l) => l);
+    p.drops = uniq(p.drops, (m) => m.listing);
+    p.rises = uniq(p.rises, (m) => m.listing);
+    p.missing = uniq(p.missing, (l) => l);
+    p.removed = uniq(p.removed, (l) => l);
     const gone = [...p.missing, ...p.removed];
     for (const f of p.fresh) {
       const g = gone.find((x) => x.group && x.group === f.group);
