@@ -3,6 +3,7 @@ import { useFinances } from "./lib/finance";
 import { isDemo, useListings } from "./lib/listings";
 import { Overview } from "./pages/Overview";
 import { ListingsPage } from "./pages/Listings";
+import { ScrapeControl } from "./components/ScrapeControl";
 import { ListingDetail } from "./pages/ListingDetail";
 import { MortgagePage } from "./pages/Mortgage";
 import { PlanPage } from "./pages/Plan";
@@ -80,6 +81,7 @@ export function App() {
       </nav>
       <main className="page">
         {error && !isDemo && <div className="card muted">Не удалось загрузить объявления: {error}</div>}
+        {!isDemo && (route === "/listings" || route === "/" || route === "") && <ScrapeControl updatedAt={data?.updatedAt} />}
         {page}
       </main>
       <footer className="footer">

@@ -334,3 +334,16 @@ details summary { cursor: pointer; }
 .multi-list label:hover { background: var(--line); }
 .multi-list input { width: auto; padding: 0; flex: none; }
 .multi-actions { display: flex; justify-content: space-between; gap: 8px; margin-top: 8px; }
+
+/* Кнопка запуска сбора */
+.scrape-control { padding: 14px 18px; margin-bottom: 20px; }
+.scrape-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+.scrape-title { font-weight: 600; }
+.scrape-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.scrape-actions .check { display: flex; gap: 6px; align-items: center; }
+.scrape-setup { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 12px; }
+.scrape-setup ol { padding-left: 20px; line-height: 1.6; }
+.scrape-token { display: flex; gap: 8px; }
+.scrape-token input { flex: 1; min-width: 0; font: inherit; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--line); background: var(--surface-2); color: var(--text); }
+.small-link { font-size: 13px; padding: 4px 0 0; }
+.text-red { color: var(--red); }

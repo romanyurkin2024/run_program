@@ -122,7 +122,8 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
   const scored = useMemo(() => {
     let xs = scoreListings(primaries);
     if (!showInactive) xs = xs.filter((s) => s.listing.active);
-    if (nearOnly) xs = xs.filter((s) => s.listing.near !== false);
+    // выбрали конкретные ЖК — показываем их, даже если они не в списке «рядом с MEGA»
+    if (nearOnly && !complex.length) xs = xs.filter((s) => s.listing.near !== false);
     if (complex.length) xs = xs.filter((s) => complex.includes(s.listing.complex ?? ""));
     if (finish.length) xs = xs.filter((s) => finish.includes((s.listing.finish ?? "unknown") as FinishKey));
     if (seller.length) xs = xs.filter((s) => seller.includes((s.listing.seller?.type ?? "agent") as SellerKind));
@@ -256,7 +257,11 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
         </div>
       ) : (
         <>
-          <p className="muted small" style={{ marginTop: 0 }}>{scored.length} квартир · одинаковые объявления разных продавцов склеены в одну карточку</p>
+          <p className="muted small" style={{ marginTop: 0 }}>
+            {scored.length} квартир · одинаковые объявления разных продавцов склеены в одну карточку
+            {nearOnly && complex.length > 0 && " · выбраны ЖК — показываем их по всему району"}
+            {nearOnly && !complex.length && " · показаны только окрестности MEGA, остальные ЖК — «Весь район» или выберите ЖК"}
+          </p>
           {sort === "published" || sort === "updated" ? (
             byDay(scored, sort === "published" ? (l) => (l.published ? `${l.published}|${l.publishedExact ? "" : l.publishedOpen ? "<" : "~"}` : "") : postedDate).map(([key, xs]) => (
               <section key={key} className="day-group">

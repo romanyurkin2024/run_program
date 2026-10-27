@@ -38,13 +38,15 @@ class Krisha:
         self.delay = delay
 
     def search(self, url: str, cfg: dict, page: int) -> list[dict]:
-        params = {
-            "das[live.rooms]": cfg["rooms"],
-            "das[house.year][from]": cfg["minYear"],
-            "das[price][from]": cfg["minPrice"],
-            "das[price][to]": cfg["maxPrice"],
-            "das[live.square][from]": cfg["minArea"],
+        # ограничения поиска берём из конфига; не заданы — не ограничиваем (цену не режем: бюджет — только пометка)
+        wanted = {
+            "das[live.rooms]": cfg.get("rooms"),
+            "das[house.year][from]": cfg.get("minYear"),
+            "das[price][from]": cfg.get("minPrice"),
+            "das[price][to]": cfg.get("maxPrice"),
+            "das[live.square][from]": cfg.get("minArea"),
         }
+        params = {k: v for k, v in wanted.items() if v is not None}
         if page > 1:
             params["page"] = page
         time.sleep(random.uniform(*self.delay))
