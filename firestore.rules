@@ -1,0 +1,50 @@
+rules_version = '2';
+
+// Общие списки избранного. Вставить в Firebase Console → Firestore Database → Rules → Publish.
+// Модель «доступ по ссылке»: id списка — 20 случайных символов, знать его = иметь приглашение.
+// Список нельзя найти перебором (list запрещён), читать и менять его содержимое могут только участники.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function listExists(listId) {
+      return exists(/databases/$(database)/documents/lists/$(listId));
+    }
+    function isMember(listId) {
+      return exists(/databases/$(database)/documents/lists/$(listId)/members/$(request.auth.uid));
+    }
+    function shortString(v, max) {
+      return v is string && v.size() > 0 && v.size() <= max;
+    }
+
+    match /lists/{listId} {
+      // по ссылке-приглашению можно узнать название списка, но не перебрать все списки
+      allow get: if signedIn();
+      allow list, delete: if false;
+      allow create: if signedIn() && listId.size() >= 20
+        && request.resource.data.keys().hasOnly(['name', 'createdAt', 'createdBy'])
+        && shortString(request.resource.data.name, 60)
+        && request.resource.data.createdBy == request.auth.uid;
+      allow update: if signedIn() && isMember(listId)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name'])
+        && shortString(request.resource.data.name, 60);
+
+      match /members/{uid} {
+        allow read: if signedIn() && isMember(listId);
+        // вступить (или сменить имя) можно только за себя и только в существующий список
+        allow create, update: if signedIn() && uid == request.auth.uid && listExists(listId)
+          && request.resource.data.keys().hasOnly(['name', 'joinedAt'])
+          && shortString(request.resource.data.name, 40);
+        allow delete: if signedIn() && uid == request.auth.uid;
+      }
+
+      match /items/{itemId} {
+        allow read, delete: if signedIn() && isMember(listId);
+        allow create, update: if signedIn() && isMember(listId)
+          && request.resource.data.keys().size() <= 25
+          && request.resource.data.id is string && request.resource.data.id.size() <= 64;
+      }
+    }
+  }
+}

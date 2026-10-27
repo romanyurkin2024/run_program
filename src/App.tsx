@@ -4,7 +4,7 @@ import { isDemo, useListings } from "./lib/listings";
 import { Overview } from "./pages/Overview";
 import { ListingsPage } from "./pages/Listings";
 import { ScrapeControl } from "./components/ScrapeControl";
-import { FavoritesPage } from "./pages/Favorites";
+import { FavoritesPage, JoinPage } from "./pages/Favorites";
 import { useFavorites } from "./lib/favorites";
 import { ListingDetail } from "./pages/ListingDetail";
 import { MortgagePage } from "./pages/Mortgage";
@@ -54,6 +54,8 @@ export function App() {
     page = <ImportPage payload={route.slice("/import/".length)} listings={listings} loading={!data && !error} />;
   } else if (route === "/favorites" || route.startsWith("/favorites/import/")) {
     page = <FavoritesPage listings={listings} fin={fin} loading={!data && !error} importPayload={route.startsWith("/favorites/import/") ? route.slice("/favorites/import/".length) : undefined} />;
+  } else if (route.startsWith("/join/")) {
+    page = <JoinPage listId={route.slice("/join/".length)} />;
   } else if (route === "/programs") {
     page = <ProgramsPage />;
   } else if (route === "/bookmarklet") {
@@ -68,7 +70,7 @@ export function App() {
     page = <Overview listings={listings} fin={fin} />;
   }
 
-  const active = route.startsWith("/listing/") || route === "/listings" ? "/listings" : route.startsWith("/favorites") ? "/favorites" : route;
+  const active = route.startsWith("/listing/") || route === "/listings" ? "/listings" : route.startsWith("/favorites") || route.startsWith("/join/") ? "/favorites" : route;
 
   return (
     <>
