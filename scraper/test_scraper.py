@@ -5,13 +5,12 @@ from pathlib import Path
 from unittest import mock
 
 from scraper import notify, run as run_mod
-from scraper.run import apply_snapshot, group_key, is_near, mark_gone, reject_reason
+from scraper.run import apply_snapshot, classify_finish, group_key, is_near, mark_gone, reject_reason
 from scraper.sources.krisha import parse_preview, parse_search, parse_title, seller_type
 
 CFG = {
     "rooms": 3,
     "minYear": 2012,
-    "excludeConditions": ["черновая отделка", "требует ремонта"],
     "near": {"complexes": ["Estet", "Element"], "streets": [{"name": "Розыбакиева", "from": 150, "to": 300}]},
 }
 
@@ -62,7 +61,7 @@ class FilterTest(unittest.TestCase):
 
     def test_rejects(self):
         self.assertEqual(reject_reason(self.base(year=1975), CFG), "старый дом")
-        self.assertEqual(reject_reason(self.base(condition="черновая отделка"), CFG), "без ремонта")
+        self.assertIsNone(reject_reason(self.base(condition="черновая отделка"), CFG))  # черновые оставляем, фильтр — на сайте
         self.assertEqual(reject_reason(self.base(rooms=4), CFG), "не 3 комнаты")
         self.assertIsNone(reject_reason(self.base(seller={"type": "developer"}), CFG))  # сданный дом от застройщика оставляем
         self.assertEqual(reject_reason(self.base(seller={"type": "developer"}, year=2099), CFG), "ещё строится")
@@ -137,24 +136,33 @@ class ReportTest(unittest.TestCase):
             L(3, 85e6, "c"),
             L(4, 85e6, "c"),               # дубль известной квартиры — не новая
             L(5, 70e6, "d"),               # новая в бюджете
-            L(6, 70e6, "e", near=False),   # далеко — не интересует
+            L(6, 70e6, "e", near=False),   # новая в остальном районе — тоже показываем, отдельным разделом
             L(7, 120e6, "f"),              # новая и дорогая — тоже показываем
             L(8, 125e6, "g"),              # снизили, но всё ещё дороже бюджета — показываем
             L(9, 105e6, "h"),              # подняли
         ]
         text = notify.build_report(before, {"listings": after}, self.CFG, "2026-10-27")
-        self.assertIn("Новые квартиры (2)", text)
-        self.assertIn("show/5", text)
-        self.assertIn("show/7", text)
-        self.assertIn("Снизили цену (2)", text)
-        self.assertIn("теперь в бюджете", text)
-        self.assertIn("show/8", text)
-        self.assertIn("Подняли цену (1)", text)
-        self.assertIn("Сняли с продажи (1)", text)
-        self.assertIn("show/2", text)
-        self.assertNotIn("show/6", text)
+        mega, rest = text.split("Остальной Бостандыкский район")
+        self.assertIn("Новые квартиры (2)", mega)
+        self.assertIn("show/5", mega)
+        self.assertIn("show/7", mega)
+        self.assertIn("Снизили цену (2)", mega)
+        self.assertIn("теперь проходит по ипотеке", mega)
+        self.assertIn("show/8", mega)
+        self.assertIn("Подняли цену (1)", mega)
+        self.assertIn("Сняли с продажи (1)", mega)
+        self.assertIn("show/2", mega)
+        self.assertIn("Новые квартиры (1)", rest)
+        self.assertIn("show/6", rest)
+        self.assertNotIn("show/6", mega)
         self.assertIn("✅", text)
-        self.assertIn("⚠️", text)
+        self.assertIn("⚠️ выше лимита банка", text)
+
+    def test_line_shows_finish_and_clear_payment(self):
+        cfg = {"alerts": {"maxPrice": 77e6, "downPayment": 43e6, "rate": 20.5, "years": 20}}
+        line = notify._line(L(1, 118.8e6, "a", finish="rough", finishSource="description"), cfg)
+        self.assertIn("черновая (по описанию)", line)
+        self.assertIn("💳 ипотека ~1,3 млн/мес ⚠️ выше лимита банка", line)
 
     def test_monthly_payment(self):
         cfg = {"alerts": {"downPayment": 45e6, "rate": 20.5, "years": 20}}
@@ -190,6 +198,24 @@ class RunTest(unittest.TestCase):
             self.assertEqual(first[0], {})
             self.assertTrue(all(isinstance(v, dict) and "price" in v for v in second[0].values()))
             notify.build_report(second[0], second[1], second[2], second[3])  # не падает
+
+
+class FinishTest(unittest.TestCase):
+    def test_from_krisha_condition(self):
+        self.assertEqual(classify_finish({"condition": "свежий ремонт"}), ("repair", "krisha"))
+        self.assertEqual(classify_finish({"condition": "не новый, но аккуратный ремонт"}), ("repair", "krisha"))
+        self.assertEqual(classify_finish({"condition": "требует ремонта"}), ("needs_repair", "krisha"))
+        self.assertEqual(classify_finish({"condition": "черновая отделка"}), ("rough", "krisha"))
+        self.assertEqual(classify_finish({"condition": "предчистовая отделка"}), ("prefinish", "krisha"))
+        self.assertEqual(classify_finish({"condition": "чистовая отделка"}), ("clean", "krisha"))
+
+    def test_from_description_when_no_condition(self):
+        self.assertEqual(classify_finish({"description": "Продаётся квартира в черновой отделке"}), ("rough", "description"))
+        self.assertEqual(classify_finish({"description": "Сдана с чистовой отделкой"}), ("clean", "description"))
+        self.assertEqual(classify_finish({"description": "Предчистовая отделка, вид на горы"}), ("prefinish", "description"))
+        # «ремонт» в описании не считаем — слишком многозначно
+        self.assertEqual(classify_finish({"description": "можно сделать ремонт под себя"}), (None, None))
+        self.assertEqual(classify_finish({}), (None, None))
 
 
 class StaleTest(unittest.TestCase):

@@ -12,6 +12,10 @@ on:
         description: "Отладка: сохранить сырые страницы в ветку probe"
         type: boolean
         default: false
+      notify:
+        description: "Отправить отчёт в Telegram"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -38,6 +42,8 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # по расписанию inputs пустые — отчёт отправляется; вручную можно выключить
+          SKIP_TELEGRAM: ${{ inputs.notify == false && '1' || '' }}
         run: python -m scraper.run ${{ inputs.probe && '--probe' || '' }} ${{ github.event_name == 'schedule' && '--if-stale' || '' }} 2>&1 | tee scrape.log
       - name: Push probe pages
         if: ${{ inputs.probe }}

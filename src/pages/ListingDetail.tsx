@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { LineChart } from "../components/LineChart";
 import { ProgramFits } from "../components/ProgramFits";
-import { SOURCE_NAMES, scoreClass } from "../components/ListingCard";
+import { FinishBadge, SOURCE_NAMES, scoreClass } from "../components/ListingCard";
 import { Finances, downPayment, fitForPrice } from "../lib/finance";
 import { date, mln, money, num, pct } from "../lib/format";
 import { currentPrice, dedupe, firstPrice, isDemo, sameFlat, scoreListings } from "../lib/listings";
@@ -121,7 +121,7 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
             {l.floor && <><dt>Этаж</dt><dd>{l.floor} из {l.floors}</dd></>}
             {l.year && <><dt>Год постройки</dt><dd>{l.year}</dd></>}
             {l.buildingType && <><dt>Дом</dt><dd>{l.buildingType}</dd></>}
-            {l.condition && <><dt>Состояние</dt><dd>{l.condition}</dd></>}
+            <dt>Отделка</dt><dd><FinishBadge l={l} /></dd>
             {l.bathroom && <><dt>Санузел</dt><dd>{l.bathroom}</dd></>}
             <dt>Адрес</dt><dd>{l.address}</dd>
           </dl>

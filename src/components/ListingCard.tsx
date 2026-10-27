@@ -1,7 +1,7 @@
 import { Finances, fitForPrice } from "../lib/finance";
 import { mln, num, pct } from "../lib/format";
 import { currentPrice, isDemo, priceChange, Scored } from "../lib/listings";
-import { Listing } from "../lib/types";
+import { FINISH_LABELS, Listing } from "../lib/types";
 
 export const SOURCE_NAMES: Record<string, string> = { krisha: "Krisha.kz", olx: "OLX", kn: "kn.kz" };
 
@@ -11,6 +11,14 @@ export function listingHref(id: string) {
 
 export function scoreClass(score: number) {
   return score >= 65 ? "green" : score >= 45 ? "" : "red";
+}
+
+/** Отделка: категория (цвет) + исходная формулировка Krisha; «по описанию» — если состояние не указано, а нашли в тексте. */
+export function FinishBadge({ l }: { l: Listing }) {
+  if (!l.finish) return <span className="badge" title="Krisha не указывает состояние, в описании тоже не нашли">отделка не указана</span>;
+  const cls = l.finish === "repair" || l.finish === "clean" ? "green" : l.finish === "rough" || l.finish === "needs_repair" ? "orange" : "";
+  const label = l.finishSource === "krisha" && l.condition ? l.condition : FINISH_LABELS[l.finish].toLowerCase();
+  return <span className={`badge ${cls}`}>{label}{l.finishSource === "description" ? " (по описанию)" : ""}</span>;
 }
 
 export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances; others?: Listing[] }) {
@@ -67,7 +75,7 @@ export function ListingCard({ s, fin, others = [] }: { s: Scored; fin: Finances;
           )}
           {l.seller?.type === "owner" && <span className="badge blue">Собственник</span>}
           {l.seller?.type === "developer" && <span className="badge blue">От застройщика{l.seller.developer ? ` ${l.seller.developer}` : ""}</span>}
-          {l.condition && <span className="badge">{l.condition}</span>}
+          <FinishBadge l={l} />
         </div>
       </div>
     </a>

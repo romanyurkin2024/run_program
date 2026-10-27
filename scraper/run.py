@@ -32,12 +32,34 @@ def reject_reason(item: dict, cfg: dict) -> str | None:
         return "не 3 комнаты"
     if item.get("year") and item["year"] < cfg["minYear"]:
         return "старый дом"
-    cond = (item.get("condition") or "").lower()
-    if any(x in cond for x in cfg["excludeConditions"]):
-        return "без ремонта"
     if not item.get("price"):
         return "нет цены"
     return None
+
+
+FINISH_KEYWORDS = [
+    # порядок важен: «предчистовая» проверяем раньше «чистовой»
+    ("needs_repair", ("требует ремонта",)),
+    ("prefinish", ("предчистов", "white box", "вайт бокс")),
+    ("rough", ("черновая", "черновой", "без отделки", "свободная планировка")),
+    ("clean", ("чистовая", "чистовой")),
+    ("repair", ("ремонт",)),
+]
+
+
+def classify_finish(listing: dict) -> tuple[str | None, str | None]:
+    """Отделка: (категория, откуда взяли). Сначала поле «состояние» Krisha, иначе — упоминание в описании."""
+    cond = (listing.get("condition") or "").lower()
+    for cat, words in FINISH_KEYWORDS:
+        if any(w in cond for w in words):
+            return cat, "krisha"
+    desc = (listing.get("description") or "").lower()
+    for cat, words in FINISH_KEYWORDS:
+        if cat == "repair":
+            continue  # слово «ремонт» в описании слишком многозначно («требует», «после ремонта» и т.п.)
+        if any(w in desc for w in words):
+            return cat, "description"
+    return None, None
 
 
 def is_near(listing: dict, cfg: dict) -> bool:
@@ -162,6 +184,7 @@ def run(probe: bool = False, if_stale: bool = False) -> None:
     for l in by_id.values():
         l["near"] = is_near(l, cfg)
         l["group"] = group_key(l)
+        l["finish"], l["finishSource"] = classify_finish(l)
     store["listings"] = sorted(by_id.values(), key=lambda l: l["firstSeen"], reverse=True)
     if stats["cards"]:
         store["updatedAt"] = datetime.now(timezone.utc).isoformat(timespec="seconds")

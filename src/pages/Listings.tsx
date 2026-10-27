@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ListingCard } from "../components/ListingCard";
 import { Finances, fitForPrice } from "../lib/finance";
 import { currentPrice, daysOnMarket, dedupe, priceChange, sameFlat, scoreListings } from "../lib/listings";
-import { Listing } from "../lib/types";
+import { FINISH_LABELS, Finish, Listing } from "../lib/types";
 
 type Sort = "score" | "price" | "ppm2" | "new" | "drop";
 
@@ -13,9 +13,10 @@ interface Filters {
   showInactive: boolean;
   nearOnly: boolean;
   seller: "" | "resale" | "developer";
+  finish: "" | Finish | "unknown" | "ready"; // ready = с ремонтом или чистовая
 }
 
-const DEFAULT_FILTERS: Filters = { complex: "", sort: "score", onlyBudget: false, showInactive: false, nearOnly: true, seller: "" };
+const DEFAULT_FILTERS: Filters = { complex: "", sort: "score", onlyBudget: false, showInactive: false, nearOnly: true, seller: "", finish: "" };
 const FILTERS_KEY = "kt.filters.v1";
 
 /** Фильтры переживают перезагрузку страницы (localStorage), пока их не сбросят кнопкой. */
@@ -41,7 +42,7 @@ function useFilters(): [Filters, (patch: Partial<Filters>) => void, () => void] 
 
 export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; fin: Finances; loading: boolean }) {
   const [filters, setFilters, resetFilters] = useFilters();
-  const { complex, sort, onlyBudget, showInactive, nearOnly, seller } = filters;
+  const { complex, sort, onlyBudget, showInactive, nearOnly, seller, finish } = filters;
   const changed = (Object.keys(DEFAULT_FILTERS) as (keyof Filters)[]).some((k) => filters[k] !== DEFAULT_FILTERS[k]);
 
   const complexes = useMemo(
@@ -56,6 +57,9 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
     if (!showInactive) xs = xs.filter((s) => s.listing.active);
     if (nearOnly) xs = xs.filter((s) => s.listing.near !== false);
     if (complex) xs = xs.filter((s) => s.listing.complex === complex);
+    if (finish === "unknown") xs = xs.filter((s) => !s.listing.finish);
+    else if (finish === "ready") xs = xs.filter((s) => s.listing.finish === "repair" || s.listing.finish === "clean");
+    else if (finish) xs = xs.filter((s) => s.listing.finish === finish);
     if (seller) xs = xs.filter((s) => (s.listing.seller?.type === "developer") === (seller === "developer"));
     if (onlyBudget) xs = xs.filter((s) => fitForPrice(currentPrice(s.listing), fin, { developer: s.listing.seller?.developer, complex: s.listing.complex }).some((f) => f.ok));
     const by: Record<Sort, (a: (typeof xs)[0], b: (typeof xs)[0]) => number> = {
@@ -66,13 +70,13 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
       drop: (a, b) => priceChange(a.listing) - priceChange(b.listing),
     };
     return xs.sort(by[sort]);
-  }, [primaries, complex, sort, onlyBudget, showInactive, nearOnly, seller, fin]);
+  }, [primaries, complex, sort, onlyBudget, showInactive, nearOnly, seller, finish, fin]);
 
   return (
     <>
       <section className="hero">
         <h1>Квартиры</h1>
-        <p>3 комнаты · вторичка с ремонтом · Бостандыкский район, акцент на окрестности MEGA</p>
+        <p>3 комнаты · Бостандыкский район, акцент на окрестности MEGA · отделка — любая, фильтр ниже</p>
       </section>
       <div className="toolbar">
         <div className="field">
@@ -90,6 +94,15 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
             <option value="ppm2">Дешевле за м²</option>
             <option value="drop">Больше снижение цены</option>
             <option value="new">Новые</option>
+          </select>
+        </div>
+        <div className="field">
+          <label>Отделка</label>
+          <select value={finish} onChange={(e) => setFilters({ finish: e.target.value as Filters["finish"] })}>
+            <option value="">Любая</option>
+            <option value="ready">Можно заезжать (ремонт или чистовая)</option>
+            {(Object.keys(FINISH_LABELS) as Finish[]).map((k) => <option key={k} value={k}>{FINISH_LABELS[k]}</option>)}
+            <option value="unknown">Не указана</option>
           </select>
         </div>
         <div className="field">

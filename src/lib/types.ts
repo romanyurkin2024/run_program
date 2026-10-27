@@ -1,3 +1,13 @@
+export type Finish = "repair" | "clean" | "prefinish" | "rough" | "needs_repair";
+
+export const FINISH_LABELS: Record<Finish, string> = {
+  repair: "С ремонтом",
+  clean: "Чистовая",
+  prefinish: "Предчистовая",
+  rough: "Черновая",
+  needs_repair: "Требует ремонта",
+};
+
 export interface PricePoint {
   date: string; // YYYY-MM-DD
   price: number;
@@ -39,6 +49,8 @@ export interface Listing {
   active: boolean;
   near?: boolean; // рядом с MEGA (по ЖК/улице из config/area.json)
   group?: string; // одинаковый у объявлений одной и той же квартиры от разных продавцов
+  finish?: Finish | null; // отделка: из поля «состояние» Krisha или из описания
+  finishSource?: "krisha" | "description" | null;
   history: PricePoint[];
 }
 

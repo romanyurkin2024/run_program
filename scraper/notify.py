@@ -57,19 +57,35 @@ def otbasy_payment(price: float, cfg: dict) -> float | None:
     return loan * r / (1 - (1 + r) ** -n) if loan > 0 else 0.0
 
 
+FINISH_LABELS = {
+    "repair": "с ремонтом",
+    "clean": "чистовая",
+    "prefinish": "предчистовая",
+    "rough": "черновая",
+    "needs_repair": "требует ремонта",
+}
+
+
+def _money(n: float) -> str:
+    return _mln(n) if n >= 1_000_000 else f"{round(n / 1000)} тыс"
+
+
 def _line(l: dict, cfg: dict, extra: str = "") -> str:
-    """Квартира одной строкой: ЖК, площадь, этаж, цена (или изменение), ₸/м², платёж и пометка бюджета."""
+    """Квартира одной строкой: ЖК, площадь, этаж, отделка, цена (или изменение), ₸/м², ипотечный платёж."""
     name = f"ЖК {l['complex']}" if l.get("complex") else (l.get("address") or l["title"])
     floor = f" · {l['floor']}/{l['floors']} эт." if l.get("floor") else ""
     price = l["history"][-1]["price"]
     ppm2 = f" · {round(price / l['area'] / 1000)} тыс/м²" if l.get("area") else ""
-    who = " · собственник" if l.get("seller", {}).get("type") == "owner" else ""
-    budget = "✅" if price <= cfg.get("alerts", {}).get("maxPrice", float("inf")) else "⚠️"
-    pay = f" · {budget} ~{round(monthly_payment(price, cfg) / 1000)} тыс/мес"
+    seller = l.get("seller", {}).get("type")
+    who = " · собственник" if seller == "owner" else " · застройщик" if seller == "developer" else ""
+    fin = l.get("finish")
+    finish = f" · {FINISH_LABELS[fin]}{' (по описанию)' if l.get('finishSource') == 'description' else ''}" if fin in FINISH_LABELS else ""
+    ok = price <= cfg.get("alerts", {}).get("maxPrice", float("inf"))
+    pay = f"\n   💳 ипотека ~{_money(monthly_payment(price, cfg))}/мес {'✅' if ok else '⚠️ выше лимита банка'}"
     if (o := otbasy_payment(price, cfg)) is not None:
-        pay += f" · Отбасы ~{round(o / 1000)}"
+        pay += f" · Отбасы ~{_money(o)}/мес"
     text = extra or f"<b>{_mln(price)}</b>"
-    return f'• <a href="{html.escape(l["url"])}">{html.escape(name)}</a> · {l.get("area")} м²{floor}{who} — {text}{ppm2}{pay}'
+    return f'• <a href="{html.escape(l["url"])}">{html.escape(name)}</a> · {l.get("area")} м²{floor}{finish}{who} — {text}{ppm2}{pay}'
 
 
 def _cheapest_per_group(listings: list[dict]) -> dict[str, dict]:
@@ -81,58 +97,78 @@ def _cheapest_per_group(listings: list[dict]) -> dict[str, dict]:
     return best
 
 
+def _area_changes(before: dict[str, dict], listings: list[dict], near: bool) -> tuple[list, list, list, list]:
+    """Новые квартиры, снижения, повышения и снятые — для одной части района (у MEGA или остальное)."""
+    part = [l for l in listings if bool(l.get("near")) == near]
+    active = [l for l in part if l["active"]]
+    groups = _cheapest_per_group(active)
+    known_groups = {s["group"] for s in before.values()}
+    new = sorted((l for g, l in groups.items() if g not in known_groups), key=lambda l: l["history"][-1]["price"])
+
+    changes: dict[str, tuple[dict, int, int]] = {}
+    for l in active:
+        prev = before.get(l["id"])
+        now = l["history"][-1]["price"]
+        if prev and now != prev["price"]:
+            g = l.get("group", l["id"])
+            if g not in changes or abs(prev["price"] - now) > abs(changes[g][1] - changes[g][2]):
+                changes[g] = (l, prev["price"], now)
+    drops = sorted((c for c in changes.values() if c[2] < c[1]), key=lambda c: c[2] - c[1])
+    raises = sorted((c for c in changes.values() if c[2] > c[1]), key=lambda c: c[1] - c[2])
+
+    active_groups_now = {l.get("group", l["id"]) for l in listings if l["active"]}
+    gone_groups = {
+        s["group"] for s in before.values()
+        if s["active"] and bool(s["near"]) == near and s["group"] not in active_groups_now
+    }
+    gone = list(_cheapest_per_group([l for l in part if l.get("group", l["id"]) in gone_groups]).values())
+    return new, drops, raises, gone
+
+
 def build_report(before: dict[str, dict], store: dict, cfg: dict, today: str) -> str:
-    """Все изменения по квартирам рядом с MEGA, без отсечения по цене: бюджет — только пометка ✅/⚠️."""
+    """Все изменения по Бостандыкскому району: отдельно у MEGA и остальное. Бюджет — только пометка, не фильтр."""
     max_price = cfg.get("alerts", {}).get("maxPrice", float("inf"))
     listings = store["listings"]
-    near_active = [l for l in listings if l["active"] and l.get("near")]
-    groups = _cheapest_per_group(near_active)
-    in_budget = sum(1 for l in groups.values() if l["history"][-1]["price"] <= max_price)
+
+    def count(near: bool) -> tuple[int, int, int]:
+        act = [l for l in listings if l["active"] and bool(l.get("near")) == near]
+        g = _cheapest_per_group(act)
+        return len(g), len(act), sum(1 for l in g.values() if l["history"][-1]["price"] <= max_price)
 
     d = date.fromisoformat(today)
+    n_flats, n_ads, n_budget = count(True)
+    o_flats, o_ads, o_budget = count(False)
     lines = [
-        f"<b>🏠 Квартиры у MEGA · {d.day} {MONTHS[d.month - 1]}</b>",
-        f"В продаже: {len(groups)} квартир ({len(near_active)} объявлений), из них до {_mln(max_price)}: {in_budget}",
-        "✅ — в бюджете, ⚠️ — дороже; платёж — лучшая рыночная ставка, «Отбасы» — промежуточный заём при 50% на депозите",
+        f"<b>🏠 Квартиры, Бостандыкский р-н · {d.day} {MONTHS[d.month - 1]}</b>",
+        f"У MEGA: {n_flats} квартир ({n_ads} объявлений), по рыночной ипотеке проходят {n_budget}",
+        f"Остальной район: {o_flats} квартир ({o_ads} объявлений), проходят {o_budget}",
+        f"💳 — платёж по рыночной ипотеке (взнос {_mln(cfg.get('alerts', {}).get('downPayment', 0))}, "
+        f"{str(cfg.get('alerts', {}).get('rate', 20.5)).replace('.', ',')}%, {cfg.get('alerts', {}).get('years', 20)} лет): "
+        "✅ банк одобрит, ⚠️ выше лимита 50% дохода; «Отбасы» — промежуточный заём при 50% на депозите",
     ]
 
     if not before:
         lines.append("\nНачали отслеживать. Со следующего дня здесь будут новые квартиры и изменения цен.")
     else:
-        known_groups = {s["group"] for s in before.values()}
-        new = sorted((l for g, l in groups.items() if g not in known_groups), key=lambda l: l["history"][-1]["price"])
-
-        changes: dict[str, tuple[dict, int, int]] = {}
-        for l in near_active:
-            prev = before.get(l["id"])
-            now = l["history"][-1]["price"]
-            if prev and now != prev["price"]:
-                g = l.get("group", l["id"])
-                if g not in changes or abs(prev["price"] - now) > abs(changes[g][1] - changes[g][2]):
-                    changes[g] = (l, prev["price"], now)
-        drops = sorted((c for c in changes.values() if c[2] < c[1]), key=lambda c: c[2] - c[1])
-        raises = sorted((c for c in changes.values() if c[2] > c[1]), key=lambda c: c[1] - c[2])
-
-        active_groups_now = {l.get("group", l["id"]) for l in listings if l["active"]}
-        gone_groups = {s["group"] for s in before.values() if s["active"] and s["near"] and s["group"] not in active_groups_now}
-        gone = _cheapest_per_group([l for l in listings if l.get("group", l["id"]) in gone_groups])
-
-        if new:
-            lines.append(f"\n<b>🆕 Новые квартиры ({len(new)})</b>")
-            lines += [_line(l, cfg) for l in new]
-        if drops:
-            lines.append(f"\n<b>📉 Снизили цену ({len(drops)})</b>")
-            for l, old, now in drops:
-                mark = " · теперь в бюджете" if now <= max_price < old else ""
-                lines.append(_line(l, cfg, f"{_mln(old)} → <b>{_mln(now)}</b> (−{_mln(old - now)}){mark}"))
-        if raises:
-            lines.append(f"\n<b>📈 Подняли цену ({len(raises)})</b>")
-            lines += [_line(l, cfg, f"{_mln(old)} → <b>{_mln(now)}</b> (+{_mln(now - old)})") for l, old, now in raises]
-        if gone:
-            lines.append(f"\n<b>🚫 Сняли с продажи ({len(gone)})</b>")
-            lines += [_line(l, cfg) for l in gone.values()]
-        if not (new or drops or raises or gone):
-            lines.append("\nЗа день без изменений.")
+        for near, title in ((True, "📍 Рядом с MEGA"), (False, "🗺 Остальной Бостандыкский район")):
+            new, drops, raises, gone = _area_changes(before, listings, near)
+            lines.append(f"\n<b>{title}</b>")
+            if new:
+                lines.append(f"<b>🆕 Новые квартиры ({len(new)})</b>")
+                lines += [_line(l, cfg) for l in new]
+            if drops:
+                lines.append(f"<b>📉 Снизили цену ({len(drops)})</b>")
+                for l, old, now in drops:
+                    mark = " · теперь проходит по ипотеке" if now <= max_price < old else ""
+                    lines.append(_line(l, cfg, f"{_mln(old)} → <b>{_mln(now)}</b> (−{_mln(old - now)}){mark}"))
+            if raises:
+                lines.append(f"<b>📈 Подняли цену ({len(raises)})</b>")
+                lines += [_line(l, cfg, f"{_mln(old)} → <b>{_mln(now)}</b> (+{_mln(now - old)})") for l, old, now in raises]
+            if gone:
+                lines.append(f"<b>🚫 Сняли с продажи ({len(gone)})</b>")
+                lines += [_line(l, cfg) for l in gone]
+            if not (new or drops or raises or gone):
+                lines.append("Без изменений.")
 
     if url := cfg.get("siteUrl"):
         lines.append(f'\n<a href="{html.escape(url)}">Открыть трекер</a>')
@@ -163,6 +199,9 @@ def send(text: str, token: str, chat_id: str) -> None:
 
 
 def daily_report(before: dict[str, dict], store: dict, cfg: dict, today: str) -> None:
+    if os.environ.get("SKIP_TELEGRAM"):
+        log.info("telegram: отключено для этого запуска")
+        return
     token, chat_id = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
     if not token or not chat_id:
         log.info("telegram: TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID не заданы — отчёт не отправлен")
