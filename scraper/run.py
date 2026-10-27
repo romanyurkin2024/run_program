@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import bisect
 import re
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -114,6 +115,46 @@ def apply_snapshot(listing: dict | None, item: dict, today: str) -> dict:
     return listing
 
 
+def _num(listing_id: str) -> int | None:
+    m = re.fullmatch(r"krisha:(\d+)", listing_id)
+    return int(m.group(1)) if m else None
+
+
+def estimate_published(listings: dict[str, dict], today: str) -> None:
+    """Дата публикации на Krisha. В выдаче её нет (на карточке — дата обновления), поэтому:
+
+    * номер объявления больше всех, что мы видели в прошлые дни, → объявление вышло после прошлого сбора,
+      и дата на его карточке — это и есть дата публикации (точно, до дня);
+    * для остальных — оценка сверху: номера на Krisha растут со временем (проверено на данных 27.10:
+      чем больше номер, тем позже самая ранняя дата обновления), значит объявление опубликовано не позже,
+      чем самая ранняя дата обновления среди объявлений с номером не меньше его.
+    """
+    seen_before = [n for l in listings.values() if l["firstSeen"] < today and (n := _num(l["id"]))]
+    prev_max = max(seen_before, default=None)
+    dated = sorted((n, l["posted"]) for l in listings.values() if l.get("posted") and (n := _num(l["id"])))
+    suffix_min: list[str] = [""] * len(dated)
+    cur = "9999-12-31"
+    for i in range(len(dated) - 1, -1, -1):
+        cur = min(cur, dated[i][1])
+        suffix_min[i] = cur
+    ids = [n for n, _ in dated]
+    floor = dated and min(p for _, p in dated)  # самая старая дата обновления в выдаче — раньше Krisha не показывает
+    for l in listings.values():
+        n = _num(l["id"])
+        if n is None or l.get("publishedExact"):
+            continue
+        if prev_max is not None and l["firstSeen"] == today and n > prev_max and l.get("posted"):
+            l["published"], l["publishedExact"] = l["posted"], True
+            continue
+        i = bisect.bisect_left(ids, n)
+        if i < len(ids):
+            bound = suffix_min[i]
+            l["published"] = min(filter(None, [l.get("published"), bound]))
+            l["publishedExact"] = False
+        # оценка упёрлась в самую старую дату выдачи: «эта дата или раньше», настоящая неизвестна
+        l["publishedOpen"] = bool(floor) and l.get("published", "9999") <= floor
+
+
 def mark_gone(listings: dict[str, dict], today: str) -> int:
     cutoff = (date.fromisoformat(today) - timedelta(days=GONE_AFTER_DAYS)).isoformat()
     n = 0
@@ -189,6 +230,7 @@ def run(probe: bool = False, if_stale: bool = False) -> None:
         l["near"] = is_near(l, cfg)
         l["group"] = group_key(l)
         l["finish"], l["finishSource"] = classify_finish(l)
+    estimate_published(by_id, today)
     store["listings"] = sorted(by_id.values(), key=lambda l: l["firstSeen"], reverse=True)
     if stats["cards"]:
         store["updatedAt"] = datetime.now(timezone.utc).isoformat(timespec="seconds")

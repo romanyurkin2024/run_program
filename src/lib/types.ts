@@ -48,6 +48,11 @@ export interface Listing {
   /** Дата на карточке Krisha — это дата последнего обновления/поднятия, не публикации (у объявлений,
    *  которые мы видели вчера, сегодня стоит сегодняшняя дата). postedFirst — самая ранняя из увиденных. */
   posted?: string;
+  /** Дата публикации: точная (publishedExact — номер объявления новее всех прошлых) или оценка «не позже» по номеру */
+  published?: string;
+  publishedExact?: boolean;
+  /** Оценка упирается в самую раннюю дату в выдаче — значит «эта дата или раньше», реальная неизвестна */
+  publishedOpen?: boolean;
   postedFirst?: string;
   lastSeen: string;
   active: boolean;

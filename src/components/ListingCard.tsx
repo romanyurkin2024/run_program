@@ -21,12 +21,20 @@ export function FinishBadge({ l }: { l: Listing }) {
   return <span className={`badge ${cls}`}>{label}{l.finishSource === "description" ? " (по описанию)" : ""}</span>;
 }
 
+export const PUBLISHED_ESTIMATE_HINT =
+  "Krisha не показывает дату публикации в выдаче. Номера объявлений растут со временем, поэтому оцениваем сверху: " +
+  "не позже самой ранней даты обновления среди более новых объявлений. Для объявлений, вышедших после начала слежения, дата точная.";
+
 /** Когда объявление появилось: дата на Krisha и с какого дня оно у нас в трекере. */
 export function PostedLine({ l }: { l: Listing }) {
-  const parts = [`🆕 в трекере с ${shortDate(l.firstSeen)}`, l.posted && `🔄 обновлено на Krisha ${shortDate(l.posted)}`];
   return (
-    <div className="listing-meta" title="Дату публикации Krisha в выдаче не показывает — только дату последнего обновления/поднятия">
-      {parts.filter(Boolean).join(" · ")}
+    <div className="listing-meta posted-line">
+      {l.published && (
+        <span title={l.publishedExact ? "Объявление вышло после прошлого сбора — дата точная" : PUBLISHED_ESTIMATE_HINT}>
+          📅 <b>опубликовано {l.publishedExact ? shortDate(l.published) : l.publishedOpen ? `${shortDate(l.published)} или раньше` : `не позже ${shortDate(l.published)}`}</b>
+        </span>
+      )}
+      {l.posted && <span title="Дата последнего обновления/поднятия объявления на Krisha">🔄 обновлено {shortDate(l.posted)}</span>}
     </div>
   );
 }

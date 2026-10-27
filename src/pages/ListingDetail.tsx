@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { LineChart } from "../components/LineChart";
 import { ProgramFits } from "../components/ProgramFits";
-import { FinishBadge, SOURCE_NAMES, scoreClass } from "../components/ListingCard";
+import { FinishBadge, PUBLISHED_ESTIMATE_HINT, SOURCE_NAMES, scoreClass } from "../components/ListingCard";
 import { Finances, downPayment, fitForPrice } from "../lib/finance";
 import { date, mln, money, num, pct } from "../lib/format";
 import { currentPrice, dedupe, firstPrice, isDemo, sameFlat, scoreListings } from "../lib/listings";
@@ -122,6 +122,15 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
             {l.year && <><dt>Год постройки</dt><dd>{l.year}</dd></>}
             {l.buildingType && <><dt>Дом</dt><dd>{l.buildingType}</dd></>}
             <dt>Отделка</dt><dd><FinishBadge l={l} /></dd>
+            {l.published && (
+              <>
+                <dt>Опубликовано</dt>
+                <dd>
+                  {l.publishedExact ? date(l.published) : l.publishedOpen ? `${date(l.published)} или раньше` : `не позже ${date(l.published)}`}
+                  {!l.publishedExact && <div className="muted small">{PUBLISHED_ESTIMATE_HINT}</div>}
+                </dd>
+              </>
+            )}
             {l.posted && (
               <>
                 <dt>Обновлено на Krisha</dt>

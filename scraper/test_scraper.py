@@ -245,6 +245,30 @@ class PostedDateTest(unittest.TestCase):
         self.assertEqual((l["posted"], l["postedFirst"]), ("2026-10-27", "2026-10-20"))
 
 
+class PublishedTest(unittest.TestCase):
+    def test_new_id_is_exact_old_ids_get_upper_bound(self):
+        def L(n, seen, posted):
+            return {"id": f"krisha:{n}", "firstSeen": seen, "posted": posted}
+        ls = {l["id"]: l for l in [
+            L(100, "2026-10-26", "2026-10-27"),  # старое, подняли сегодня
+            L(200, "2026-10-26", "2026-10-21"),
+            L(300, "2026-10-26", "2026-10-23"),
+            L(400, "2026-10-27", "2026-10-27"),  # новый номер — вышло после прошлого сбора
+            L(150, "2026-10-27", "2026-10-26"),  # впервые увидели, но номер старый
+        ]}
+        run_mod.estimate_published(ls, "2026-10-27")
+        self.assertEqual((ls["krisha:400"]["published"], ls["krisha:400"]["publishedExact"]), ("2026-10-27", True))
+        self.assertEqual((ls["krisha:100"]["published"], ls["krisha:100"]["publishedExact"]), ("2026-10-21", False))
+        self.assertEqual(ls["krisha:150"]["published"], "2026-10-21")
+        self.assertEqual(ls["krisha:300"]["published"], "2026-10-23")
+        self.assertTrue(ls["krisha:100"]["publishedOpen"])  # 21.10 — самая старая дата в выдаче
+        self.assertFalse(ls["krisha:300"]["publishedOpen"])
+        # оценка только уточняется: завтра граница не «съезжает» на более позднюю дату
+        ls["krisha:200"]["posted"] = "2026-10-28"
+        run_mod.estimate_published(ls, "2026-10-28")
+        self.assertEqual(ls["krisha:100"]["published"], "2026-10-21")
+
+
 class StaleTest(unittest.TestCase):
     def test_already_collected_today(self):
         from scraper.run import already_collected_today
