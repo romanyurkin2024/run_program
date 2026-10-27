@@ -35,6 +35,11 @@ export function connect() {
   return ready;
 }
 
+export interface Member {
+  uid: string;
+  name: string;
+}
+
 export const itemKey = (listingId: string) => listingId.replace(/[^\w-]/g, "_");
 
 export async function createList(name: string, me: string): Promise<string> {
@@ -64,14 +69,14 @@ export async function leaveList(listId: string): Promise<void> {
 
 export async function watchList(
   listId: string,
-  onItems: (items: Favorite[], members: string[]) => void,
+  onItems: (items: Favorite[], members: Member[]) => void,
   onError: (e: Error) => void,
 ): Promise<() => void> {
   const { db, fs } = await connect();
-  let members: string[] = [];
+  let members: Member[] = [];
   let items: Favorite[] = [];
   const u1 = fs.onSnapshot(fs.collection(db, "lists", listId, "members"), (s) => {
-    members = s.docs.map((d) => d.data().name as string);
+    members = s.docs.map((d) => ({ uid: d.id, name: d.data().name as string }));
     onItems(items, members);
   }, onError);
   const u2 = fs.onSnapshot(fs.collection(db, "lists", listId, "items"), (s) => {

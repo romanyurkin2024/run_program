@@ -93,56 +93,55 @@ function savePrefs(p: Prefs): void {
 // ---------- общий список: подписка на Firestore ----------
 
 export type Status = "local" | "connecting" | "live" | "error";
-let shared: Favorite[] = [];
-let members: string[] = [];
-let status: Status = "local";
+
+/** Состояние одного общего списка: подписываемся на все списки, где вы участник, — чтобы звёздочка знала, где квартира уже есть. */
+interface Watch {
+  items: Favorite[];
+  members: cloud.Member[];
+  status: Status;
+  error: string;
+  stop?: () => void;
+}
+const watches = new Map<string, Watch>();
 let error = "";
 let uid = "";
-let watching = "";
-let stop: (() => void) | null = null;
 
 function emit() {
   dispatchEvent(new Event(EVENT));
 }
 
-/** Подписываемся на текущий общий список (или отписываемся, если выбрано личное). */
 function sync() {
-  const { active } = loadPrefs();
-  if (active === watching) return;
-  stop?.();
-  stop = null;
-  watching = active;
-  shared = [];
-  members = [];
-  error = "";
-  if (!active || !cloud.cloudEnabled) {
-    status = "local";
-    return;
+  if (!cloud.cloudEnabled) return;
+  const ids = new Set(loadPrefs().lists.map((l) => l.id));
+  for (const [id, w] of watches) {
+    if (!ids.has(id)) {
+      w.stop?.();
+      watches.delete(id);
+    }
   }
-  status = "connecting";
-  cloud.myUid().then((u) => ((uid = u), emit())).catch(() => undefined);
-  cloud
-    .watchList(
-      active,
-      (items, who) => {
-        if (watching !== active) return;
-        shared = items;
-        members = who;
-        status = "live";
+  for (const id of ids) {
+    if (watches.has(id)) continue;
+    const w: Watch = { items: [], members: [], status: "connecting", error: "" };
+    watches.set(id, w);
+    if (!uid) cloud.myUid().then((u) => ((uid = u), emit())).catch(() => undefined);
+    cloud
+      .watchList(
+        id,
+        (items, who) => {
+          Object.assign(w, { items, members: who, status: "live", error: "" });
+          emit();
+        },
+        (e) => {
+          Object.assign(w, { status: "error", error: e.message });
+          emit();
+        },
+      )
+      .then((u) => (watches.get(id) === w ? (w.stop = u) : u()))
+      .catch((e: Error) => {
+        Object.assign(w, { status: "error", error: e.message });
         emit();
-      },
-      (e) => {
-        status = "error";
-        error = e.message;
-        emit();
-      },
-    )
-    .then((u) => (watching === active ? (stop = u) : u()))
-    .catch((e: Error) => {
-      status = "error";
-      error = e.message;
-      emit();
-    });
+      });
+  }
 }
 
 function activeShared(): string {
@@ -150,8 +149,13 @@ function activeShared(): string {
   return cloud.cloudEnabled ? active : "";
 }
 
+/** Квартиры списка: "" — личное избранное. */
+export function itemsOf(listId: string): Favorite[] {
+  return listId ? watches.get(listId)?.items ?? [] : loadFavorites();
+}
+
 export function currentFavorites(): Favorite[] {
-  return activeShared() ? shared : loadFavorites();
+  return itemsOf(activeShared());
 }
 
 // ---------- действия ----------
@@ -184,9 +188,9 @@ function fail(e: Error) {
   emit();
 }
 
-export function toggleFavorite(l: Listing): void {
-  const listId = activeShared();
-  const all = currentFavorites();
+/** Добавить квартиру в список или убрать из него ("" — личное). */
+export function toggleIn(listId: string, l: Listing): void {
+  const all = itemsOf(listId);
   const found = findFavorite(all, l);
   if (listId) {
     const p = found ? cloud.deleteItem(listId, found.id) : cloud.putItem(listId, snapshot(l), loadPrefs().me);
@@ -194,6 +198,16 @@ export function toggleFavorite(l: Listing): void {
     return;
   }
   saveLocal(found ? all.filter((f) => !matches(f, l)) : [snapshot(l), ...all]);
+}
+
+export function toggleFavorite(l: Listing): void {
+  toggleIn(activeShared(), l);
+}
+
+/** В каких списках уже есть эта квартира ("" — личное). */
+export function listsWith(l: Pick<Listing, "id" | "group">): string[] {
+  const ids = ["", ...(cloud.cloudEnabled ? loadPrefs().lists.map((x) => x.id) : [])];
+  return ids.filter((id) => !!findFavorite(itemsOf(id), l));
 }
 
 export function removeFavorite(id: string): void {
@@ -242,7 +256,7 @@ export async function leaveSharedList(id: string): Promise<void> {
 export async function copyLocalToShared(): Promise<number> {
   const listId = activeShared();
   if (!listId) return 0;
-  const fresh = loadFavorites().filter((f) => !findFavorite(shared, f));
+  const fresh = loadFavorites().filter((f) => !findFavorite(itemsOf(listId), f));
   await Promise.all(fresh.map((f) => cloud.putItem(listId, { ...f, note: undefined }, loadPrefs().me)));
   return fresh.length;
 }
@@ -275,12 +289,20 @@ export interface FavState {
   prefs: Prefs;
   status: Status;
   error: string;
-  members: string[];
+  members: cloud.Member[];
   uid: string; // мой id в общих списках — чтобы отличить свою заметку
 }
 
 function state(): FavState {
-  return { items: currentFavorites(), prefs: loadPrefs(), status: activeShared() ? status : "local", error, members, uid };
+  const w = watches.get(activeShared());
+  return {
+    items: currentFavorites(),
+    prefs: loadPrefs(),
+    status: w ? w.status : "local",
+    error: error || w?.error || "",
+    members: w?.members ?? [],
+    uid,
+  };
 }
 
 export function useFavState(): FavState {

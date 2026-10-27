@@ -108,11 +108,22 @@ function Lists({ st }: { st: FavState }) {
         )}
         <button className="btn ghost" onClick={() => setMode(mode === "create" ? "" : "create")}>+ Общий список</button>
       </div>
+      {active && st.members.length > 0 && (
+        <div className="fav-members" aria-label="Участники списка">
+          <span className="muted small">Участники ({st.members.length}):</span>
+          {[...st.members].sort((a, b) => Number(b.uid === st.uid) - Number(a.uid === st.uid)).map((m) => (
+            <span key={m.uid} className={`member ${m.uid === st.uid ? "me" : ""}`}>
+              <span className="avatar">{m.name.slice(0, 1).toUpperCase()}</span>
+              {m.name}{m.uid === st.uid ? " (вы)" : ""}
+            </span>
+          ))}
+        </div>
+      )}
       {active && (
         <div className="muted small" style={{ marginTop: 8 }}>
           {st.status === "connecting" && "Подключаюсь… "}
           {st.status === "error" && <span className="text-red">Нет связи с базой: {st.error}. </span>}
-          {st.members.length > 0 && `В списке: ${st.members.join(", ")}. `}
+
           Изменения видны всем участникам сразу.{" "}
           {loadFavorites().some((f) => !findFavorite(st.items, f)) && (
             <button className="btn ghost inline" disabled={busy} onClick={() => run(async () => `Перенесено из личного: ${await copyLocalToShared()}`)}>

@@ -349,8 +349,9 @@ details summary { cursor: pointer; }
 .text-red { color: var(--red); }
 
 /* Избранное */
+.fav-wrap { position: absolute; right: 12px; bottom: 12px; z-index: 3; }
+.fav-wrap.big { position: relative; display: inline-block; right: auto; bottom: auto; }
 .fav {
-  position: absolute; right: 12px; bottom: 12px;
   width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer;
   font-size: 22px; line-height: 1; color: var(--text);
   background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -370,3 +371,17 @@ details summary { cursor: pointer; }
 .fav-create .field { flex: 1 1 220px; }
 .btn.inline { padding: 0; font-size: inherit; }
 .fav-other-note { font-size: 14px; margin-top: 8px; padding: 8px 12px; border-radius: var(--radius-sm); background: var(--accent-soft); }
+
+/* Меню «в какие списки» у звёздочки */
+.fav-menu { position: absolute; right: 0; bottom: calc(100% + 8px); z-index: 30; min-width: 230px; padding: 8px; display: flex; flex-direction: column; box-shadow: 0 12px 40px rgba(0,0,0,.22); }
+.fav-wrap.big .fav-menu { bottom: auto; top: calc(100% + 8px); right: auto; left: 0; }
+.fav-menu-title { font-size: 12px; color: var(--text-2); font-weight: 600; padding: 4px 8px 6px; }
+.fav-menu button { font: inherit; font-size: 15px; text-align: left; border: 0; background: none; color: var(--text); padding: 9px 8px; border-radius: 8px; cursor: pointer; display: flex; gap: 8px; align-items: center; }
+.fav-menu button:hover { background: var(--line); }
+.fav-check { width: 18px; color: #ff9f0a; font-weight: 700; }
+.fav-menu .fav-menu-done { justify-content: center; color: var(--accent); font-weight: 600; margin-top: 4px; }
+/* Участники общего списка */
+.fav-members { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 10px; }
+.member { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 4px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font-size: 14px; }
+.member .avatar { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #fff; background: var(--accent); }
+.member.me .avatar { background: #ff9f0a; }

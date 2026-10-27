@@ -2,7 +2,9 @@ import { Finances, fitForPrice } from "../lib/finance";
 import { mln, num, pct, shortDate } from "../lib/format";
 import { currentPrice, isDemo, priceChange, Scored } from "../lib/listings";
 import { FINISH_LABELS, Listing } from "../lib/types";
-import { findFavorite, toggleFavorite, useFavorites } from "../lib/favorites";
+import { useEffect, useRef, useState } from "react";
+import { cloudEnabled } from "../lib/cloud";
+import { listsWith, toggleIn, useFavState } from "../lib/favorites";
 
 export const SOURCE_NAMES: Record<string, string> = { krisha: "Krisha.kz", olx: "OLX", kn: "kn.kz" };
 
@@ -22,24 +24,63 @@ export function FinishBadge({ l }: { l: Listing }) {
   return <span className={`badge ${cls}`}>{label}{l.finishSource === "description" ? " (по описанию)" : ""}</span>;
 }
 
-/** Звёздочка «в избранное». Внутри карточки-ссылки — поэтому гасим переход по клику. */
+/**
+ * Звёздочка «в избранное». Нет общих списков — сразу добавляет в личное. Есть — открывает меню,
+ * где отмечают, в какие списки положить квартиру (можно в несколько). Внутри карточки-ссылки — гасим переход.
+ */
 export function FavButton({ l, big = false }: { l: Listing; big?: boolean }) {
-  const on = !!findFavorite(useFavorites(), l);
+  const st = useFavState();
+  const shared = cloudEnabled ? st.prefs.lists : [];
+  const inLists = listsWith(l);
+  const on = inLists.length > 0;
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const close = (e: Event) => !ref.current?.contains(e.target as Node) && setOpen(false);
+    document.addEventListener("mousedown", close);
+    document.addEventListener("touchstart", close);
+    return () => {
+      document.removeEventListener("mousedown", close);
+      document.removeEventListener("touchstart", close);
+    };
+  }, [open]);
+  const stop = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+  const names = [{ id: "", name: "Личное" }, ...shared];
+  const where = names.filter((x) => inLists.includes(x.id)).map((x) => x.name);
   return (
-    <button
-      type="button"
-      className={`fav ${on ? "on" : ""} ${big ? "big" : ""}`}
-      aria-pressed={on}
-      title={on ? "Убрать из избранного" : "В избранное"}
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleFavorite(l);
-      }}
-    >
-      {on ? "★" : "☆"}
-      {big && <span>{on ? " В избранном" : " В избранное"}</span>}
-    </button>
+    <span ref={ref} className={`fav-wrap ${big ? "big" : ""}`} onClick={stop}>
+      <button
+        type="button"
+        className={`fav ${on ? "on" : ""} ${big ? "big" : ""}`}
+        aria-pressed={on}
+        aria-haspopup={shared.length ? "menu" : undefined}
+        aria-expanded={shared.length ? open : undefined}
+        title={on ? `В избранном: ${where.join(", ")}` : "В избранное"}
+        onClick={() => (shared.length ? setOpen(!open) : toggleIn("", l))}
+      >
+        {on ? "★" : "☆"}
+        {big && <span>{on ? ` В избранном${shared.length ? `: ${where.join(", ")}` : ""}` : " В избранное"}</span>}
+      </button>
+      {open && (
+        <span className="fav-menu card" role="menu">
+          <span className="fav-menu-title">Добавить в списки</span>
+          {names.map((x) => {
+            const has = inLists.includes(x.id);
+            return (
+              <button key={x.id} type="button" role="menuitemcheckbox" aria-checked={has} className={has ? "on" : ""} onClick={() => toggleIn(x.id, l)}>
+                <span className="fav-check">{has ? "✓" : ""}</span>
+                {x.id ? `👥 ${x.name}` : "🔒 Личное"}
+              </button>
+            );
+          })}
+          <button type="button" className="fav-menu-done" onClick={() => setOpen(false)}>Готово</button>
+        </span>
+      )}
+    </span>
   );
 }
 
