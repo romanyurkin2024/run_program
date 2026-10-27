@@ -88,7 +88,7 @@ def _line(l: dict, cfg: dict, extra: str = "") -> str:
     text = extra or f"<b>{_mln(price)}</b>"
     if posted := l.get("posted"):
         d = date.fromisoformat(posted)
-        pay += f"\n   📅 на Krisha {d.day} {MONTHS[d.month - 1]}"
+        pay += f"\n   🔄 обновлено на Krisha {d.day} {MONTHS[d.month - 1]}"
     return f'• <a href="{html.escape(l["url"])}">{html.escape(name)}</a> · {l.get("area")} м²{floor}{finish}{who} — {text}{ppm2}{pay}'
 
 

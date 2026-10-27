@@ -25,7 +25,7 @@ export function priceChange(l: Listing): number {
   return currentPrice(l) - firstPrice(l);
 }
 
-/** Дата, по которой делим ленту на дни: дата на Krisha, а если её ещё нет — когда объявление впервые попало в трекер. */
+/** Дата последнего обновления на Krisha, а если её ещё нет — когда объявление впервые попало в трекер. */
 export function postedDate(l: Listing): string {
   return l.posted ?? l.firstSeen;
 }

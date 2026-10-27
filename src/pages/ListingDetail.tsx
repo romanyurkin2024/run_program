@@ -124,11 +124,11 @@ export function ListingDetail({ listing, listings, fin, loading }: Props) {
             <dt>Отделка</dt><dd><FinishBadge l={l} /></dd>
             {l.posted && (
               <>
-                <dt>Дата на Krisha</dt>
+                <dt>Обновлено на Krisha</dt>
                 <dd>
                   {date(l.posted)}
-                  {l.postedFirst && l.postedFirst < l.posted ? ` (раньше было ${date(l.postedFirst)} — объявление поднимали)` : ""}
-                  <div className="muted small">Krisha не уточняет, это дата публикации или последнего поднятия</div>
+                  {l.postedFirst && l.postedFirst < l.posted ? ` (раньше было ${date(l.postedFirst)})` : ""}
+                  <div className="muted small">Это дата последнего обновления/поднятия, не публикации — дату публикации Krisha в выдаче не показывает</div>
                 </dd>
               </>
             )}

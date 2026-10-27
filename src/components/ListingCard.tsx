@@ -23,11 +23,9 @@ export function FinishBadge({ l }: { l: Listing }) {
 
 /** Когда объявление появилось: дата на Krisha и с какого дня оно у нас в трекере. */
 export function PostedLine({ l }: { l: Listing }) {
-  const parts = [l.posted ? `📅 на Krisha ${shortDate(l.posted)}` : null];
-  if (l.posted && l.postedFirst && l.postedFirst < l.posted) parts.push(`раньше было ${shortDate(l.postedFirst)}`);
-  parts.push(`в трекере с ${shortDate(l.firstSeen)}`);
+  const parts = [`🆕 в трекере с ${shortDate(l.firstSeen)}`, l.posted && `🔄 обновлено на Krisha ${shortDate(l.posted)}`];
   return (
-    <div className="listing-meta" title="Krisha не поясняет, это дата публикации или последнего поднятия объявления">
+    <div className="listing-meta" title="Дату публикации Krisha в выдаче не показывает — только дату последнего обновления/поднятия">
       {parts.filter(Boolean).join(" · ")}
     </div>
   );

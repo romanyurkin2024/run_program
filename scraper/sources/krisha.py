@@ -128,8 +128,8 @@ _MONTHS = ["янв", "фев", "мар", "апр", "мая", "июн", "июл",
 def parse_card_date(text: str, today: date | None = None) -> str | None:
     """«26 окт.» из карточки → ISO-дата. Года на карточке нет: если дата позже сегодняшней — это прошлый год.
 
-    Что именно это за дата (публикация или последнее поднятие платной услугой), Krisha не поясняет —
-    поэтому сохраняем её как «дату на Krisha» и отдельно самую раннюю из увиденных.
+    Это дата последнего обновления/поднятия, а не публикации: 27.10 у 150 объявлений, которые мы видели
+    уже 26.10, стояла дата 27.10. Дату публикации выдача не показывает.
     """
     today = today or date.today()
     t = text.strip().lower()
@@ -186,7 +186,7 @@ def parse_card(card: Tag) -> dict | None:
             "developer": (m.group(1) if (m := re.search(r"застройщика\s*«([^»]+)»", owner_label)) else None),
         },
         "price": _int(_text(card.select_one(".a-card__price"))),
-        "posted": posted,  # дата, которую Krisha показывает на карточке
+        "posted": posted,  # дата последнего обновления на Krisha (не публикации)
         **parse_title(title),
         **parse_preview(_text(card.select_one(".a-card__text-preview"))),
     }

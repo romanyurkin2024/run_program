@@ -45,7 +45,8 @@ export interface Listing {
   seller?: Seller;
   description?: string;
   firstSeen: string;
-  /** Дата на карточке Krisha (публикация или поднятие — Krisha не уточняет) и самая ранняя из увиденных */
+  /** Дата на карточке Krisha — это дата последнего обновления/поднятия, не публикации (у объявлений,
+   *  которые мы видели вчера, сегодня стоит сегодняшняя дата). postedFirst — самая ранняя из увиденных. */
   posted?: string;
   postedFirst?: string;
   lastSeen: string;

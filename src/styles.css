@@ -307,4 +307,4 @@ details summary { cursor: pointer; }
 
 /* Лента по дням (сортировка «По дате») */
 .day-group + .day-group { margin-top: 28px; }
-.day-heading { font-size: 20px; margin: 0 0 12px; position: sticky; top: 56px; z-index: 2; padding: 8px 0; background: var(--bg); }
+.day-heading { font-size: 20px; margin: 0 0 12px; position: sticky; top: 52px; z-index: 2; padding: 10px 0 8px; background: var(--bg); }

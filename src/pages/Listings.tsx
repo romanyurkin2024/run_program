@@ -5,7 +5,7 @@ import { currentPrice, dedupe, postedDate, priceChange, sameFlat, scoreListings 
 import { dayHeading } from "../lib/format";
 import { FINISH_LABELS, Finish, Listing } from "../lib/types";
 
-type Sort = "score" | "price" | "ppm2" | "new" | "drop";
+type Sort = "score" | "price" | "ppm2" | "new" | "updated" | "drop";
 
 interface Filters {
   complex: string;
@@ -42,10 +42,10 @@ function useFilters(): [Filters, (patch: Partial<Filters>) => void, () => void] 
 }
 
 /** Уже отсортированный по дате список → [[день, объявления], ...] */
-function byDay<T extends { listing: Listing }>(xs: T[]): [string, T[]][] {
+function byDay<T extends { listing: Listing }>(xs: T[], dayOf: (l: Listing) => string): [string, T[]][] {
   const out: [string, T[]][] = [];
   for (const x of xs) {
-    const d = postedDate(x.listing);
+    const d = dayOf(x.listing);
     if (out.length && out[out.length - 1][0] === d) out[out.length - 1][1].push(x);
     else out.push([d, [x]]);
   }
@@ -78,7 +78,8 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
       score: (a, b) => b.score - a.score,
       price: (a, b) => currentPrice(a.listing) - currentPrice(b.listing),
       ppm2: (a, b) => a.ppm2 - b.ppm2,
-      new: (a, b) => postedDate(b.listing).localeCompare(postedDate(a.listing)) || b.score - a.score,
+      new: (a, b) => b.listing.firstSeen.localeCompare(a.listing.firstSeen) || b.score - a.score,
+      updated: (a, b) => postedDate(b.listing).localeCompare(postedDate(a.listing)) || b.score - a.score,
       drop: (a, b) => priceChange(a.listing) - priceChange(b.listing),
     };
     return xs.sort(by[sort]);
@@ -105,7 +106,8 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
             <option value="price">Дешевле</option>
             <option value="ppm2">Дешевле за м²</option>
             <option value="drop">Больше снижение цены</option>
-            <option value="new">По дате (новые сверху, по дням)</option>
+            <option value="new">Новые в трекере (по дням)</option>
+            <option value="updated">Обновлённые на Krisha (по дням)</option>
           </select>
         </div>
         <div className="field">
@@ -154,8 +156,8 @@ export function ListingsPage({ listings, fin, loading }: { listings: Listing[]; 
       ) : (
         <>
           <p className="muted small" style={{ marginTop: 0 }}>{scored.length} квартир · одинаковые объявления разных продавцов склеены в одну карточку</p>
-          {sort === "new" ? (
-            byDay(scored).map(([day, xs]) => (
+          {sort === "new" || sort === "updated" ? (
+            byDay(scored, sort === "new" ? (l) => l.firstSeen : postedDate).map(([day, xs]) => (
               <section key={day} className="day-group">
                 <h2 className="day-heading">
                   {dayHeading(day)} <span className="muted small">· {xs.length}</span>
