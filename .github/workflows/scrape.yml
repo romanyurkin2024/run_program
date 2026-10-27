@@ -64,7 +64,9 @@ jobs:
           git add public/data
           git diff --cached --quiet && exit 0
           git commit -m "Data: $(date -u +%F)"
-          git push
+          # пока шёл сбор, в main могли прийти другие коммиты (код сайта) — данные меняет только сборщик, конфликтов нет
+          for i in 1 2 3; do git pull --rebase -q origin main && git push && exit 0; sleep 5; done
+          exit 1
 
   deploy:
     needs: scrape
