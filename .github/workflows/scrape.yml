@@ -16,6 +16,10 @@ on:
         description: "Отправить отчёт в Telegram"
         type: boolean
         default: true
+      if_stale:
+        description: "Ничего не делать, если данные за сегодня уже собраны (для внешнего будильника)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -44,7 +48,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           # по расписанию inputs пустые — отчёт отправляется; вручную можно выключить
           SKIP_TELEGRAM: ${{ inputs.notify == false && '1' || '' }}
-        run: python -m scraper.run ${{ inputs.probe && '--probe' || '' }} ${{ github.event_name == 'schedule' && '--if-stale' || '' }} 2>&1 | tee scrape.log
+        run: python -m scraper.run ${{ inputs.probe && '--probe' || '' }} ${{ (github.event_name == 'schedule' || inputs.if_stale) && '--if-stale' || '' }} 2>&1 | tee scrape.log
       - name: Push probe pages
         if: ${{ inputs.probe }}
         run: |
