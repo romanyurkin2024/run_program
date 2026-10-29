@@ -142,27 +142,36 @@ class ReportTest(unittest.TestCase):
             L(9, 105e6, "h"),              # подняли
         ]
         text = notify.build_report(before, {"listings": after}, self.CFG, "2026-10-27")
-        mega, rest = text.split("Остальной Бостандыкский район")
-        self.assertIn("Новые квартиры (2)", mega)
+        mega, rest = text.split("ОСТАЛЬНОЙ РАЙОН")
+        self.assertIn("🆕 Новое · 2", mega)
         self.assertIn("show/5", mega)
         self.assertIn("show/7", mega)
-        self.assertIn("Снизили цену (2)", mega)
-        self.assertIn("теперь проходит по ипотеке", mega)
+        self.assertIn("📉 Подешевели · 2", mega)
+        self.assertIn("теперь в бюджете", mega)
         self.assertIn("show/8", mega)
-        self.assertIn("Подняли цену (1)", mega)
-        self.assertIn("Сняли с продажи (1)", mega)
+        self.assertIn("📈 Подорожали · 1", mega)
+        self.assertIn("🚫 Сняты · 1", mega)
         self.assertIn("show/2", mega)
-        self.assertIn("Новые квартиры (1)", rest)
-        self.assertIn("show/6", rest)
+        self.assertIn("🆕 1", rest)
+        self.assertIn("show/6", rest)  # новая в бюджете по району — показываем
         self.assertNotIn("show/6", mega)
         self.assertIn("✅", text)
-        self.assertIn("⚠️ выше лимита банка", text)
+        self.assertIn("\n\n<b>📉 Подешевели", text)  # между блоками — пустая строка
 
-    def test_line_shows_finish_and_clear_payment(self):
-        cfg = {"alerts": {"maxPrice": 77e6, "downPayment": 43e6, "rate": 20.5, "years": 20}}
+    def test_line_is_two_short_lines(self):
+        cfg = {"alerts": {"maxPrice": 77e6, "downPayment": 43e6, "rate": 20.5, "years": 20, "otbasyRate": 8.5}}
         line = notify._line(L(1, 118.8e6, "a", finish="rough", finishSource="description"), cfg)
-        self.assertIn("черновая (по описанию)", line)
-        self.assertIn("💳 ипотека ~1,3 млн/мес ⚠️ выше лимита банка", line)
+        head, details = line.split("\n")
+        self.assertIn("show/1", head)
+        self.assertIn("черновая*", details)
+        self.assertTrue(details.strip().startswith("⚠️"))
+        self.assertIn("\n   🔵 ", notify._line(L(2, 83e6, "b"), cfg))  # дороже рынка, но проходит через Отбасы
+
+    def test_long_lists_are_cut(self):
+        before = notify.snapshot([L(100, 1e8, "z")])
+        after = [L(100, 1e8, "z")] + [L(i, 70e6 + i, f"n{i}") for i in range(1, 13)]
+        text = notify.build_report(before, {"listings": after}, self.CFG, "2026-10-27")
+        self.assertIn("…и ещё 4 — на сайте", text)
 
     def test_monthly_payment(self):
         cfg = {"alerts": {"downPayment": 45e6, "rate": 20.5, "years": 20}}

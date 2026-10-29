@@ -71,25 +71,30 @@ def _money(n: float) -> str:
     return _mln(n) if n >= 1_000_000 else f"{round(n / 1000)} тыс"
 
 
+def _mark(price: float, cfg: dict) -> str:
+    """✅ проходит по рыночной ипотеке · 🔵 только через Отбасы · ⚠️ дороже обоих вариантов."""
+    if price <= cfg.get("alerts", {}).get("maxPrice", float("inf")):
+        return "✅"
+    return "🔵" if otbasy_payment(price, cfg) is not None else "⚠️"
+
+
 def _line(l: dict, cfg: dict, extra: str = "") -> str:
-    """Квартира одной строкой: ЖК, площадь, этаж, отделка, цена (или изменение), ₸/м², ипотечный платёж."""
-    name = f"ЖК {l['complex']}" if l.get("complex") else (l.get("address") or l["title"])
-    floor = f" · {l['floor']}/{l['floors']} эт." if l.get("floor") else ""
+    """Квартира в две строки: 1) ЖК, площадь, этаж — ссылкой; 2) цена (или изменение), отделка, продавец, пометка."""
+    name = l["complex"] if l.get("complex") else (l.get("address") or l["title"])
     price = l["history"][-1]["price"]
-    ppm2 = f" · {round(price / l['area'] / 1000)} тыс/м²" if l.get("area") else ""
-    seller = l.get("seller", {}).get("type")
-    who = " · собственник" if seller == "owner" else " · застройщик" if seller == "developer" else ""
+    head = " · ".join(filter(None, [
+        f'<a href="{html.escape(l["url"])}">{html.escape(name)}</a>',
+        l.get("area") and f"{l['area']:g} м²".replace(".", ","),
+        l.get("floor") and f"{l['floor']}/{l['floors']} эт.",
+    ]))
     fin = l.get("finish")
-    finish = f" · {FINISH_LABELS[fin]}{' (по описанию)' if l.get('finishSource') == 'description' else ''}" if fin in FINISH_LABELS else ""
-    ok = price <= cfg.get("alerts", {}).get("maxPrice", float("inf"))
-    pay = f"\n   💳 ипотека ~{_money(monthly_payment(price, cfg))}/мес {'✅' if ok else '⚠️ выше лимита банка'}"
-    if (o := otbasy_payment(price, cfg)) is not None:
-        pay += f" · Отбасы ~{_money(o)}/мес"
-    text = extra or f"<b>{_mln(price)}</b>"
-    if posted := l.get("posted"):
-        d = date.fromisoformat(posted)
-        pay += f"\n   🔄 обновлено на Krisha {d.day} {MONTHS[d.month - 1]}"
-    return f'• <a href="{html.escape(l["url"])}">{html.escape(name)}</a> · {l.get("area")} м²{floor}{finish}{who} — {text}{ppm2}{pay}'
+    seller = l.get("seller", {}).get("type")
+    details = " · ".join(filter(None, [
+        extra or f"<b>{_mln(price)}</b>",
+        fin in FINISH_LABELS and FINISH_LABELS[fin] + ("*" if l.get("finishSource") == "description" else ""),
+        {"owner": "собственник", "developer": "застройщик"}.get(seller),
+    ]))
+    return f"• {head}\n   {_mark(price, cfg)} {details}"
 
 
 def _cheapest_per_group(listings: list[dict]) -> dict[str, dict]:
@@ -129,53 +134,55 @@ def _area_changes(before: dict[str, dict], listings: list[dict], near: bool) -> 
     return new, drops, raises, gone
 
 
+TOP_NEAR = 8  # сколько квартир показывать в блоке «рядом с MEGA», остальное — «и ещё N на сайте»
+TOP_REST = 3  # по остальному району — только самое заметное
+
+
+def _block(title: str, items: list[str], limit: int) -> list[str]:
+    if not items:
+        return []
+    out = ["", f"<b>{title} · {len(items)}</b>"] + items[:limit]
+    if len(items) > limit:
+        out.append(f"   …и ещё {len(items) - limit} — на сайте")
+    return out
+
+
 def build_report(before: dict[str, dict], store: dict, cfg: dict, today: str) -> str:
-    """Все изменения по Бостандыкскому району: отдельно у MEGA и остальное. Бюджет — только пометка, не фильтр."""
-    max_price = cfg.get("alerts", {}).get("maxPrice", float("inf"))
+    """Короткая сводка за день: у MEGA — по блокам «Новое / Подешевели / Подорожали / Сняты», по району — главное.
+    Бюджет — только пометка ✅/🔵/⚠️, не фильтр."""
     listings = store["listings"]
-
-    def count(near: bool) -> tuple[int, int, int]:
-        act = [l for l in listings if l["active"] and bool(l.get("near")) == near]
-        g = _cheapest_per_group(act)
-        return len(g), len(act), sum(1 for l in g.values() if l["history"][-1]["price"] <= max_price)
-
     d = date.fromisoformat(today)
-    n_flats, n_ads, n_budget = count(True)
-    o_flats, o_ads, o_budget = count(False)
-    lines = [
-        f"<b>🏠 Квартиры, Бостандыкский р-н · {d.day} {MONTHS[d.month - 1]}</b>",
-        f"У MEGA: {n_flats} квартир ({n_ads} объявлений), по рыночной ипотеке проходят {n_budget}",
-        f"Остальной район: {o_flats} квартир ({o_ads} объявлений), проходят {o_budget}",
-        f"💳 — платёж по рыночной ипотеке (взнос {_mln(cfg.get('alerts', {}).get('downPayment', 0))}, "
-        f"{str(cfg.get('alerts', {}).get('rate', 20.5)).replace('.', ',')}%, {cfg.get('alerts', {}).get('years', 20)} лет): "
-        "✅ банк одобрит, ⚠️ выше лимита 50% дохода; «Отбасы» — промежуточный заём при 50% на депозите",
-    ]
+    lines = [f"<b>🏠 Квартиры · {d.day} {MONTHS[d.month - 1]}</b>"]
 
     if not before:
-        lines.append("\nНачали отслеживать. Со следующего дня здесь будут новые квартиры и изменения цен.")
+        lines += ["", "Начали отслеживать. Со следующего дня здесь будут новые квартиры и изменения цен."]
     else:
-        for near, title in ((True, "📍 Рядом с MEGA"), (False, "🗺 Остальной Бостандыкский район")):
-            new, drops, raises, gone = _area_changes(before, listings, near)
-            lines.append(f"\n<b>{title}</b>")
-            if new:
-                lines.append(f"<b>🆕 Новые квартиры ({len(new)})</b>")
-                lines += [_line(l, cfg) for l in new]
-            if drops:
-                lines.append(f"<b>📉 Снизили цену ({len(drops)})</b>")
-                for l, old, now in drops:
-                    mark = " · теперь проходит по ипотеке" if now <= max_price < old else ""
-                    lines.append(_line(l, cfg, f"{_mln(old)} → <b>{_mln(now)}</b> (−{_mln(old - now)}){mark}"))
-            if raises:
-                lines.append(f"<b>📈 Подняли цену ({len(raises)})</b>")
-                lines += [_line(l, cfg, f"{_mln(old)} → <b>{_mln(now)}</b> (+{_mln(now - old)})") for l, old, now in raises]
-            if gone:
-                lines.append(f"<b>🚫 Сняли с продажи ({len(gone)})</b>")
-                lines += [_line(l, cfg) for l in gone]
-            if not (new or drops or raises or gone):
-                lines.append("Без изменений.")
+        def moved(c, sign):
+            l, old, now = c
+            note = " · теперь в бюджете" if now <= cfg.get("alerts", {}).get("maxPrice", float("inf")) < old else ""
+            return _line(l, cfg, f"{_mln(old)} → <b>{_mln(now)}</b> ({sign}{_mln(abs(now - old))}){note}")
 
+        new, drops, raises, gone = _area_changes(before, listings, True)
+        lines += ["", "<b>📍 РЯДОМ С MEGA</b>"]
+        if not (new or drops or raises or gone):
+            lines.append("Без изменений.")
+        lines += _block("🆕 Новое", [_line(l, cfg) for l in new], TOP_NEAR)
+        lines += _block("📉 Подешевели", [moved(c, "−") for c in drops], TOP_NEAR)
+        lines += _block("📈 Подорожали", [moved(c, "+") for c in raises], TOP_NEAR)
+        lines += _block("🚫 Сняты", [_line(l, cfg) for l in gone], TOP_NEAR)
+
+        new, drops, raises, gone = _area_changes(before, listings, False)
+        lines += ["", "<b>🗺 ОСТАЛЬНОЙ РАЙОН</b>"]
+        counts = [f"🆕 {len(new)}", f"📉 {len(drops)}", f"📈 {len(raises)}", f"🚫 {len(gone)}"]
+        lines.append(" · ".join(counts) if (new or drops or raises or gone) else "Без изменений.")
+        # по району — только то, что проходит по бюджету (✅/🔵): так список остаётся коротким
+        affordable = lambda l: _mark(l["history"][-1]["price"], cfg) != "⚠️"
+        lines += _block("🆕 Новое в бюджете", [_line(l, cfg) for l in new if affordable(l)], TOP_REST)
+        lines += _block("📉 Подешевели сильнее всего", [moved(c, "−") for c in drops], TOP_REST)
+
+    lines += ["", "✅ рыночная ипотека · 🔵 через Отбасы · ⚠️ дороже · * отделка по описанию"]
     if url := cfg.get("siteUrl"):
-        lines.append(f'\n<a href="{html.escape(url)}">Открыть трекер</a>')
+        lines.append(f'<a href="{html.escape(url)}#/digest">Вся сводка на сайте →</a>')
     return "\n".join(lines)
 
 
