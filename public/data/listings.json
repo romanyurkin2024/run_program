@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-01T07:34:36+00:00",
+ "updatedAt": "2026-11-01T14:57:26+00:00",
  "listings": [
   {
    "id": "krisha:1017034288",
@@ -317,7 +317,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 81.0,
    "complex": "Metropole",
@@ -1406,7 +1406,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 135.0,
    "floor": 2,
@@ -2941,6 +2941,750 @@
    "publishedOpen": false
   },
   {
+   "id": "krisha:1015669156",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1015669156",
+   "title": "3-комнатная квартира · 86 м² · 1/12 этаж",
+   "address": "Радостовца 158 — Гагарина-Темирязева Разумный Торг !",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/0d/0d058df5-00fb-490d-a721-6febf671b771/22-full.jpg"
+   ],
+   "photoCount": 27,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 86.0,
+   "floor": 1,
+   "floors": 12,
+   "complex": "ZODIAC",
+   "buildingType": "монолитный",
+   "year": 2016,
+   "bathroom": "раздельный",
+   "description": "🧿 🏫Продается уютная и просторная 4-я квартира на 1-м этаже в Самом Престижном районе г. Алматы! ⛪️Площадь квартиры составляет 86 кв. м, что делает ее идеальным выбором для семьи…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 91000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": true,
+   "group": "zodiac|86|1/12",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-10-20",
+   "publishedExact": false,
+   "publishedOpen": true
+  },
+  {
+   "id": "krisha:1017052486",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017052486",
+   "title": "3-комнатная квартира · 125.7 м² · 8/16 этаж",
+   "address": "Аль-Фараби",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/86/865dcb3e-aff4-4a9f-b85d-2825c99a6604/12-full.jpg"
+   ],
+   "photoCount": 12,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 125.7,
+   "floor": 8,
+   "floors": 16,
+   "complex": "AFD PLAZA",
+   "buildingType": "монолитный",
+   "year": 2017,
+   "bathroom": "2 с/у и более",
+   "description": "Продается 3х комнатная квартира в ЖК AFD Plaza: 🟢 Просторная гостиная 36 м² 🟢 Светлая квартира, окна на Восток и Север. То есть на Каратаева с симпатичным видом и в красивый двор. Нет шума…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 155000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "afd plaza|126|8/16",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017053221",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017053221",
+   "title": "3-комнатная квартира · 125 м² · 3/3 этаж",
+   "address": "мкр Нур Алатау 71\\1",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/63/637fc5f0-8875-416d-9619-f9619eeaa399/1-full.jpg"
+   ],
+   "photoCount": 10,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 125.0,
+   "floor": 3,
+   "floors": 3,
+   "complex": "Баракат",
+   "buildingType": "кирпичный",
+   "year": 2022,
+   "bathroom": "2 с/у и более",
+   "description": "Продается 3-комнатная квартира в клубном доме! - Простор - 125 м? * Всего 16 квартир в доме - уют и приватность + Тихий район, свежий воздух и прекрасный вид из окна - Удобная парковка для жильцов Надежные соседи…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 110000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "баракат|125|3/3",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017061288",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017061288",
+   "title": "3-комнатная квартира · 100 м² · 9/16 этаж",
+   "address": "Сатпаева 90/58",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/f7/f7ee8f93-521c-437a-87e6-212aceb66f08/1-full.jpg"
+   ],
+   "photoCount": 15,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 100.0,
+   "floor": 9,
+   "floors": 16,
+   "complex": "Riviera",
+   "buildingType": "монолитный",
+   "year": 2019,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "Продаю 3-комнатную квартиру (изолированная) 100 м² в ЖК Riviera от застройщика BAZIS–A. 🚨 ЭКСКЛЮЗИВ! 🔥 Цена: 85 000 000 ₸ + комиссия (без торга) Параметры: 3-комнатная (изолированн…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 85000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "riviera|100|9/16",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017059356",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017059356",
+   "title": "3-комнатная квартира · 95 м² · 3/3 этаж",
+   "address": "мкр Казахфильм 21д",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/02/0246e85c-4425-4c2d-a853-faeeb69184c0/1-full.jpg"
+   ],
+   "photoCount": 12,
+   "seller": {
+    "type": null,
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 95.0,
+   "floor": 3,
+   "floors": 3,
+   "complex": "Art Villa",
+   "buildingType": "монолитный",
+   "year": 2020,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 105000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "art villa|95|3/3",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1001649821",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1001649821",
+   "title": "3-комнатная квартира · 78 м² · 7/20 этаж",
+   "address": "Абая 1 — Брусиловского",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/59/59a00c36-6b56-435c-b7c2-fd37453c4b96/11-full.jpg"
+   ],
+   "photoCount": 19,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 78.0,
+   "floor": 7,
+   "floors": 20,
+   "complex": "Terracotta",
+   "buildingType": "монолитный",
+   "year": 2023,
+   "bathroom": "2 с/у и более",
+   "description": "Квартира с новым, качественным, дизайнерским ремонтом. Хороший район, рядом школа 140, ТРЦ АДК, станция метро Сайран. Планировка квартиры отличная, каждый сантим…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 67500000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "terracotta|78|7/20",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-10-20",
+   "publishedExact": false,
+   "publishedOpen": true
+  },
+  {
+   "id": "krisha:697365547",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/697365547",
+   "title": "3-комнатная квартира · 102 м² · 5/18 этаж",
+   "address": "Абая 164/5 — Брусиловского",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/fc/fcb95e84-9191-46b3-868a-05e3794e69dc/1-full.jpg"
+   ],
+   "photoCount": 15,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 102.0,
+   "floor": 5,
+   "floors": 18,
+   "complex": "Terracotta",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "Доброго времени суток! • Продается 3-х комнатная квартира в центре города. • свежий ремонт, хорошая планировка; • при ремонте использовали…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 92500000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "terracotta|102|5/18",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-10-20",
+   "publishedExact": false,
+   "publishedOpen": true
+  },
+  {
+   "id": "krisha:1017057955",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017057955",
+   "title": "3-комнатная квартира · 110 м² · 3/20 этаж",
+   "address": "Гагарина — Аль-Фараби",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/1b/1baacc83-be56-4c40-bfb2-f9c4e7f17eac/1-full.jpg"
+   ],
+   "photoCount": 5,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 110.0,
+   "floor": 3,
+   "floors": 20,
+   "complex": "Комфорт Сити",
+   "buildingType": "монолитный",
+   "year": 2023,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 110000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "комфорт сити|110|3/20",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:760457835",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/760457835",
+   "title": "3-комнатная квартира · 90 м² · 1/3 этаж",
+   "address": "Каппарова 181 — Esentai Mall",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/59/59ab9d74-96e1-4b7a-9b19-7828c9e03fdf/1-full.jpg"
+   ],
+   "photoCount": 9,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 90.0,
+   "floor": 1,
+   "floors": 3,
+   "complex": "Belleview",
+   "buildingType": "кирпичный",
+   "year": 2024,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "Квартира в элитном клубном доме, своя терраса с видом на Ритц Карлтон. Топовая локация",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 160000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "belleview|90|1/3",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-10-20",
+   "publishedExact": false,
+   "publishedOpen": true
+  },
+  {
+   "id": "krisha:1017053744",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017053744",
+   "title": "3-комнатная квартира · 115 м² · 4/12 этаж",
+   "address": "Розыбакиева 197/2",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/28/283a623b-93aa-4b9c-b857-cc310a1a3959/1-full.jpg"
+   ],
+   "photoCount": 11,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 115.0,
+   "floor": 4,
+   "floors": 12,
+   "complex": "Estet",
+   "buildingType": "монолитный",
+   "year": 2025,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "Отличная хорошая квартира. Все подробности лично обсудим",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 167200000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": true,
+   "group": "estet|115|4/12",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017052930",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017052930",
+   "title": "3-комнатная квартира · 80.4 м² · 10/21 этаж",
+   "address": "Тургут Озала — Абая",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/da/daf2b6e1-1c67-430f-aa28-58f553c206c5/30-full.jpg"
+   ],
+   "photoCount": 32,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 80.4,
+   "floor": 10,
+   "floors": 21,
+   "complex": "Кристалл",
+   "buildingType": "монолитный",
+   "year": 2025,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "Продаётся просторная евро-3 квартира в ЖК «Кристалл» Прекрасный вариант для семьи — полноценная евро-трёхкомнатная квартира площадью…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 65000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "кристалл|80|10/21",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017053671",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017053671",
+   "title": "3-комнатная квартира · 115 м² · 13/16 этаж",
+   "address": "Егизбаева 3, 5 — Каныша Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/bb/bb2e52e9-6fe3-44cc-b5c4-b9e63d57b655/1-full.jpg"
+   ],
+   "photoCount": 11,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 115.0,
+   "floor": 13,
+   "floors": 16,
+   "complex": "ALA Park",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "description": "Просторная 3-комнатная квартира в ЖК ALA PARK от BI Group Продаётся полноценная 3-комнатная квартира площадью 115 м² на 13 этаже из 16 в современном жилом комплексе ALA PARK от BI Group. Преимущества квартиры: * Удобная и функциональ…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 107000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "ala park|115|13/16",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1012989678",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1012989678",
+   "title": "3-комнатная квартира · 122.7 м² · 1/9 этаж",
+   "address": "Аль-Фараби 69б — Первая очередь Аль-Фараби Esentai Mall",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/a3/a3fdf51a-141e-44f7-9f75-fef8c6e33f67/1-full.jpg"
+   ],
+   "photoCount": 23,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 122.7,
+   "floor": 1,
+   "floors": 9,
+   "complex": "LUMIERE",
+   "buildingType": "монолитный",
+   "year": 2025,
+   "condition": "черновая отделка",
+   "description": "ОСТАЛАСЬ ВСЕГО ОДНА КВАРТИРА В ПЕРВОЙ ОЧЕРЕДИ ЖК Lumiere — Это место, где дети могут безопасно играть во дворе, а взрослые наслаждаться тишиной, комфортом и высоким уровнем жизни 90767 💎 Соседство с Esen…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 238000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "lumiere|123|1/9",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-10-20",
+   "publishedExact": false,
+   "publishedOpen": true
+  },
+  {
+   "id": "krisha:1017051964",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017051964",
+   "title": "3-комнатная квартира · 85 м² · 10/12 этаж",
+   "address": "Сатпаева — Туркебаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/32/32b3903c-440e-4418-ba89-c31b25c9aaef/1-full.jpg"
+   ],
+   "photoCount": 36,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 85.0,
+   "floor": 10,
+   "floors": 12,
+   "complex": "Акварель",
+   "buildingType": "монолитный",
+   "year": 2018,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Продается уютная 3-комнатная квартира площадью 85 кв м Просторная, светлая и очень уютная квартира со свежим качественным ремонтом, который…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 69000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "акварель|85|10/12",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017052540",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017052540",
+   "title": "3-комнатная квартира · 115 м² · 13/16 этаж",
+   "address": "Егизбаева 3, 5 — Каныша Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/bf/bf2bbbdf-84a8-424c-aef4-c29f73a045e5/1-full.jpg"
+   ],
+   "photoCount": 10,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 115.0,
+   "floor": 13,
+   "floors": 16,
+   "complex": "ALA Park",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "не новый, но аккуратный ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Горячее предложение, состояние квартиры шикарное, заезжай и живи, цена ниже рынка",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 106000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "ala park|115|13/16",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017052248",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017052248",
+   "title": "3-комнатная квартира · 81 м² · 12/16 этаж",
+   "address": "Каныша Сатпаева 90/59",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/35/35da0094-0ddc-43a9-a74b-8494b3f072ef/1-full.jpg"
+   ],
+   "photoCount": 11,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 81.0,
+   "floor": 12,
+   "floors": 16,
+   "complex": "Riviera PLUS",
+   "buildingType": "монолитный",
+   "year": 2027,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "В залоге, жил. комплекс Riviera PLUS, монолитный дом, 2027 г.п., состояние: свежий ремонт, потолки 2.85м., санузел 2 с/у и более, интернет ADSL, меблирована полностью, Продаем уютную и комфортную квартиру! Ремонт делали с любовью и для себя, продумывая каждую деталь. Будем рады передать её в хороши…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 86000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "riviera plus|81|12/16",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017051485",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017051485",
+   "title": "3-комнатная квартира · 90 м² · 3/9 этаж",
+   "address": "Аль-Фараби 69",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/67/67519dc0-f0a3-4103-8109-b1d07faa403c/1-full.jpg"
+   ],
+   "photoCount": 1,
+   "seller": {
+    "type": null,
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-01",
+   "rooms": 3,
+   "area": 90.0,
+   "floor": 3,
+   "floors": 9,
+   "complex": "LUMIERE",
+   "buildingType": "монолитный",
+   "year": 2024,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "ЖК LUMIIERE | ПРЕМИАЛЬНАЯ 3-КОМНАТНАЯ КВАРТИРА Ключевые параметры квартиры * Жилой комплекс: LUMIIERE * Тип недвижимости: 3-комнатная квартира * Количество…",
+   "firstSeen": "2026-11-01",
+   "history": [
+    {
+     "date": "2026-11-01",
+     "price": 230000000
+    }
+   ],
+   "lastSeen": "2026-11-01",
+   "active": true,
+   "postedFirst": "2026-11-01",
+   "near": false,
+   "group": "lumiere|90|3/9",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-01",
+   "publishedExact": true
+  },
+  {
    "id": "krisha:1017017761",
    "source": "krisha",
    "url": "https://krisha.kz/a/show/1017017761",
@@ -2998,7 +3742,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-30",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 83.4,
    "floor": 18,
@@ -3013,6 +3757,10 @@
     {
      "date": "2026-10-31",
      "price": 57900000
+    },
+    {
+     "date": "2026-11-01",
+     "price": 57500000
     }
    ],
    "lastSeen": "2026-11-01",
@@ -4528,6 +5276,10 @@
     {
      "date": "2026-10-31",
      "price": 97000000
+    },
+    {
+     "date": "2026-11-01",
+     "price": 96990000
     }
    ],
    "lastSeen": "2026-11-01",
@@ -9715,7 +10467,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 113.0,
    "floor": 2,
@@ -10140,13 +10892,13 @@
    "id": "krisha:1017002074",
    "source": "krisha",
    "url": "https://krisha.kz/a/show/1017002074",
-   "title": "3-комнатная квартира · 95 м² · 5/16 этаж",
+   "title": "3-комнатная квартира · 100 м² · 6/16 этаж",
    "address": "Каныша Сатпаева 133/1",
    "district": "Бостандыкский",
    "photos": [
-    "https://krisha-photos.kcdn.online/webp/96/9674099e-d217-4efd-96c6-7609d3189cd1/3-full.jpg"
+    "https://krisha-photos.kcdn.online/webp/96/9674099e-d217-4efd-96c6-7609d3189cd1/12-full.jpg"
    ],
-   "photoCount": 11,
+   "photoCount": 14,
    "seller": {
     "type": "agent",
     "name": null,
@@ -10154,27 +10906,31 @@
    },
    "posted": "2026-10-30",
    "rooms": 3,
-   "area": 95.0,
-   "floor": 5,
+   "area": 100.0,
+   "floor": 6,
    "floors": 16,
    "complex": "Jazz-квартал",
    "buildingType": "монолитный",
    "year": 2019,
-   "condition": "не новый, но аккуратный ремонт",
+   "condition": "свежий ремонт",
    "bathroom": "2 с/у и более",
-   "description": "Квартира в отличном состоянии. Хороший удобный район Цена за квартиру окончательная! Торга нет",
+   "description": "Квартира с хорошим ремонтом. Хороший удобный район Цена за квартиру окончательная! Торга нет",
    "firstSeen": "2026-10-30",
    "history": [
     {
      "date": "2026-10-30",
      "price": 89000000
+    },
+    {
+     "date": "2026-11-01",
+     "price": 97000000
     }
    ],
    "lastSeen": "2026-11-01",
    "active": true,
    "postedFirst": "2026-10-30",
    "near": false,
-   "group": "jazz-квартал|95|5/16",
+   "group": "jazz-квартал|100|6/16",
    "finish": "repair",
    "finishSource": "krisha",
    "published": "2026-10-30",
@@ -14787,7 +15543,7 @@
    "id": "krisha:1016980484",
    "source": "krisha",
    "url": "https://krisha.kz/a/show/1016980484",
-   "title": "3-комнатная квартира · 95 м² · 5/16 этаж",
+   "title": "3-комнатная квартира · 100 м² · 5/16 этаж",
    "address": "Сатпаева 90/58",
    "district": "Бостандыкский",
    "photos": [
@@ -14801,7 +15557,7 @@
    },
    "posted": "2026-10-29",
    "rooms": 3,
-   "area": 95.0,
+   "area": 100.0,
    "floor": 5,
    "floors": 16,
    "complex": "Riviera",
@@ -14815,13 +15571,17 @@
     {
      "date": "2026-10-30",
      "price": 90000000
+    },
+    {
+     "date": "2026-11-01",
+     "price": 97000000
     }
    ],
    "lastSeen": "2026-11-01",
    "active": true,
    "postedFirst": "2026-10-29",
    "near": false,
-   "group": "riviera|95|5/16",
+   "group": "riviera|100|5/16",
    "finish": "repair",
    "finishSource": "krisha",
    "published": "2026-10-29",
@@ -15743,7 +16503,7 @@
    "source": "krisha",
    "url": "https://krisha.kz/a/show/1016976289",
    "title": "3-комнатная квартира · 102 м² · 13/20 этаж",
-   "address": "Абая 164 — Брусиловского",
+   "address": "Абая 164/3 — Брусиловского",
    "district": "Бостандыкский",
    "photos": [
     "https://krisha-photos.kcdn.online/webp/e8/e890d149-187d-4734-9807-1cee973002df/1-full.jpg"
@@ -15770,6 +16530,10 @@
     {
      "date": "2026-10-30",
      "price": 72900000
+    },
+    {
+     "date": "2026-11-01",
+     "price": 73200000
     }
    ],
    "lastSeen": "2026-11-01",
@@ -16191,7 +16955,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-29",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 85.0,
    "floor": 4,
@@ -17729,7 +18493,7 @@
      "price": 84000000
     }
    ],
-   "lastSeen": "2026-10-31",
+   "lastSeen": "2026-11-01",
    "active": true,
    "postedFirst": "2026-10-27",
    "near": false,
@@ -22807,7 +23571,7 @@
    "group": "rams city|87|6/12",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -22941,7 +23705,7 @@
    "group": "rams city|82|10/16",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -22986,7 +23750,7 @@
    "group": "satpaev|81|1/9",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -23030,7 +23794,7 @@
    "group": "hayat astoria|95|3/3",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -23074,7 +23838,7 @@
    "group": "rams city|73|13/14",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -23392,7 +24156,7 @@
    "group": "4you|70|13/17",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -23479,7 +24243,7 @@
    "group": "krisha:1013992943",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -23613,7 +24377,7 @@
    "group": "estet|120|11/12",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -23658,7 +24422,7 @@
    "group": "satpaev|80|4/9",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -23703,7 +24467,7 @@
    "group": "estet|124|14/16",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -26118,7 +26882,7 @@
    "group": "посольский|83|2/3",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -26162,7 +26926,7 @@
    "group": "посольский|83|2/3",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -26206,7 +26970,7 @@
    "group": "кристалл|82|11/18",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-25",
    "publishedExact": false,
@@ -26293,7 +27057,7 @@
    "group": "union|110|4/13",
    "finish": "needs_repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -26424,7 +27188,7 @@
    "group": "rams city|110|4/14",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -31291,6 +32055,10 @@
     {
      "date": "2026-11-01",
      "price": 79999999
+    },
+    {
+     "date": "2026-11-01",
+     "price": 76000000
     }
    ],
    "lastSeen": "2026-11-01",
@@ -32424,7 +33192,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 118.3,
    "floor": 6,
@@ -32468,7 +33236,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 85.0,
    "floor": 15,
@@ -33346,7 +34114,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-26",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 120.0,
    "floor": 9,
@@ -33433,7 +34201,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 115.0,
    "floor": 2,
@@ -33476,7 +34244,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 124.8,
    "floor": 5,
@@ -33562,7 +34330,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 100.0,
    "floor": 8,
@@ -33699,7 +34467,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 300.0,
    "floor": 1,
@@ -33744,7 +34512,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 146.2,
    "floor": 3,
@@ -33754,12 +34522,16 @@
    "year": 2022,
    "condition": "свежий ремонт",
    "bathroom": "2 с/у и более",
-   "description": "ЖК President’s Park, 2я очередь (не путать с третьей очередью!). Свежий дизайнерский ремонт",
+   "description": "ЖК President’s Park, 2я очередь (не путать с третьей очередью!). Свежий дизайнерский ремонт. Сладкая цена - 2 700 000 за квм уже с учетом ремонта, мебели…",
    "firstSeen": "2026-10-27",
    "history": [
     {
      "date": "2026-10-27",
      "price": 408000000
+    },
+    {
+     "date": "2026-11-01",
+     "price": 395000000
     }
    ],
    "lastSeen": "2026-11-01",
@@ -33921,7 +34693,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 86.0,
    "floor": 5,
@@ -34099,7 +34871,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-30",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 123.0,
    "floor": 2,
@@ -34404,7 +35176,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-27",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 90.0,
    "floor": 2,
@@ -35900,7 +36672,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 127.0,
    "floor": 7,
@@ -36077,7 +36849,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 121.8,
    "floor": 7,
@@ -36122,7 +36894,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 145.3,
    "floor": 18,
@@ -37491,7 +38263,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-24",
+   "posted": "2026-11-01",
    "rooms": 3,
    "area": 138.0,
    "floor": 1,
@@ -37509,7 +38281,7 @@
      "price": 239000000
     }
    ],
-   "lastSeen": "2026-10-30",
+   "lastSeen": "2026-11-01",
    "active": true,
    "postedFirst": "2026-10-24",
    "near": false,
@@ -37949,7 +38721,7 @@
      "price": 255000000
     }
    ],
-   "lastSeen": "2026-10-31",
+   "lastSeen": "2026-11-01",
    "active": true,
    "postedFirst": "2026-10-23",
    "near": false,
@@ -46899,7 +47671,7 @@
    "photoCount": 35,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -47001,7 +47773,7 @@
    "address": "Абая 160",
    "district": "Бостандыкский",
    "photos": [
-    "https://krisha-photos.kcdn.online/webp/cc/ccf0aa22-92e6-4618-9326-8ecbc8be6eda/18-full.jpg"
+    "https://krisha-photos.kcdn.online/webp/cc/ccf0aa22-92e6-4618-9326-8ecbc8be6eda/25-full.jpg"
    ],
    "seller": {
     "type": "agent",
@@ -47029,10 +47801,10 @@
    "active": true,
    "near": false,
    "group": "кристалл|100|1/20",
-   "photoCount": 12,
+   "photoCount": 24,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -47120,7 +47892,7 @@
    "photoCount": 25,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -47165,7 +47937,7 @@
    "photoCount": 29,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -47392,7 +48164,7 @@
    "photoCount": 16,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -47428,6 +48200,10 @@
     {
      "date": "2026-10-26",
      "price": 115000000
+    },
+    {
+     "date": "2026-11-01",
+     "price": 113000000
     }
    ],
    "lastSeen": "2026-11-01",
@@ -47437,7 +48213,7 @@
    "photoCount": 72,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -47526,7 +48302,7 @@
    "photoCount": 24,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -47750,7 +48526,7 @@
    "photoCount": 23,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -47799,7 +48575,7 @@
    "photoCount": 25,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48023,7 +48799,7 @@
    "photoCount": 1,
    "finish": "rough",
    "finishSource": "description",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48068,7 +48844,7 @@
    "photoCount": 24,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48112,7 +48888,7 @@
    "photoCount": 35,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48202,7 +48978,7 @@
    "photoCount": 30,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48432,7 +49208,7 @@
    "photoCount": 28,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48477,7 +49253,7 @@
    "photoCount": 37,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48522,7 +49298,7 @@
    "photoCount": 16,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48785,7 +49561,7 @@
    "photoCount": 16,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48874,7 +49650,7 @@
    "photoCount": 45,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48919,7 +49695,7 @@
    "photoCount": 14,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -48964,7 +49740,7 @@
    "photoCount": 13,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -49009,7 +49785,7 @@
    "photoCount": 24,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -49052,7 +49828,7 @@
    "photoCount": 24,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -49092,6 +49868,10 @@
     {
      "date": "2026-10-30",
      "price": 94500000
+    },
+    {
+     "date": "2026-11-01",
+     "price": 92500000
     }
    ],
    "lastSeen": "2026-11-01",
@@ -49371,7 +50151,7 @@
    "photoCount": 25,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -49866,7 +50646,7 @@
    "photoCount": 8,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -49953,7 +50733,7 @@
    "photoCount": 10,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -49998,7 +50778,7 @@
    "photoCount": 15,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -50088,7 +50868,7 @@
    "photoCount": 49,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -50224,7 +51004,7 @@
    "photoCount": 22,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -50358,7 +51138,7 @@
    "photoCount": 32,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -50540,7 +51320,7 @@
    "photoCount": 19,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -50718,7 +51498,7 @@
    "photoCount": 30,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -51038,7 +51818,7 @@
    "photoCount": 23,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -51126,7 +51906,7 @@
    "photoCount": 25,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -51175,7 +51955,7 @@
    "photoCount": 21,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -51304,7 +52084,7 @@
    "photoCount": 22,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-22",
    "publishedExact": false,
@@ -51436,7 +52216,7 @@
    "photoCount": 9,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -51529,7 +52309,7 @@
    "photoCount": 9,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -51621,7 +52401,7 @@
    "photoCount": 15,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -51754,7 +52534,7 @@
    "photoCount": 23,
    "finish": "prefinish",
    "finishSource": "description",
-   "posted": "2026-10-26",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -52097,7 +52877,7 @@
    "buildingType": "монолитный",
    "year": 2021,
    "bathroom": "2 с/у и более",
-   "description": "Берекелі квартира с хорошей аурой в ЖК JAZZ-квартал Продаём квартиру в ЖК JAZZ-квартал от Bazis-A — светлую, уютную и с очень хорошей атмосферой. Квартира, в которой действительно приятно жить • продуманная…",
+   "description": "Берекелі квартира с хорошей аурой в ЖК JAZZ-квартал Продаём квартиру в ЖК JAZZ-квартал от Bazis-A — светлую, уютную и с очень хорошей атмосферой. • продуманная и удобная планировка; • отдельная кухня;…",
    "firstSeen": "2026-10-26",
    "history": [
     {
@@ -52107,6 +52887,10 @@
     {
      "date": "2026-10-28",
      "price": 96000000
+    },
+    {
+     "date": "2026-11-01",
+     "price": 90000009
     }
    ],
    "lastSeen": "2026-11-01",
@@ -52116,7 +52900,7 @@
    "photoCount": 20,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-30",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -52296,7 +53080,7 @@
    "photoCount": 41,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -52702,7 +53486,7 @@
    "photoCount": 32,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -58469,7 +59253,7 @@
    "address": "Талды 63",
    "district": "Бостандыкский",
    "photos": [
-    "https://krisha-photos.kcdn.online/webp/aa/aaf42e16-29bd-44cc-98b0-f5c5b14c014d/4-full.jpg"
+    "https://krisha-photos.kcdn.online/webp/aa/aaf42e16-29bd-44cc-98b0-f5c5b14c014d/7-full.jpg"
    ],
    "seller": {
     "type": "owner",
@@ -59075,7 +59859,7 @@
    "photoCount": 21,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-26",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -60174,7 +60958,7 @@
    "photoCount": 22,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-30",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -62722,7 +63506,7 @@
    "photoCount": 8,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -63603,7 +64387,7 @@
    "photoCount": 23,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -63646,7 +64430,7 @@
    "photoCount": 10,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -63868,7 +64652,7 @@
    "photoCount": 15,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -63909,7 +64693,7 @@
    "photoCount": 14,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -63953,7 +64737,7 @@
    "photoCount": 10,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64002,7 +64786,7 @@
    "photoCount": 11,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64046,7 +64830,7 @@
    "photoCount": 1,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64178,7 +64962,7 @@
    "photoCount": 19,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64223,7 +65007,7 @@
    "photoCount": 27,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64575,7 +65359,7 @@
    "photoCount": 16,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64753,7 +65537,7 @@
    "photoCount": 7,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64798,7 +65582,7 @@
    "photoCount": 22,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64842,7 +65626,7 @@
    "photoCount": 14,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64886,7 +65670,7 @@
    "photoCount": 13,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -65019,7 +65803,7 @@
    "photoCount": 9,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -65063,7 +65847,7 @@
    "photoCount": 24,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -65152,7 +65936,7 @@
    "photoCount": 15,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -65197,7 +65981,7 @@
    "photoCount": 15,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-25",
    "publishedExact": false,
@@ -65246,7 +66030,7 @@
    "photoCount": 12,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -65428,7 +66212,7 @@
    "photoCount": 38,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -65518,7 +66302,7 @@
    "photoCount": 15,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -65561,7 +66345,7 @@
    "photoCount": 15,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -65815,14 +66599,14 @@
      "price": 75000000
     }
    ],
-   "lastSeen": "2026-10-31",
+   "lastSeen": "2026-11-01",
    "active": true,
    "near": false,
    "group": "акварель|84|1/12",
    "photoCount": 12,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -66029,7 +66813,7 @@
    "year": 2018,
    "condition": "не новый, но аккуратный ремонт",
    "bathroom": "2 с/у и более",
-   "description": "Продам квартиру от собственника ! Риэлторам просьба не беспокоит, договора ничего не заключаю, п…",
+   "description": "Продам квартиру от собственника ! Риэлторам просьба не беспокоит, договора ничего не заключаю, прод…",
    "firstSeen": "2026-10-26",
    "history": [
     {
@@ -66037,14 +66821,14 @@
      "price": 85000000
     }
    ],
-   "lastSeen": "2026-10-31",
+   "lastSeen": "2026-11-01",
    "active": true,
    "near": false,
    "group": "аманат|88|9/12",
    "photoCount": 22,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -66477,14 +67261,14 @@
      "price": 84790000
     }
    ],
-   "lastSeen": "2026-10-31",
+   "lastSeen": "2026-11-01",
    "active": true,
    "near": false,
    "group": "izumrud residence|83|9/12",
    "photoCount": 11,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-25",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -67516,6 +68300,10 @@
     {
      "date": "2026-10-30",
      "price": 138500000
+    },
+    {
+     "date": "2026-11-01",
+     "price": 135500000
     }
    ],
    "lastSeen": "2026-11-01",
@@ -67835,7 +68623,7 @@
    "photoCount": 17,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-30",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-24",
    "published": "2026-10-22",
    "publishedExact": false,
@@ -71073,14 +71861,14 @@
      "price": 137000000
     }
    ],
-   "lastSeen": "2026-10-31",
+   "lastSeen": "2026-11-01",
    "active": true,
    "near": true,
    "group": "4you|101|2/8",
    "photoCount": 29,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-24",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-24",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -71511,14 +72299,14 @@
      "price": 80000000
     }
    ],
-   "lastSeen": "2026-10-30",
+   "lastSeen": "2026-11-01",
    "active": true,
    "near": false,
    "group": "rams city|82|9/14",
    "photoCount": 21,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-24",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-24",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -71955,14 +72743,14 @@
      "price": 85000000
     }
    ],
-   "lastSeen": "2026-10-30",
+   "lastSeen": "2026-11-01",
    "active": true,
    "near": false,
    "group": "forum residence|72|2/10",
    "photoCount": 13,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-24",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-24",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -73550,7 +74338,7 @@
      "price": 115000000
     }
    ],
-   "lastSeen": "2026-10-31",
+   "lastSeen": "2026-11-01",
    "active": true,
    "near": false,
    "group": "atria|115|15/16",
@@ -73995,14 +74783,14 @@
      "price": 105000000
     }
    ],
-   "lastSeen": "2026-10-30",
+   "lastSeen": "2026-11-01",
    "active": true,
    "near": false,
    "group": "garden hills|99|2/3",
    "photoCount": 17,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-23",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-23",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -82704,14 +83492,14 @@
      "price": 68000000
     }
    ],
-   "lastSeen": "2026-10-29",
-   "active": false,
+   "lastSeen": "2026-11-01",
+   "active": true,
    "near": false,
    "group": "terracotta|80|11/18",
    "photoCount": 13,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-22",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-22",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -82963,14 +83751,14 @@
      "price": 138000000
     }
    ],
-   "lastSeen": "2026-10-29",
-   "active": false,
+   "lastSeen": "2026-11-01",
+   "active": true,
    "near": true,
    "group": "seven hills|114|7/14",
    "photoCount": 29,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-22",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-22",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -84835,7 +85623,7 @@
    "photoCount": 44,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-29",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-22",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -88840,7 +89628,7 @@
    "photoCount": 31,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-29",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-22",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -89647,7 +90435,7 @@
    "photoCount": 23,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-31",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-21",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -95561,14 +96349,14 @@
      "price": 75000000
     }
    ],
-   "lastSeen": "2026-10-28",
-   "active": false,
+   "lastSeen": "2026-11-01",
+   "active": true,
    "near": false,
    "group": "terracotta|95|19/20",
    "photoCount": 20,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-21",
+   "posted": "2026-11-01",
    "postedFirst": "2026-10-21",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -105451,7 +106239,7 @@
    "complex": "RAMS City",
    "buildingType": "монолитный",
    "year": 2023,
-   "description": "Продам 3х комнатную большую квартиру. Большая территория, безопасный двор. Есть собственное парковочное место в паркинге, отдаю вместе с квартирой. ЖК RAMS City, от проверенного хорошего застройщика RAMS, 2 скоростных лифта. Р…",
+   "description": "Продам 3х комнатную большую квартиру. Большая территория, безопасный двор. ЖК RAMS City, от проверенного хорошего застройщика RAMS, 2 скоростных лифта. Рядом несколько школ, ТЦ ADK и Москва, на территории ЖК есть магазины, медицинс…",
    "firstSeen": "2026-10-26",
    "history": [
     {
@@ -105463,7 +106251,7 @@
    "active": true,
    "near": false,
    "group": "rams city|82|16/16",
-   "photoCount": 11,
+   "photoCount": 10,
    "finish": null,
    "finishSource": null,
    "posted": "2026-10-27",
