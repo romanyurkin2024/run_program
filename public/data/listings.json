@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-10T08:29:09+00:00",
+ "updatedAt": "2026-11-10T14:19:20+00:00",
  "listings": [
   {
    "id": "krisha:1017303970",
@@ -27,7 +27,7 @@
    "year": 2014,
    "condition": "не новый, но аккуратный ремонт",
    "bathroom": "раздельный",
-   "description": "Зал 25 кв.м, кухня 12, 5 кв.м, спальня 18, 2 кв.м, спальня 12, 2 кв.м, коридор 11, 8 кв.м Дом…",
+   "description": "Просторная 3-комнатная квартира в ЖК «Асыл Тау» от BI Group! Уютная квартира площадью 85, 8…",
    "firstSeen": "2026-11-10",
    "history": [
     {
@@ -89,7 +89,7 @@
    "source": "krisha",
    "url": "https://krisha.kz/a/show/1016499054",
    "title": "3-комнатная квартира · 78 м² · 9/9 этаж",
-   "address": "Каныша Сатпаева 90а/1 - 3 ОЧЕРЕДЬ",
+   "address": "Каныша Сатпаева 90а/1",
    "district": "Бостандыкский",
    "photos": [
     "https://krisha-photos.kcdn.online/webp/45/45081ce7-d8b0-440f-a005-485f1abba54c/5-full.jpg"
@@ -110,7 +110,7 @@
    "year": 2027,
    "condition": "черновая отделка",
    "bathroom": "совмещенный",
-   "description": "Дом бизнес класса от Застройщика BAZIS-A Срочная продажа по лучшей цене По Всем вопросам прошу звонить",
+   "description": "Дом бизнес класса от Застройщика BAZIS-A Готовы блок Срочная продажа по лучшей цене По Всем вопросам прошу звонить",
    "firstSeen": "2026-11-10",
    "history": [
     {
@@ -2778,6 +2778,10 @@
     {
      "date": "2026-11-10",
      "price": 92600000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 86600000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -3638,12 +3642,16 @@
    "buildingType": "монолитный",
    "year": 2023,
    "bathroom": "совмещенный",
-   "description": "без мебели, Продаем квартиру с частичным ремонтом. Основной ремонт сделан, остались потолки, сантехника и кухня. Локация отличная на пересечении ул. Утепова - А.Кекилбайулы Просмотр в удобное время. Подробности…",
+   "description": "без мебели, Продается квартиру с новым частичным ремонтом. Основной ремонт сделан, остались потолки, сантехника и кухня. Локация отличная на пересечении ул. Утепова - А. Кекилбайулы Просмотр в удобное вре…",
    "firstSeen": "2026-11-10",
    "history": [
     {
      "date": "2026-11-10",
      "price": 57000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 55000000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -5676,6 +5684,2865 @@
    "published": "2026-11-03",
    "publishedExact": false,
    "publishedOpen": false
+  },
+  {
+   "id": "krisha:1017319516",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017319516",
+   "title": "3-комнатная квартира · 76 м² · 14/19 этаж",
+   "address": "Абая — Брусиловского",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/cb/cb4e25e6-0c93-4b6b-9a3e-23a1f8775a67/1-full.jpg"
+   ],
+   "photoCount": 28,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 76.0,
+   "floor": 14,
+   "floors": 19,
+   "complex": "Terracotta",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "** Продаётся стильная евро 3-комнатная квартира в ЖК \"Terracotta\"! ** Комфорт-класс | Дизайнерский ремонт | Готова к засел…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 68000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "terracotta|76|14/19",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017318884",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017318884",
+   "title": "3-комнатная квартира · 101 м² · 3/8 этаж",
+   "address": "Розыбакиева — Ходжанова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/44/441878cb-fbb0-49a5-a063-1e9de06ae623/10-full.jpg"
+   ],
+   "photoCount": 14,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 101.0,
+   "floor": 3,
+   "floors": 8,
+   "buildingType": "монолитный",
+   "year": 2021,
+   "condition": "не новый, но аккуратный ремонт",
+   "description": "Продаётся просторная 3-комнатная квартира (Кухня отдельно) площадью 101 м² в жилом комплексе 4YOU комфорт-класса. Дом монолитный, построен в 2021 году. Квартира расположена на 3 этаже из 8…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 123000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "krisha:1017318884",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017318948",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017318948",
+   "title": "3-комнатная квартира · 91 м² · 18/19 этаж",
+   "address": "Аль-Фараби — Ходжанова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/eb/ebf2a5f7-1afd-4352-89bc-fb37f54ac541/1-full.jpg"
+   ],
+   "photoCount": 39,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 91.0,
+   "floor": 18,
+   "floors": 19,
+   "complex": "PRIMAVERA",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Эксклюзивная трехкомнатная квартира в жилом комплексе бизнес-класса «Primavera» Характеристики: • Общая площадь — 91.8 кв.м • Планировка:…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 120000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "primavera|91|18/19",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017318752",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017318752",
+   "title": "3-комнатная квартира · 80 м² · 6/16 этаж",
+   "address": "Гагарина 233",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/43/43c59b50-b61d-482d-8dd3-04eea9f2b5bc/1-full.jpg"
+   ],
+   "photoCount": 4,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 80.0,
+   "floor": 6,
+   "floors": 16,
+   "complex": "Terra",
+   "buildingType": "монолитный",
+   "year": 2020,
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 63000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "terra|80|6/16",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017318373",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017318373",
+   "title": "3-комнатная квартира · 100 м² · 5/16 этаж",
+   "address": "Навои 208 — Торайгырова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/62/62a2cf43-ffe1-4059-b9a0-bc57c030b19e/2-full.jpg"
+   ],
+   "photoCount": 3,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 100.0,
+   "floor": 5,
+   "floors": 16,
+   "complex": "Шахристан",
+   "buildingType": "монолитный",
+   "year": 2015,
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 68400000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "шахристан|100|5/16",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017317510",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017317510",
+   "title": "3-комнатная квартира · 100 м² · 4/12 этаж",
+   "address": "Торайгырова 21/1 — Мустафина",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/e0/e0831736-9467-40be-a732-7e91811c74f9/1-full.jpg"
+   ],
+   "photoCount": 3,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 100.0,
+   "floor": 4,
+   "floors": 12,
+   "complex": "Sholpan City",
+   "buildingType": "монолитный",
+   "year": 2020,
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 73000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "sholpan city|100|4/12",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017317495",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017317495",
+   "title": "3-комнатная квартира · 87 м² · 1/3 этаж",
+   "address": "Роза Жаманова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/ba/ba5176ab-c40d-456b-bae9-1d15dd9ffddb/1-full.jpg"
+   ],
+   "photoCount": 6,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 87.0,
+   "floor": 1,
+   "floors": 3,
+   "complex": "Аврора",
+   "buildingType": "кирпичный",
+   "year": 2017,
+   "condition": "не новый, но аккуратный ремонт",
+   "bathroom": "совмещенный",
+   "description": "Продаётся 3-комнатная квартира в клубном доме ЖК «Аврора» Квартира с улучшенной планировкой, полностью готова…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 75000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "аврора|87|1/3",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017317091",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017317091",
+   "title": "3-комнатная квартира · 217 м² · 34/37 этаж",
+   "address": "Аль-Фараби",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/be/be1d6cc9-5c4e-4bf6-b906-0df4ba3d785d/1-full.jpg"
+   ],
+   "photoCount": 40,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 217.0,
+   "floor": 34,
+   "floors": 37,
+   "year": 2015,
+   "description": "THE RITZ CARLTON - Эксклюзивная панорамная квартира, которая расположена в единственной в Средней Азии высотной башне - ESENTAI TOWER! - Данный объект находится по проспекту Аль-Фараби в самом центре г. Алматы на 34 этаже. - Этажность 34 из 37. - Площадь квартиры составляет - 217 м2…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 1500000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "krisha:1017317091",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017316784",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017316784",
+   "title": "3-комнатная квартира · 100 м² · 5/25 этаж",
+   "address": "Абиша Кекилбайулы 270",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/c1/c1245636-1caa-4514-96f8-d0122ce000be/1-full.jpg"
+   ],
+   "photoCount": 12,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 100.0,
+   "floor": 5,
+   "floors": 25,
+   "complex": "Mega Tower Almaty",
+   "buildingType": "монолитный",
+   "year": 2014,
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 77000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "mega tower almaty|100|5/25",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017315771",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017315771",
+   "title": "3-комнатная квартира · 96.5 м² · 16/16 этаж",
+   "address": "Сатпаева 90/58",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/b6/b685efec-2b13-4d76-a025-b812008a7a9c/7-full.jpg"
+   ],
+   "photoCount": 10,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 96.5,
+   "floor": 16,
+   "floors": 16,
+   "complex": "Riviera",
+   "buildingType": "монолитный",
+   "year": 2020,
+   "condition": "не новый, но аккуратный ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "🔥 СРОЧНАЯ ПРОДАЖА! 3-КОМНАТНАЯ КВАРТИРА В ЖК RIVIERA! Продаётся просторная 3-комнатная квартира с полноц…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 93000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "riviera|96|16/16",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017315805",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017315805",
+   "title": "3-комнатная квартира · 127 м² · 7/22 этаж",
+   "address": "Аль-Фараби 77/3",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/52/52563ad4-6a19-402e-80b1-d330f0e5ba57/1-full.jpg"
+   ],
+   "photoCount": 9,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 127.0,
+   "floor": 7,
+   "floors": 22,
+   "complex": "Esentai Apartments",
+   "buildingType": "монолитный",
+   "year": 2015,
+   "condition": "не новый, но аккуратный ремонт",
+   "description": "✨ ЭЛИТНАЯ КВАРТИРА 127 м² | 240 000 000 ₸ ✨ Представляем просторную квартиру премиум-класса для тех, кто ценит комфорт, статус и качество жизни. 🏙️ Характеристики: ▪️ Общая площ…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 240000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "esentai apartments|127|7/22",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017315636",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017315636",
+   "title": "3-комнатная квартира · 120 м² · 9/23 этаж",
+   "address": "Аль-Фараби 105 — Ходжанова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/83/83f32f06-ee56-4c3a-8766-cc6dc5c46996/1-full.jpg"
+   ],
+   "photoCount": 18,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 120.0,
+   "floor": 9,
+   "floors": 23,
+   "complex": "PRIMAVERA",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "🏙️ **ПРОДАЁТСЯ ПРОСТОРНАЯ КВАРТИРА В ЖК PRIMAVERA** 📍 Алматы, проспект Аль-Фараби, 103 ✨ **120 м² для воплощения ваших идей…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 133000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "primavera|120|9/23",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017312428",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017312428",
+   "title": "3-комнатная квартира · 91.8 м² · 18/19 этаж",
+   "address": "Аль-Фараби — Ходжанова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/19/19a88f87-f957-4c58-af42-df7059323279/15-full.jpg"
+   ],
+   "photoCount": 39,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 91.8,
+   "floor": 18,
+   "floors": 19,
+   "complex": "PRIMAVERA",
+   "buildingType": "монолитный",
+   "year": 2023,
+   "bathroom": "2 с/у и более",
+   "description": "Эксклюзивная трехкомнатная квартира в жилом комплексе бизнес-класса «Primavera» Характеристики: • Общая площадь — 91.8 кв. м • Планировка: кухня-студия + 2 спальни + 2 гардероба + 2 с/у • Окна выходят на две…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 120000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "primavera|92|18/19",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017315779",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017315779",
+   "title": "3-комнатная квартира · 78.7 м² · 2/8 этаж",
+   "address": "Егизбаева 3 — Каныша Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/f7/f76bc6f2-483f-4d1e-978d-994c24b3bd72/1-full.jpg"
+   ],
+   "photoCount": 21,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 78.7,
+   "floor": 2,
+   "floors": 8,
+   "complex": "ALA Park",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "🔥 ПРОДАЁТСЯ ПО СЕБЕСТОИМОСТИ! 🔥 💥 Редкое предложение — цена без переплаты! Ниже аналогов на рынке. Продаётся стильная евротрё…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 64000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "ala park|79|2/8",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017315614",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017315614",
+   "title": "3-комнатная квартира · 86 м² · 9/12 этаж",
+   "address": "Сатпаева 90 — Туркебаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/fb/fb9dc56f-784c-446e-bf4b-45b541a6ffe4/5-full.jpg"
+   ],
+   "photoCount": 17,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 86.0,
+   "floor": 9,
+   "floors": 12,
+   "complex": "Акварель",
+   "buildingType": "монолитный",
+   "year": 2018,
+   "bathroom": "совмещенный",
+   "description": "Продам квартиру в хорошем районе города .Квартира чистая, ухоженная Продажа срочная",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 68000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "акварель|86|9/12",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017315303",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017315303",
+   "title": "3-комнатная квартира · 120 м² · 9/17 этаж",
+   "address": "Айманова 140",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/92/92cc26de-fcb8-4445-b79e-eee7e8f1de78/1-full.jpg"
+   ],
+   "photoCount": 22,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 120.0,
+   "floor": 9,
+   "floors": 17,
+   "complex": "Арай",
+   "buildingType": "монолитный",
+   "year": 2015,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Просторная 3-комнатная квартира в ЖК Арай! Площадь 120 м², удобный 9 этаж из 17. Просторная планировка:2 спа…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 99000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "арай|120|9/17",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017314955",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017314955",
+   "title": "3-комнатная квартира · 86.8 м² · 6/9 этаж",
+   "address": "Аль-Фараби 69В",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/14/148fb6ec-b3e0-4828-a124-fe3ee822bd19/7-full.jpg"
+   ],
+   "photoCount": 9,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 86.8,
+   "floor": 6,
+   "floors": 9,
+   "complex": "LUMIERE",
+   "buildingType": "монолитный",
+   "year": 2026,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "ЖК LUMIERE Застройщик BAZIS-A Премиум класс Высота потолков 3.3 Одна из лучших локации. ЖК расположен севернее проспекта Аль-Фараби, вдоль набереж…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 181866000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "lumiere|87|6/9",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017315301",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017315301",
+   "title": "3-комнатная квартира · 97.3 м² · 3/16 этаж",
+   "address": "Каныша Сатпаева 90/52",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/b2/b2719f6a-31c5-4fc0-ba4b-b3f4cb65f98f/1-full.jpg"
+   ],
+   "photoCount": 15,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 97.3,
+   "floor": 3,
+   "floors": 16,
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "✨ ПРОДАЕТСЯ СТИЛЬНАЯ 3-КОМНАТНАЯ КВАРТИРА В ЖК Riviera ✨ Идеальный вариант для тех, кто хочет заехать и жить без лишних вложений! 🏡 Общая площадь: 97, 3 м² 🍽 Кухня: 14 м²…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 93500000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "каныша сатпаева 90|97|3/16",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017314763",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017314763",
+   "title": "3-комнатная квартира · 77.4 м² · 16/16 этаж",
+   "address": "Розыбакиева 197/2",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/6e/6eed4890-6212-4fc4-a47f-66ffc268b6c6/9-full.jpg"
+   ],
+   "photoCount": 10,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 77.4,
+   "floor": 16,
+   "floors": 16,
+   "complex": "Estet",
+   "buildingType": "монолитный",
+   "year": 2025,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "ЖК ESTET Застройщик BAZIS-A Дом Бизнес класс Потолки 3м Рядом ТРЦ MEGA Alma-Ata, Парк Первого Президента, набережная реки Большая Алматинка. Собствен…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 77715000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "estet|77|16/16",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017314612",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017314612",
+   "title": "3-комнатная квартира · 120 м² · 10/22 этаж",
+   "address": "Аль-Фараби — ЛУЧШЕЕ ПРЕДЛОЖЕНИЯ!!! ТО ЧТО ВЫ ИЩИТЕ",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/e2/e2e7b893-98b3-445c-95bb-1d9c620a057f/1-full.jpg"
+   ],
+   "photoCount": 8,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 120.0,
+   "floor": 10,
+   "floors": 22,
+   "complex": "Esentai Apartments",
+   "buildingType": "монолитный",
+   "year": 2015,
+   "condition": "не новый, но аккуратный ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "# 💎 ESENTAI APARTMENTS | 120 М² | АЛЬ-ФАРАБИ 77/3 **Премиальная 3-комнатная квартира в одной из самых статусных локаций Алматы. ** 📍 **Бостандыкский р…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 255000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "esentai apartments|120|10/22",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017315070",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017315070",
+   "title": "3-комнатная квартира · 110 м² · 4/20 этаж",
+   "address": "Абая — Брусиловского",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/fe/fe659400-6b30-4e24-9a49-aa470ac2adce/5-full.jpg"
+   ],
+   "photoCount": 12,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 110.0,
+   "floor": 4,
+   "floors": 20,
+   "complex": "Terracotta",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "не новый, но аккуратный ремонт",
+   "bathroom": "раздельный",
+   "description": "🏡 **Продаётся 3-комнатная квартира в ЖК Terracotta** ✨ Просторная квартира с современным ремонтом, большой кухней-гостиной и окнами на три стор…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 82000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "terracotta|110|4/20",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017314772",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017314772",
+   "title": "3-комнатная квартира · 100 м² · 12/13 этаж",
+   "address": "Розыбакиева 247к4",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/49/49c6b1c9-925d-44bc-a301-70ee9200cda9/32-full.jpg"
+   ],
+   "photoCount": 29,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 100.0,
+   "floor": 12,
+   "floors": 13,
+   "complex": "Вавилон",
+   "buildingType": "монолитный",
+   "year": 2016,
+   "condition": "не новый, но аккуратный ремонт",
+   "bathroom": "совмещенный",
+   "description": "В стоимость входит ПАРКИНГ!!! Обременений нет, документы в порядке, ипотеку рассматриваем. Показы по предварительной договоренности",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 100000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "вавилон|100|12/13",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017314853",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017314853",
+   "title": "3-комнатная квартира · 115.7 м² · 1/12 этаж",
+   "address": "Наурызбай батыра 119/1",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/87/876283d0-1453-4a69-bdc3-cfe5e9b76afc/11-full.jpg"
+   ],
+   "photoCount": 12,
+   "seller": {
+    "type": null,
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 115.7,
+   "floor": 1,
+   "floors": 12,
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Это квартира, в которой легко представить своё будущее. Место, где дом становится настоящим источником уюта и спокойствия, место, куда хочется возвра…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 135000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "наурызбай батыра 119|116|1/12",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017313920",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017313920",
+   "title": "3-комнатная квартира · 97.3 м² · 3/16 этаж",
+   "address": "Сатпаева — ЛУЧШЕЕ ПРЕДЛОЖЕНИЯ!!! ТО ЧТО ВЫ ИЩИТЕ",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/c0/c05eb5b4-709b-48c4-9645-56510c17d23f/1-full.jpg"
+   ],
+   "photoCount": 15,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 97.3,
+   "floor": 3,
+   "floors": 16,
+   "complex": "Riviera",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "✨ ПРОДАЕТСЯ СТИЛЬНАЯ 3-КОМНАТНАЯ КВАРТИРА В ЖК Riviera ✨ Идеальный вариант для тех, кто хочет заехать и жить без лишних вложений! 🏡 Общая площадь: 97, 3 м² 🍽 Кухня:…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 93500000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "riviera|97|3/16",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017313914",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017313914",
+   "title": "3-комнатная квартира · 105 м² · 15/18 этаж",
+   "address": "Розыбакиева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/cd/cd78cd83-27fe-48a2-bcca-e78c76c095d8/20-full.jpg"
+   ],
+   "photoCount": 34,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 105.0,
+   "floor": 15,
+   "floors": 18,
+   "complex": "R-House",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Продается светлая, уютная, просторная 3-х комн квартира рядом с Мега центром! ЖК R-House! Первые хозяева, ремонт делали для себя! Шикарный вид на горы! По все…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 105000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "r-house|105|15/18",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017314226",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017314226",
+   "title": "3-комнатная квартира · 107 м² · 10/13 этаж",
+   "address": "Розыбакиева 247 — Mega Alma-Ata",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/e5/e5f83c41-f021-448d-9e0d-d533b1889e93/6-full.jpg"
+   ],
+   "photoCount": 7,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 107.0,
+   "floor": 10,
+   "floors": 13,
+   "complex": "Вавилон",
+   "buildingType": "монолитный",
+   "year": 2016,
+   "condition": "не новый, но аккуратный ремонт",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 90000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "вавилон|107|10/13",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017313522",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017313522",
+   "title": "3-комнатная квартира · 75 м² · 11/18 этаж",
+   "address": "Абая 164/10 — Брусиловского",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/a8/a89fdc78-71c8-425e-87a6-cc2ae58c13f5/10-full.jpg"
+   ],
+   "photoCount": 16,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 75.0,
+   "floor": 11,
+   "floors": 18,
+   "complex": "Terracotta",
+   "buildingType": "монолитный",
+   "year": 2021,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "Продаётся уютная и светлая квартира в современном жилом комплексе «Терракота» Расположена на комфортном 11 этаже из 18 Дом монолитный отличается отличной тепло- и шумоизоляцией…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 65000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "terracotta|75|11/18",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017313502",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017313502",
+   "title": "3-комнатная квартира · 102 м² · 11/18 этаж",
+   "address": "Тургут Озала",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/06/060aa279-0f61-4b69-b5ca-efc273cd5c44/1-full.jpg"
+   ],
+   "photoCount": 10,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 102.0,
+   "floor": 11,
+   "floors": 18,
+   "complex": "Кристалл",
+   "buildingType": "монолитный",
+   "year": 2024,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "ЖК Кристалл Класс комфорт плюс Потолки 3м Бесключевой доступ Face ID Рядом станция МЕТРО Вся инфроструктура рядом Самая низкая цена! Звоните!",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 61500000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "кристалл|102|11/18",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017313326",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017313326",
+   "title": "3-комнатная квартира · 100 м² · 15/16 этаж",
+   "address": "Каныша Сатпаева 90/55Б — 25 блок",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/2a/2af9d8c2-3e46-43b3-a048-6eab7814ee9b/6-full.jpg"
+   ],
+   "photoCount": 7,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 100.0,
+   "floor": 15,
+   "floors": 16,
+   "complex": "Riviera PLUS",
+   "buildingType": "монолитный",
+   "year": 2026,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "ЖК RIVIERA PLUS Застройщик BAZIS-A ДОМ КОМФОРТ ПЛЮС Потолки 2.85м Самая удобная локация в центре города Видео-наблюдение, IP-домофония, школ…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 71760000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "riviera plus|100|15/16",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017313226",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017313226",
+   "title": "3-комнатная квартира · 83.5 м² · 7/16 этаж",
+   "address": "Гагарина проспект — Абая",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/41/4131fa37-31b1-4b6d-81c8-52adfe9e072c/1-full.jpg"
+   ],
+   "photoCount": 21,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 83.5,
+   "floor": 7,
+   "floors": 16,
+   "complex": "Дом на Абая",
+   "buildingType": "монолитный",
+   "year": 2020,
+   "description": "Продаётся ухоженная 3-х комнатная квартира, с прекрасным видом из окна и с шикарной локацией. Всё находится рядом, школы, детские сады, торговые точки, поликлиники, медицинские центры, базарчик, множество остановок обществе…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 70500000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "дом на абая|84|7/16",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017313119",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017313119",
+   "title": "3-комнатная квартира · 135 м² · 4/7 этаж",
+   "address": "мкр Мирас 157 — Аскарова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/c8/c8b508af-da20-4784-8884-ec5ce843e467/1-full.jpg"
+   ],
+   "photoCount": 11,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 135.0,
+   "floor": 4,
+   "floors": 7,
+   "complex": "Солнечная Долина",
+   "buildingType": "монолитный",
+   "year": 2012,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Качественный, свежий ремонт Торг небольшой Без посредников",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 160000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "солнечная долина|135|4/7",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017313140",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017313140",
+   "title": "3-комнатная квартира · 92 м² · 9/12 этаж",
+   "address": "Гагарина 311",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/92/9227317c-0f10-4c86-b628-fa66314d2f31/5-full.jpg"
+   ],
+   "photoCount": 16,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 92.0,
+   "floor": 9,
+   "floors": 12,
+   "complex": "Gagarin Park",
+   "buildingType": "монолитный",
+   "year": 2018,
+   "condition": "не новый, но аккуратный ремонт",
+   "bathroom": "2 с/у и более",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 90000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "gagarin park|92|9/12",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017312520",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017312520",
+   "title": "3-комнатная квартира · 72 м² · 1/16 этаж",
+   "address": "Каныша Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/2b/2ba22f31-4267-4df2-9271-50a849ad1249/23-full.jpg"
+   ],
+   "photoCount": 23,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 72.0,
+   "floor": 1,
+   "floors": 16,
+   "complex": "Jazz-квартал",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "свежий ремонт",
+   "bathroom": "раздельный",
+   "description": "Полноценная трехкомнатная квартира в отличном состоянии с мебелью и техникой, готовая к комфортному проживанию с отличной планировкой распашонка (окна в…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 83000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "jazz-квартал|72|1/16",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017312467",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017312467",
+   "title": "3-комнатная квартира · 80 м² · 7/20 этаж",
+   "address": "Абая 164 — Брусиловского",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/da/dac57ad5-204c-4250-a49e-5d117dd63057/1-full.jpg"
+   ],
+   "photoCount": 25,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 80.0,
+   "floor": 7,
+   "floors": 20,
+   "complex": "Terracotta",
+   "buildingType": "монолитный",
+   "year": 2021,
+   "condition": "свежий ремонт",
+   "description": "Встроенная кухня, новая сантехника, тихий двор, кондиционер. Продаётся просторная 3-комнатная квартира в современном ЖК Terracotta комфорт-класса! Квартира полностью готова к заселению и станет прекрасн…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 67000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "terracotta|80|7/20",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017312962",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017312962",
+   "title": "3-комнатная квартира · 100 м² · 10/16 этаж",
+   "address": "Каныша Сатпаева 133/1",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/91/91212b05-3bba-4a66-a475-b77c296eec22/1-full.jpg"
+   ],
+   "photoCount": 24,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 100.0,
+   "floor": 10,
+   "floors": 16,
+   "complex": "Jazz-квартал",
+   "buildingType": "монолитный",
+   "year": 2019,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Продаётся просторная 3-комнатная квартира в одном из узнаваемых жилых комплексов Алматы — Jazz-квартал от BAZIS-A. Квартира расположена…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 101000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "jazz-квартал|100|10/16",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017312579",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017312579",
+   "title": "3-комнатная квартира · 105 м² · 9/12 этаж",
+   "address": "Басенова — Розыбакиева-Басенова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/6c/6c7c6709-1d93-46ca-a388-4b624c76ebbe/7-full.jpg"
+   ],
+   "photoCount": 23,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 105.0,
+   "floor": 9,
+   "floors": 12,
+   "buildingType": "монолитный",
+   "year": 2021,
+   "description": "БА8 В квартире выполнен эксклюзивный дизайнерский ремонт, в который вложено большое количество времени, внимания к деталям, средств и любви. Пространство создавалось не просто как ремонт, а как комфортный и эстетичный дом, где каждая зона продумана до мелоче…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 130000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "krisha:1017312579",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017312271",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017312271",
+   "title": "3-комнатная квартира · 104 м² · 6/20 этаж",
+   "address": "Гагарина 310",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/59/599f5e0f-33f3-451d-a580-2be5841acdf3/1-full.jpg"
+   ],
+   "photoCount": 27,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 104.0,
+   "floor": 6,
+   "floors": 20,
+   "complex": "Комфорт Сити",
+   "buildingType": "монолитный",
+   "year": 2023,
+   "bathroom": "2 с/у и более",
+   "description": "Продается 3-х комнатная квартира в новом ЖК. Стиль минимализм. Техника BOSCH, Samsung. Вся мебель и техника входит в сумму продажи. Обмен не интересует. В аренду…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 125000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "комфорт сити|104|6/20",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017311385",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017311385",
+   "title": "3-комнатная квартира · 101 м² · 2/8 этаж",
+   "address": "Розыбакиева 320",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/89/89c80183-7d27-4855-8821-516e59abcaee/1-full.jpg"
+   ],
+   "photoCount": 13,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 101.0,
+   "floor": 2,
+   "floors": 8,
+   "complex": "4YOU",
+   "buildingType": "монолитный",
+   "year": 2021,
+   "condition": "не новый, но аккуратный ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Просторная 3-комнатная квартира в ЖК 4YOU Предлагаем вашему вниманию современную трёхкомнатную квартиру в жилом комплексе 4YOU — отличный вариант для комфортного проживан…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 134500000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "4you|101|2/8",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017311963",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017311963",
+   "title": "3-комнатная квартира · 78.1 м² · 9/9 этаж",
+   "address": "Каныша Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/fc/fc5cf25b-b1f9-481e-8431-c51055f9f299/1-full.jpg"
+   ],
+   "photoCount": 7,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 78.1,
+   "floor": 9,
+   "floors": 9,
+   "complex": "Satpaev",
+   "buildingType": "монолитный",
+   "year": 2026,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "ЖК Satpaev Застройщик Bazis-A Высоки потолки 3м Окнан на восток на берёзовую рощу Блок введён в эксплуатацию Евро тёх комнатная квартира Закрытая территория, круглосуточное вид…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 62500000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "satpaev|78|9/9",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017311118",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017311118",
+   "title": "3-комнатная квартира · 101 м² · 3/8 этаж",
+   "address": "Розыбакиева 320",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/78/7838cc15-bf95-48ec-a9f6-1626a9df9802/1-full.jpg"
+   ],
+   "photoCount": 14,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 101.0,
+   "floor": 3,
+   "floors": 8,
+   "complex": "4YOU",
+   "buildingType": "монолитный",
+   "year": 2021,
+   "condition": "свежий ремонт",
+   "bathroom": "раздельный",
+   "description": "🔥ЖК 4 YOU | BI GROUP 🏙️ Один из самых популярных ЖК Алматы! 💎 Бизнес-класс 🏡 3-комнатная квартира 📐 101 м² 🏢 3 этаж из 8 ✨ Состояние - заезжай и живи! 💥 ЦЕНА, КОТОРОЙ НЕТ НА РЫНКЕ! 📲 Звоните…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 122000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "4you|101|3/8",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017269885",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017269885",
+   "title": "3-комнатная квартира · 84 м² · 2/3 этаж",
+   "address": "Жартас",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/85/85233554-9928-46cd-b47e-6e9b7f10462e/1-full.jpg"
+   ],
+   "photoCount": 7,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 84.0,
+   "floor": 2,
+   "floors": 3,
+   "year": 2022,
+   "condition": "свободная планировка",
+   "description": "Супер предложение ТОРГ Звоните покажем на фоне сразу несколько вариантов",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 36000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "krisha:1017269885",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-09",
+   "publishedExact": false,
+   "publishedOpen": false
+  },
+  {
+   "id": "krisha:1017310951",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017310951",
+   "title": "3-комнатная квартира · 80.4 м² · 10/21 этаж",
+   "address": "Абая — Тургут озала",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/1d/1d57890e-96ad-4afe-85e5-d910a527e0a1/1-full.jpg"
+   ],
+   "photoCount": 32,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 80.4,
+   "floor": 10,
+   "floors": 21,
+   "complex": "Кристалл",
+   "buildingType": "монолитный",
+   "year": 2025,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "Продаётся просторная евро-3 квартира в ЖК «Кристалл» Прекрасный вариант для семьи — полноценная евро-трёхкомнатная квартира площадью…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 65000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "кристалл|80|10/21",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017309988",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017309988",
+   "title": "3-комнатная квартира · 102 м² · 11/18 этаж",
+   "address": "Тургут Озала",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/6d/6d9800dd-4c1d-4229-8ad4-42075fcd9c31/10-full.jpg"
+   ],
+   "photoCount": 10,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 102.0,
+   "floor": 11,
+   "floors": 18,
+   "complex": "Кристалл",
+   "buildingType": "монолитный",
+   "year": 2024,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "ЖК Кристалл Класс комфорт плюс Потолки 3м Бесключевой доступ Face ID Рядом станция МЕТРО Вся инфраструктура рядом Самая низкая цена! Звоните!",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 61500000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "кристалл|102|11/18",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017311335",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017311335",
+   "title": "3-комнатная квартира · 76 м² · 1/3 этаж",
+   "address": "Какимбека Салыкова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/d2/d2eb4750-8e9a-48cf-833c-6af43c28c7d8/18-full.jpg"
+   ],
+   "photoCount": 13,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 76.0,
+   "floor": 1,
+   "floors": 3,
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "🏡| Бизнес-класс Представляем стильную евро-3-комнатную квартиру площадью 76 м² с красивым современным ремонтом в одном из привлекательных жилых комплексов бизнес-класса! ✨ Характеристики: 📐 Площадь: 76 м² 🏢 Этаж: 1 из 3 🛋…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 75000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "krisha:1017311335",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017311069",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017311069",
+   "title": "3-комнатная квартира · 76 м² · 1/3 этаж",
+   "address": "Какимбека Салыкова — КРАСИВАЯ ТРЕШКА ПО ОЧЕНЬ ГОРЯЧЕЙ ЦЕНЕ",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/68/6862bf53-3a67-4582-b769-e8c0c720e86e/1-full.jpg"
+   ],
+   "photoCount": 21,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 76.0,
+   "floor": 1,
+   "floors": 3,
+   "complex": "Saxon Yard",
+   "buildingType": "монолитный",
+   "year": 2023,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "🏡 ЖК SAXON YARD | Бизнес-класс Представляем стильную евро-3-комнатную квартиру площадью 76 м² с красивым современным ремонтом…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 75000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "saxon yard|76|1/3",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017311093",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017311093",
+   "title": "3-комнатная квартира · 90.4 м² · 3/3 этаж",
+   "address": "мкр Ерменсай, Баганашыл 2блок31/6",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/19/192a5818-4f2b-42de-9a65-3ae9953f41f0/1-full.jpg"
+   ],
+   "photoCount": 14,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 90.4,
+   "floor": 3,
+   "floors": 3,
+   "complex": "Mountain Drive",
+   "buildingType": "монолитный",
+   "year": 2019,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Продаётся просторная 3-комнатная квартира площадью 90, 4 м² с огромной террасой! Идеальный вариант для тех, кто ценит комфорт, уют, тишину…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 96000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "mountain drive|90|3/3",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017310489",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017310489",
+   "title": "3-комнатная квартира · 76 м² · 1/3 этаж",
+   "address": "мкр Нур Алатау, Какимбека Салыкова — НАЛИЧКА ЕСТЬ СКИДКА!!!",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/2e/2ec01b51-7c97-4bd5-861a-5eb247ae453a/7-full.jpg"
+   ],
+   "photoCount": 19,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 76.0,
+   "floor": 1,
+   "floors": 3,
+   "complex": "Saxon Yard",
+   "buildingType": "монолитный",
+   "year": 2023,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "🏡 ЖК SAXON YARD | Бизнес-класс Представляем стильную евро-3-комнатную квартиру площадью 76 м² с красивым современным ремонтом в одном из…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 75000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "saxon yard|76|1/3",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017310966",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017310966",
+   "title": "3-комнатная квартира · 78.7 м² · 2/8 этаж",
+   "address": "Егизбаева 3, 5 — Каныша Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/4d/4d8c2284-0001-43ad-a0b6-e2bb75aee267/1-full.jpg"
+   ],
+   "photoCount": 21,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 78.7,
+   "floor": 2,
+   "floors": 8,
+   "complex": "ALA Park",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "требует ремонта",
+   "bathroom": "раздельный",
+   "description": "🔥 ПРОДАЁТСЯ ПО СЕБЕСТОИМОСТИ! 🔥 💥 Редкое предложение — цена без переплаты! Ниже аналогов на рынке. Продаётся стильная евротрёшка в ЖК ALA Park 🏡✨ — комфорт, пространство и продуманная…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 64000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "ala park|79|2/8",
+   "finish": "needs_repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017310936",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017310936",
+   "title": "3-комнатная квартира · 100 м² · 8/16 этаж",
+   "address": "Сатпаева 90/58",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/f0/f0ce20d9-a268-4451-9948-c55a4956d9e0/1-full.jpg"
+   ],
+   "photoCount": 23,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 100.0,
+   "floor": 8,
+   "floors": 16,
+   "complex": "Riviera",
+   "buildingType": "монолитный",
+   "year": 2019,
+   "condition": "свежий ремонт",
+   "description": "✨ Просторная квартира в ЖК «Ривьера» Квартира с удачной планировкой на две стороны: одно окно выходит во двор, три — с видом на ТРЦ ADK. Ремонт делали для себя, с вниманием к качеству и деталям. Установле…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 92000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "riviera|100|8/16",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017310865",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017310865",
+   "title": "3-комнатная квартира · 70 м² · 9/10 этаж",
+   "address": "Наурызбай батыра 127 — Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/cd/cdd0e1c7-d8d0-46fc-864b-03cef71eee35/5-full.jpg"
+   ],
+   "photoCount": 8,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 70.0,
+   "floor": 9,
+   "floors": 10,
+   "complex": "Ortau",
+   "buildingType": "монолитный",
+   "year": 2021,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "✨ Идеальная квартира для комфортной жизни в востребованном районе! Продаётся уютная, светлая квартира в одном из самых удобных ра…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 89850000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "ortau|70|9/10",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017310629",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017310629",
+   "title": "3-комнатная квартира · 80 м² · 7/9 этаж",
+   "address": "Каныша Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/51/5184a3da-940f-47c2-8089-5c97e84013f6/7-full.jpg"
+   ],
+   "photoCount": 12,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 80.0,
+   "floor": 7,
+   "floors": 9,
+   "complex": "Satpaev",
+   "buildingType": "монолитный",
+   "year": 2026,
+   "condition": "свежий ремонт",
+   "description": "🏡 ПРОДАЁТСЯ КРАСИВАЯ 3-КОМНАТНАЯ КВАРТИРА В ЖК SATPAEV! ✨ Предлагаем вашему вниманию стильную и уютную квартиру в жилом комплексе бизнес-класса Satpaev от надёжного застройщика «Базис-А». Квартира с дороги…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 83000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "satpaev|80|7/9",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017310238",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017310238",
+   "title": "3-комнатная квартира · 102 м² · 11/18 этаж",
+   "address": "Тургут Озала",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/45/4527d61e-5445-4513-9632-770349b6f57f/1-full.jpg"
+   ],
+   "photoCount": 10,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 102.0,
+   "floor": 11,
+   "floors": 18,
+   "complex": "Кристалл",
+   "buildingType": "монолитный",
+   "year": 2024,
+   "condition": "требует ремонта",
+   "bathroom": "2 с/у и более",
+   "description": "ЖК Кристалл Класс комфорт плюс Потолки 3м Бесключевой доступ Face ID Рядом станиция МЕТРО Вся инфроструктура рядом Самая низкая цена! Звоните!",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 61500000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "кристалл|102|11/18",
+   "finish": "needs_repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017310228",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017310228",
+   "title": "3-комнатная квартира · 70 м² · 4/10 этаж",
+   "address": "Наурызбай батыра — Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/68/6854f9e1-98f0-4054-8189-ea8335959bbf/1-full.jpg"
+   ],
+   "photoCount": 13,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 70.0,
+   "floor": 4,
+   "floors": 10,
+   "complex": "Ortau",
+   "buildingType": "монолитный",
+   "year": 2021,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "Ваш новый дом ждет вас! Предлагается к продаже просторная и светлая квартира в одном из удобных районов город…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 82000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "ortau|70|4/10",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017309336",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017309336",
+   "title": "3-комнатная квартира · 122.2 м² · 4/9 этаж",
+   "address": "Аль-Фараби 69B БЕЗ КОМИССИИ",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/5f/5f2968c3-f59b-4f49-8ed3-184d6276c97d/4-full.jpg"
+   ],
+   "photoCount": 4,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 122.2,
+   "floor": 4,
+   "floors": 9,
+   "complex": "LUMIERE",
+   "buildingType": "монолитный",
+   "year": 2025,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "ЖК LUMIERE Застройщик BAZIS-A Премиум класс Высота потолков 3.3 ЖК расположен вдоль набережной реки Есентай. В шаговой досту…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 261432000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "lumiere|122|4/9",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017309103",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017309103",
+   "title": "3-комнатная квартира · 130.7 м² · 17/21 этаж",
+   "address": "Сатпаева 30а — Шагабутдинова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/13/13e4af06-56d8-49b6-beb5-265db4d87e36/11-full.jpg"
+   ],
+   "photoCount": 20,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 130.7,
+   "floor": 17,
+   "floors": 21,
+   "complex": "Тенгиз Тауэрс",
+   "buildingType": "монолитный",
+   "year": 2016,
+   "condition": "свежий ремонт",
+   "description": "🏙 ПРОДАЁТСЯ ПРОСТОРНАЯ 3-КОМНАТНАЯ КВАРТИРА В ЖК TENGIZ TOWERS! ✨ Отличный вариант для комфортного проживания и выгодной инвестиции! Характеристики квартиры: 🏢 ЖК: Ten…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 108000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "тенгиз тауэрс|131|17/21",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017308384",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017308384",
+   "title": "3-комнатная квартира · 128 м² · 1/3 этаж",
+   "address": "Мкр. Мирас",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/6d/6d7c3266-0519-4ebe-a365-95f1115567a2/4-full.jpg"
+   ],
+   "photoCount": 10,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 128.0,
+   "floor": 1,
+   "floors": 3,
+   "complex": "Benelux",
+   "buildingType": "монолитный",
+   "year": 2027,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "ЖК Benelux от Bazis-A ✨ Дом премиум-класса Комплекс расположен в престижном районе Алматы с развитой инфраструктурой: рядом находятся школы, дет…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 203102000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "benelux|128|1/3",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:760738079",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/760738079",
+   "title": "3-комнатная квартира · 121 м² · 1/9 этаж",
+   "address": "Аль-Фараби 69Б — С террасой!!!",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/a7/a7c75592-4a19-495e-8ecd-82f2575327eb/18-full.jpg"
+   ],
+   "photoCount": 14,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 121.0,
+   "floor": 1,
+   "floors": 9,
+   "complex": "LUMIERE",
+   "buildingType": "монолитный",
+   "year": 2024,
+   "condition": "черновая отделка",
+   "description": "Премиальная квартира в жилом комплексе Lumiere Расположенный севернее проспекта Аль-Фараби, вдоль живописной набережной реки Есентай, Lumiere — это сочетание современной архитектуры, приватности и продума…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 239993845
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "lumiere|121|1/9",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-10-20",
+   "publishedExact": false,
+   "publishedOpen": true
+  },
+  {
+   "id": "krisha:1017308858",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017308858",
+   "title": "3-комнатная квартира · 101 м² · 3/8 этаж",
+   "address": "Розыбакиева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/77/774ed035-dd59-4c0d-a98f-47d2552b5faf/1-full.jpg"
+   ],
+   "photoCount": 14,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 101.0,
+   "floor": 3,
+   "floors": 8,
+   "complex": "4YOU",
+   "buildingType": "монолитный",
+   "year": 2021,
+   "description": "**Просторная 3-комнатная квартира в ЖК 4YOU | BI Group** Продаётся просторная 3-комнатная квартира (Кухня отдельно) площадью 101 м² в жилом комплексе 4YOU комфорт-класса. Дом монолитный, построен в 2021 году. Квартира расположена на 3 эт…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 123000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "4you|101|3/8",
+   "finish": null,
+   "finishSource": null,
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:697242898",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/697242898",
+   "title": "3-комнатная квартира · 87 м² · 2/3 этаж",
+   "address": "мкр Нурлытау (Энергетик), Мунара 20",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/0b/0b7f5762-4b51-47b7-88f9-8c8c89a56626/1-full.jpg"
+   ],
+   "photoCount": 15,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 87.0,
+   "floor": 2,
+   "floors": 3,
+   "buildingType": "монолитный",
+   "year": 2020,
+   "condition": "не новый, но аккуратный ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Евро трешка, картира расположена в экологически чистом районе. Недалеко от Казахфильма. Ходят 3 автобуса: 15, 106, 30. На 19, 56 (с пересадкой). До центра на машине мин…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 85000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "krisha:697242898",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-10-20",
+   "publishedExact": false,
+   "publishedOpen": true
+  },
+  {
+   "id": "krisha:1017309335",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017309335",
+   "title": "3-комнатная квартира · 80 м² · 7/9 этаж",
+   "address": "Каныша Сатпаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/aa/aa7c05d6-cb1a-472a-a482-15029d448d32/6-full.jpg"
+   ],
+   "photoCount": 12,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 80.0,
+   "floor": 7,
+   "floors": 9,
+   "complex": "Satpaev",
+   "buildingType": "монолитный",
+   "year": 2026,
+   "condition": "свежий ремонт",
+   "bathroom": "совмещенный",
+   "description": "🏡 ПРОДАЁТСЯ КРАСИВАЯ 3-КОМНАТНАЯ КВАРТИРА В ЖК SATPAEV! ✨ Предлагаем вашему вниманию стильную и уютную квартиру в жилом комплексе бизнес-класса Satpaev от надёжно…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 83000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "satpaev|80|7/9",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017308309",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017308309",
+   "title": "3-комнатная квартира · 98 м² · 8/16 этаж",
+   "address": "Каныша Сатпаева 90/55Б БЕЗ КОМИССИИ",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/a1/a131f0c0-1b60-48e8-b91d-389faad5731f/10-full.jpg"
+   ],
+   "photoCount": 4,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 98.0,
+   "floor": 8,
+   "floors": 16,
+   "complex": "Riviera PLUS",
+   "buildingType": "монолитный",
+   "year": 2027,
+   "condition": "черновая отделка",
+   "bathroom": "2 с/у и более",
+   "description": "✨ ЖК Riviera Plus от Bazis-A Дом комфорт+ класса Сдача 1 квартал 2027 БЕЗ КОМИССИИ ДЛЯ ПОКУПАТЕЛЯ! 📞 По всем интересующ…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 72281000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "riviera plus|98|8/16",
+   "finish": "rough",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017307923",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017307923",
+   "title": "3-комнатная квартира · 81.7 м² · 4/12 этаж",
+   "address": "Розыбакиева 250В — Розыбакиева / Утепова",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/c7/c7e425ca-20c1-4d2b-a656-032244cdfa95/32-full.jpg"
+   ],
+   "photoCount": 33,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 81.7,
+   "floor": 4,
+   "floors": 12,
+   "complex": "Новый Мир на Радостовца - Утепова",
+   "buildingType": "монолитный",
+   "year": 2012,
+   "condition": "свежий ремонт",
+   "bathroom": "раздельный",
+   "description": "без мебели, 🏡 Представляем Вашему вниманию просторную и светлую евро‑трёхкомнатную квартиру в ЖК «Новый Мир» 📐 Общая площадь - 81, 7 м² 🏢 Этаж - 4 из 12 (…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 71000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "новый мир на радостовца - утепова|82|4/12",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017308135",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017308135",
+   "title": "3-комнатная квартира · 111 м² · 1/6 этаж",
+   "address": "мкр Ерменсай 25/1",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/61/61040df5-a8d8-4540-ba86-346c676956bb/1-full.jpg"
+   ],
+   "photoCount": 20,
+   "seller": {
+    "type": "owner",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 111.0,
+   "floor": 1,
+   "floors": 6,
+   "complex": "Remizovka",
+   "buildingType": "монолитный",
+   "year": 2018,
+   "condition": "свежий ремонт",
+   "bathroom": "2 с/у и более",
+   "description": "Уютная трёхкомнатная квартира в ЖК «Ремизовка» с закрытым, очень тихим зелёным двором. Просторная гостиная с кухонной и обеденной зонами, две отдельные спальни…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 130000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "remizovka|111|1/6",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017308081",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017308081",
+   "title": "3-комнатная квартира · 77 м² · 17/19 этаж",
+   "address": "Абая 164 — Брусиловского",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/92/92e8cea0-d0da-4de8-8697-db1c297a9e3b/2-full.jpg"
+   ],
+   "photoCount": 12,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 77.0,
+   "floor": 17,
+   "floors": 19,
+   "complex": "Terracotta",
+   "buildingType": "монолитный",
+   "year": 2022,
+   "condition": "не новый, но аккуратный ремонт",
+   "description": "Компания «Мечта» представляем Вашему вниманию уютную квартиру в тихом и комфортном для проживания районе ☑️ Вблизи дома есть детские площадки, футбо…",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 68000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "terracotta|77|17/19",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017306460",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017306460",
+   "title": "3-комнатная квартира · 135 м² · 12/13 этаж",
+   "address": "Розыбакиева 247",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/47/4763a91a-ec96-4a89-9191-4eab2765c604/1-full.jpg"
+   ],
+   "photoCount": 15,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 135.0,
+   "floor": 12,
+   "floors": 13,
+   "complex": "Вавилон",
+   "buildingType": "монолитный",
+   "year": 2017,
+   "condition": "не новый, но аккуратный ремонт",
+   "bathroom": "2 с/у и более",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 107000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": true,
+   "group": "вавилон|135|12/13",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
+  },
+  {
+   "id": "krisha:1017306941",
+   "source": "krisha",
+   "url": "https://krisha.kz/a/show/1017306941",
+   "title": "3-комнатная квартира · 85 м² · 7/12 этаж",
+   "address": "Сатпаева 90 — Туркебаева",
+   "district": "Бостандыкский",
+   "photos": [
+    "https://krisha-photos.kcdn.online/webp/b5/b541c5f1-9e77-462f-9d1d-28da83d49127/3-full.jpg"
+   ],
+   "photoCount": 7,
+   "seller": {
+    "type": "agent",
+    "name": null,
+    "developer": null
+   },
+   "posted": "2026-11-10",
+   "rooms": 3,
+   "area": 85.0,
+   "floor": 7,
+   "floors": 12,
+   "complex": "Акварель",
+   "buildingType": "монолитный",
+   "year": 2018,
+   "condition": "свежий ремонт",
+   "firstSeen": "2026-11-10",
+   "history": [
+    {
+     "date": "2026-11-10",
+     "price": 66000000
+    }
+   ],
+   "lastSeen": "2026-11-10",
+   "active": true,
+   "postedFirst": "2026-11-10",
+   "near": false,
+   "group": "акварель|85|7/12",
+   "finish": "repair",
+   "finishSource": "krisha",
+   "published": "2026-11-10",
+   "publishedExact": true
   },
   {
    "id": "krisha:1015802785",
@@ -10103,7 +12970,7 @@
    "id": "krisha:1016377188",
    "source": "krisha",
    "url": "https://krisha.kz/a/show/1016377188",
-   "title": "3-комнатная квартира · 85.7 м²",
+   "title": "3-комнатная квартира · 86.2 м²",
    "address": "Каныша Сатпаева 90а/1",
    "district": "Бостандыкский",
    "photos": [
@@ -10117,7 +12984,7 @@
    },
    "posted": "2026-11-10",
    "rooms": 3,
-   "area": 85.7,
+   "area": 86.2,
    "complex": "Satpaev",
    "year": 2026,
    "bathroom": "2 с/у и более",
@@ -10127,6 +12994,10 @@
     {
      "date": "2026-11-07",
      "price": 60847000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 67667000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -13561,6 +16432,10 @@
     {
      "date": "2026-11-07",
      "price": 57000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 55000000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -18265,7 +21140,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-05",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 105.0,
    "floor": 11,
@@ -18280,6 +21155,10 @@
     {
      "date": "2026-11-05",
      "price": 95000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 92000000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -22415,7 +25294,7 @@
    "id": "krisha:1017177201",
    "source": "krisha",
    "url": "https://krisha.kz/a/show/1017177201",
-   "title": "3-комнатная квартира · 104 м² · 4/20 этаж",
+   "title": "3-комнатная квартира · 104 м² · 6/20 этаж",
    "address": "Абая 164 — Брусиловского",
    "district": "Бостандыкский",
    "photos": [
@@ -22430,7 +25309,7 @@
    "posted": "2026-11-05",
    "rooms": 3,
    "area": 104.0,
-   "floor": 4,
+   "floor": 6,
    "floors": 20,
    "complex": "Terracotta",
    "buildingType": "монолитный",
@@ -22449,7 +25328,7 @@
    "active": true,
    "postedFirst": "2026-11-05",
    "near": false,
-   "group": "terracotta|104|4/20",
+   "group": "terracotta|104|6/20",
    "finish": "repair",
    "finishSource": "krisha",
    "published": "2026-11-05",
@@ -24512,7 +27391,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 77.8,
    "complex": "Estet",
@@ -28112,7 +30991,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-04",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 105.0,
    "floor": 11,
@@ -29066,7 +31945,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 123.7,
    "floor": 2,
@@ -29082,7 +31961,7 @@
      "price": 164500000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "postedFirst": "2026-11-03",
    "near": false,
@@ -29108,7 +31987,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 117.0,
    "floor": 1,
@@ -29124,7 +32003,7 @@
      "price": 153000000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "postedFirst": "2026-11-03",
    "near": false,
@@ -29811,7 +32690,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 71.0,
    "floor": 4,
@@ -29828,7 +32707,7 @@
      "price": 65000000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "postedFirst": "2026-11-03",
    "near": true,
@@ -30237,9 +33116,9 @@
    "address": "Сатпаева — Наб. реки Есентай",
    "district": "Бостандыкский",
    "photos": [
-    "https://krisha-photos.kcdn.online/webp/e0/e0788e0f-027b-44fd-a233-5ad0ff35a2a2/1-full.jpg"
+    "https://krisha-photos.kcdn.online/webp/e0/e0788e0f-027b-44fd-a233-5ad0ff35a2a2/17-full.jpg"
    ],
-   "photoCount": 16,
+   "photoCount": 17,
    "seller": {
     "type": "owner",
     "name": null,
@@ -30265,6 +33144,10 @@
     {
      "date": "2026-11-10",
      "price": 120000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 117000000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -32098,7 +34981,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 115.0,
    "complex": "ALA Park",
@@ -32269,7 +35152,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 150.0,
    "floor": 3,
@@ -33810,7 +36693,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-02",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 85.0,
    "floor": 10,
@@ -33827,7 +36710,7 @@
      "price": 68500000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "postedFirst": "2026-11-02",
    "near": false,
@@ -39120,6 +42003,10 @@
     {
      "date": "2026-11-02",
      "price": 97000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 96000000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -39505,7 +42392,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-06",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 80.0,
    "floor": 6,
@@ -39541,15 +42428,15 @@
    "address": "Жарокова 218",
    "district": "Бостандыкский",
    "photos": [
-    "https://krisha-photos.kcdn.online/webp/65/6524d1dc-3b65-462b-adae-fdc6d54cba7b/2-full.jpg"
+    "https://krisha-photos.kcdn.online/webp/65/6524d1dc-3b65-462b-adae-fdc6d54cba7b/16-full.jpg"
    ],
    "photoCount": 15,
    "seller": {
-    "type": "owner",
+    "type": "agent",
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 121.0,
    "floor": 16,
@@ -43273,7 +46160,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-01",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 90.0,
    "floor": 3,
@@ -43291,7 +46178,7 @@
      "price": 230000000
     }
    ],
-   "lastSeen": "2026-11-08",
+   "lastSeen": "2026-11-10",
    "active": true,
    "postedFirst": "2026-11-01",
    "near": false,
@@ -49999,7 +52886,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 135.0,
    "floor": 10,
@@ -50349,7 +53236,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-30",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 100.0,
    "floor": 9,
@@ -50373,8 +53260,8 @@
      "price": 175000000
     }
    ],
-   "lastSeen": "2026-11-05",
-   "active": false,
+   "lastSeen": "2026-11-10",
+   "active": true,
    "postedFirst": "2026-10-30",
    "near": false,
    "group": "metropole|100|9/19",
@@ -52403,7 +55290,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-07",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 72.4,
    "floor": 9,
@@ -52419,6 +55306,10 @@
     {
      "date": "2026-10-30",
      "price": 62900000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 62500000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -53885,7 +56776,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-10-29",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 121.54,
    "floor": 1,
@@ -53902,8 +56793,8 @@
      "price": 116000000
     }
    ],
-   "lastSeen": "2026-11-05",
-   "active": false,
+   "lastSeen": "2026-11-10",
+   "active": true,
    "postedFirst": "2026-10-29",
    "near": false,
    "group": "verdi|122|1/9",
@@ -61003,7 +63894,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 89.7,
    "floor": 7,
@@ -61046,7 +63937,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-08",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 90.0,
    "floor": 10,
@@ -61287,6 +64178,10 @@
     {
      "date": "2026-11-07",
      "price": 90000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 89999999
     }
    ],
    "lastSeen": "2026-11-10",
@@ -61403,7 +64298,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-04",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 160.0,
    "floor": 4,
@@ -63456,7 +66351,7 @@
    "group": "rams city|82|10/16",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -63501,7 +66396,7 @@
    "group": "satpaev|81|1/9",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -63994,7 +66889,7 @@
    "group": "krisha:1013992943",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64038,7 +66933,7 @@
    "group": "silva residence|83|1/3",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64083,7 +66978,7 @@
    "group": "elif garden|105|6/13",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-06",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64355,13 +67250,13 @@
      "price": 129000000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "near": false,
    "group": "династия|129|3/4",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -64619,13 +67514,13 @@
      "price": 160000000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "near": false,
    "group": "al’farabi 27|130|8/21",
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -66347,7 +69242,7 @@
    "group": "hayat astoria|132|1/3",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -70079,7 +72974,7 @@
    "group": "aqqu|96|7/9",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-22",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -71982,7 +74877,7 @@
    "group": "krisha:1016649653",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -72112,7 +75007,7 @@
    "group": "krisha:1001843189",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -72250,7 +75145,7 @@
    "group": "rams city|116|3/12",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -72609,7 +75504,7 @@
    "group": "apple residence|120|11/13",
    "finish": "rough",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -73071,14 +75966,14 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 85.0,
    "floor": 15,
    "floors": 15,
    "complex": "RAMS City",
    "buildingType": "монолитный",
-   "year": 2023,
+   "year": 2025,
    "description": "🔥 3-комнатная квартира в RAMS City — шикарный вид на город! 📍 ЖК RAMS City 🏢 15 этаж из 15 🛠 Черновая отделка — можно реализовать собственный дизайн без переплаты за чужой ремонт 🌆…",
    "firstSeen": "2026-10-27",
    "history": [
@@ -73091,7 +75986,7 @@
      "price": 44490000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "postedFirst": "2026-10-27",
    "near": false,
@@ -74040,7 +76935,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 115.0,
    "floor": 2,
@@ -74710,7 +77605,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 123.0,
    "floor": 2,
@@ -76829,7 +79724,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 85.0,
    "floor": 4,
@@ -81979,7 +84874,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 125.0,
    "floor": 5,
@@ -82156,7 +85051,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 111.0,
    "floor": 5,
@@ -82171,9 +85066,13 @@
     {
      "date": "2026-10-27",
      "price": 175000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 173000000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "postedFirst": "2026-10-21",
    "near": true,
@@ -82812,7 +85711,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 74.0,
    "floor": 9,
@@ -83206,7 +86105,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 85.0,
    "complex": "RAMS City",
@@ -83685,7 +86584,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 110.0,
    "floor": 3,
@@ -84208,7 +87107,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 129.0,
    "floor": 3,
@@ -84252,7 +87151,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 120.0,
    "floor": 9,
@@ -84513,7 +87412,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 105.0,
    "floor": 7,
@@ -85167,7 +88066,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 117.0,
    "floor": 5,
@@ -85826,7 +88725,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 79.2,
    "complex": "RAMS Signature",
@@ -86792,7 +89691,7 @@
     "name": null,
     "developer": null
    },
-   "posted": "2026-11-02",
+   "posted": "2026-11-10",
    "rooms": 3,
    "area": 103.0,
    "floor": 17,
@@ -86810,7 +89709,7 @@
      "price": 85000000
     }
    ],
-   "lastSeen": "2026-11-08",
+   "lastSeen": "2026-11-10",
    "active": true,
    "postedFirst": "2026-10-27",
    "near": false,
@@ -87519,7 +90418,7 @@
    "photoCount": 45,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -87842,7 +90741,7 @@
    "photoCount": 29,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -87885,7 +90784,7 @@
    "photoCount": 67,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -87964,7 +90863,7 @@
    "year": 2012,
    "condition": "не новый, но аккуратный ремонт",
    "bathroom": "совмещенный",
-   "description": "Продам отличную 3-комнатную квартиру в монолитном доме в ЖК \"Солнечный квартал\". Преимущества кварти…",
+   "description": "В залоге, жил. комплекс Солнечный Квартал, монолитный дом, 2012 г.п., состояние: не новый, но аккуратный ремонт, потолки 2.8м., санузел совмещенный, телефон: отдельный, интернет оптика, меблирована частично, Продам отличную 3-комнатную квартиру в монолитном доме в ЖК \"Солнечный квартал\". Преимущес…",
    "firstSeen": "2026-10-26",
    "history": [
     {
@@ -88207,7 +91106,7 @@
    "photoCount": 24,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -89012,7 +91911,7 @@
    "photoCount": 45,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -89202,7 +92101,7 @@
    "photoCount": 37,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -89469,7 +92368,7 @@
    "photoCount": 22,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -89603,7 +92502,7 @@
    "photoCount": 45,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -89920,7 +92819,7 @@
    "photoCount": 18,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -90018,7 +92917,7 @@
    "photoCount": 26,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -90063,7 +92962,7 @@
    "photoCount": 22,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -90116,7 +93015,7 @@
    "photoCount": 25,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -90525,7 +93424,7 @@
    "photoCount": 1,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -90608,14 +93507,14 @@
      "price": 71000000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "near": false,
    "group": "famous town|70|3/3",
    "photoCount": 8,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-08",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -90702,7 +93601,7 @@
    "photoCount": 10,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -90917,14 +93816,14 @@
      "price": 156000000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "near": false,
    "group": "diamond|92|7/9",
    "photoCount": 9,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -91297,7 +94196,7 @@
    "photoCount": 19,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -91385,7 +94284,7 @@
    "photoCount": 14,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-05",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -91475,7 +94374,7 @@
    "photoCount": 29,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -92130,7 +95029,7 @@
    "photoCount": 11,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -93007,7 +95906,7 @@
    "photoCount": 71,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -94431,7 +97330,7 @@
      "price": 112000000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "near": true,
    "group": "atameken|104|8/12",
@@ -95921,7 +98820,7 @@
    "photoCount": 44,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -96098,14 +98997,14 @@
      "price": 108000000
     }
    ],
-   "lastSeen": "2026-11-06",
-   "active": false,
+   "lastSeen": "2026-11-10",
+   "active": true,
    "near": false,
    "group": "тенгиз тауэрс|131|17/21",
    "photoCount": 19,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-30",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -96300,7 +99199,7 @@
    "photoCount": 18,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -97290,7 +100189,7 @@
    "photoCount": 25,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -99895,7 +102794,7 @@
    "photoCount": 42,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -100149,6 +103048,10 @@
     {
      "date": "2026-10-26",
      "price": 90000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 88000000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -102954,6 +105857,10 @@
     {
      "date": "2026-10-26",
      "price": 115000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 109000000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -103473,7 +106380,7 @@
    "address": "мкр Баганашыл, Рахмадиева 6",
    "district": "Бостандыкский",
    "photos": [
-    "https://krisha-photos.kcdn.online/webp/48/4807ddbd-7623-4b87-b4f5-b2f224ad3d48/32-full.jpg"
+    "https://krisha-photos.kcdn.online/webp/48/4807ddbd-7623-4b87-b4f5-b2f224ad3d48/48-full.jpg"
    ],
    "seller": {
     "type": "agent",
@@ -103501,10 +106408,10 @@
    "active": true,
    "near": false,
    "group": "hayat park|89|1/3",
-   "photoCount": 31,
+   "photoCount": 16,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-26",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -105044,7 +107951,7 @@
    "photoCount": 11,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -105124,14 +108031,14 @@
      "price": 81500000
     }
    ],
-   "lastSeen": "2026-11-08",
+   "lastSeen": "2026-11-10",
    "active": true,
    "near": true,
    "group": "terra|71|10/16",
    "photoCount": 19,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-01",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -105542,7 +108449,7 @@
    "address": "Ходжанова — Аль-Фараби",
    "district": "Бостандыкский",
    "photos": [
-    "https://krisha-photos.kcdn.online/webp/23/2307fad4-d310-45b6-9ed6-fb2bd9989a5e/250-full.jpg"
+    "https://krisha-photos.kcdn.online/webp/23/2307fad4-d310-45b6-9ed6-fb2bd9989a5e/198-full.jpg"
    ],
    "seller": {
     "type": "agent",
@@ -105573,7 +108480,7 @@
    "photoCount": 34,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -105936,7 +108843,7 @@
    "photoCount": 9,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -107905,14 +110812,14 @@
      "price": 95000000
     }
    ],
-   "lastSeen": "2026-11-07",
-   "active": false,
+   "lastSeen": "2026-11-10",
+   "active": true,
    "near": false,
    "group": "riviera|97|15/16",
    "photoCount": 16,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-01",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-25",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -109559,7 +112466,7 @@
    "photoCount": 33,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-24",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -109604,7 +112511,7 @@
    "photoCount": 33,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-24",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -110319,14 +113226,14 @@
      "price": 59000000
     }
    ],
-   "lastSeen": "2026-10-31",
-   "active": false,
+   "lastSeen": "2026-11-10",
+   "active": true,
    "near": false,
    "group": "шахристан|70|8/14",
    "photoCount": 6,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-10-24",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-24",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -112008,6 +114915,10 @@
     {
      "date": "2026-11-10",
      "price": 116000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 112000000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -115867,6 +118778,10 @@
     {
      "date": "2026-10-26",
      "price": 110000000
+    },
+    {
+     "date": "2026-11-10",
+     "price": 105000000
     }
    ],
    "lastSeen": "2026-11-10",
@@ -116311,14 +119226,14 @@
      "price": 79000000
     }
    ],
-   "lastSeen": "2026-11-07",
-   "active": false,
+   "lastSeen": "2026-11-10",
+   "active": true,
    "near": true,
    "group": "космо|115|11/13",
    "photoCount": 36,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-01",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-23",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -119665,7 +122580,7 @@
    "photoCount": 8,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-04",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-23",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -122085,14 +125000,14 @@
      "price": 75500000
     }
    ],
-   "lastSeen": "2026-10-29",
-   "active": false,
+   "lastSeen": "2026-11-10",
+   "active": true,
    "near": false,
    "group": "акварель|85|1/12",
    "photoCount": 13,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-23",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-23",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -130545,14 +133460,14 @@
      "price": 90000000
     }
    ],
-   "lastSeen": "2026-11-04",
-   "active": false,
+   "lastSeen": "2026-11-10",
+   "active": true,
    "near": false,
    "group": "gagarin park|78|12/12",
    "photoCount": 9,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-10-29",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-22",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -135669,14 +138584,14 @@
      "price": 102000000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "near": true,
    "group": "estet|82|9/16",
    "photoCount": 2,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-21",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -138130,7 +141045,7 @@
    "photoCount": 40,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-04",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-21",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -140714,7 +143629,7 @@
    "photoCount": 1,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -140803,7 +143718,7 @@
    "photoCount": 13,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -140933,7 +143848,7 @@
    "photoCount": 19,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-09",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -141021,7 +143936,7 @@
    "photoCount": 7,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -141070,7 +143985,7 @@
    "photoCount": 4,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -141158,7 +144073,7 @@
    "photoCount": 24,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -141201,7 +144116,7 @@
    "photoCount": 15,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -141823,7 +144738,7 @@
    "photoCount": 15,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -142463,7 +145378,7 @@
    "address": "Гагарина 310",
    "district": "Бостандыкский",
    "photos": [
-    "https://krisha-photos.kcdn.online/webp/9a/9a51ddbb-9440-4066-bd68-84669b66fe02/16-full.jpg"
+    "https://krisha-photos.kcdn.online/webp/9a/9a51ddbb-9440-4066-bd68-84669b66fe02/5-full.jpg"
    ],
    "seller": {
     "type": "agent",
@@ -142493,7 +145408,7 @@
    "photoCount": 29,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -142717,7 +145632,7 @@
    "photoCount": 7,
    "finish": null,
    "finishSource": null,
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -143071,7 +145986,7 @@
    "photoCount": 0,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -143468,7 +146383,7 @@
    "photoCount": 8,
    "finish": "repair",
    "finishSource": "krisha",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-20",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -144934,14 +147849,14 @@
      "price": 155900000
     }
    ],
-   "lastSeen": "2026-11-09",
+   "lastSeen": "2026-11-10",
    "active": true,
    "near": false,
    "group": "hayat park|150|3/3",
    "photoCount": 11,
    "finish": "rough",
    "finishSource": "description",
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27",
    "published": "2026-10-20",
    "publishedExact": false,
@@ -147048,7 +149963,7 @@
    "publishedExact": false,
    "publishedOpen": true,
    "photoCount": 15,
-   "posted": "2026-11-03",
+   "posted": "2026-11-10",
    "postedFirst": "2026-10-27"
   },
   {
